@@ -3,105 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第五章：工作流与AI Agent构建 - 飞书多维表格教程</title>
+    <title>工作流与AI Agent构建 - 飞书多维表格教程</title> {/* Chapter number removed */}
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        }
+        .nav-link-active {
+            color: #2563eb; /* Tailwind blue-700 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.25rem;
+        }
+        .nav-link {
+            color: #4b5563; /* Tailwind gray-600 */
+        }
+        .nav-link:hover {
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .dropdown-menu a:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .content-section h2, .content-section h3 { /* For main section titles */
+            border-left: 4px solid #3b82f6; /* blue-500 */
+            padding-left: 1rem;
+        }
+        .step-card { /* For individual steps in the case study */
+             background-color: #f9fafb; /* gray-50 */
+             padding: 1.5rem; /* p-6 */
+             border-radius: 0.75rem; /* rounded-xl */
+             border: 1px solid #e5e7eb; /* border-gray-200 */
+             margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .code-block {
+            background-color: #1f2937; /* gray-800 */
+            color: #d1d5db; /* gray-300 */
+            padding: 1rem; /* p-4 */
+            border-radius: 0.5rem; /* rounded-md */
+            margin-top: 0.5rem; /* mt-2 */
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+<body class="bg-gray-100 text-gray-800">
 
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-600">AI赋能高速管理</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+             <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center">
+                 <i class="fas fa-cogs mr-2"></i>AI赋能高速管理
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">主页</a>
+                <a href="ai-tools.html" class="nav-link">AI工具箱</a>
                 
-                <!-- AI Applications Dropdown -->
                 <div class="relative group">
-                    <a href="ai-applications.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                    <a href="ai-applications.html" class="nav-link flex items-center">
                         AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
-                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
+                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
+                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
+                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
+                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
                         </div>
                     </div>
                 </div>
 
-                    <!-- Feishu Bitable Dropdown -->
-                    <div class="relative group">
-                        <a href="feishu-bitable.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
-                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50">第五章：工作流与Agent</a>
-                            </div>
+                <div class="relative group">
+                    <a href="feishu-bitable.html" class="nav-link-active flex items-center"> {/* This is the active page */}
+                        飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
+                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
+                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
+                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
+                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold">第五章：工作流与Agent</a> {/* Highlight current sub-page */}
                         </div>
                     </div>
+                </div>
 
-                    <!-- Hands-on Practice Dropdown -->
-                    <div class="relative group">
-                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
-                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
-                            </div>
+                <div class="relative group">
+                    <a href="coze-bot-creation.html" class="nav-link flex items-center">
+                        实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
                         </div>
                     </div>
+                </div>
 
-                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+                <a href="roadmap.html" class="nav-link">实施路线图</a>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">主页</a>
-                <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-600">AI工具箱</a>
-                <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-600">AI应用</a>
-                <a href="feishu-bitable.html" class="block py-2 text-blue-600 font-semibold">飞书多维表格</a>
-                <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-600">实施路线图</a>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
-        </nav>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-700">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-blue-700 font-semibold">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
+        </div>
+    </nav>
 
-    <main class="container mx-auto px-6 py-12">
-        <article class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <header class="mb-8 text-center">
-                <h1 class="text-4xl font-extrabold text-gray-900 mb-2">第五章：工作流（Workflow）：构建你的专属AI Agent</h1>
-                <p class="text-lg text-gray-600">从自动化到智能化，学习使用工作流设计复杂业务流程，并打造能自主判断和执行的AI Agent。</p>
+    <main class="container mx-auto px-6 py-16">
+        <article class="max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-xl content-section">
+            <header class="mb-10 text-center">
+                <h1 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">工作流（Workflow）：构建你的专属AI Agent</h1>
+                <p class="text-lg text-gray-700 leading-relaxed">从自动化到智能化，学习使用工作流设计复杂业务流程，并打造能自主判断和执行的AI Agent。</p>
             </header>
 
-            <section class="mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-4">工作流 vs. 自动化：核心区别</h2>
-                <p class="text-gray-700 mb-4">工作流是自动化的超集，它继承了自动化的“触发-执行”模式，但提供了更强大的流程编排能力。可以理解为，自动化适合处理线性的、简单的任务，而工作流则专为复杂的、多分支的业务流程而生。</p>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-md">
-                        <h3 class="font-semibold text-blue-800">自动化 (Automation)</h3>
-                        <ul class="list-disc list-inside mt-2 text-gray-700">
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">工作流 vs. 自动化：核心区别</h2>
+                <p class="text-gray-700 mb-6 text-lg leading-relaxed">工作流是自动化的超集，它继承了自动化的“触发-执行”模式，但提供了更强大的流程编排能力。可以理解为，自动化适合处理线性的、简单的任务，而工作流则专为复杂的、多分支的业务流程而生。</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 border border-blue-300 p-6 rounded-lg">
+                        <h3 class="font-semibold text-blue-700 text-xl mb-3">自动化 (Automation)</h3>
+                        <ul class="list-disc list-inside mt-2 text-gray-700 space-y-2 text-lg">
                             <li>适用于简单、线性的流程。</li>
                             <li>例如：当记录新增时，自动发送通知。</li>
                             <li>不支持复杂的逻辑判断。</li>
                             <li>配置界面更聚焦于单个步骤。</li>
                         </ul>
                     </div>
-                    <div class="bg-green-50 border border-green-200 p-4 rounded-md">
-                        <h3 class="font-semibold text-green-800">工作流 (Workflow)</h3>
-                        <ul class="list-disc list-inside mt-2 text-gray-700">
-                            <li><strong class="text-green-900">支持条件判断 (if-else)</strong>，可创建分支流程。</li>
+                    <div class="bg-green-50 border border-green-300 p-6 rounded-lg">
+                        <h3 class="font-semibold text-green-700 text-xl mb-3">工作流 (Workflow)</h3>
+                        <ul class="list-disc list-inside mt-2 text-gray-700 space-y-2 text-lg">
+                            <li><strong class="text-green-800">支持条件判断 (if-else)</strong>，可创建分支流程。</li>
                             <li>可视化画布界面，流程全貌一目了然。</li>
                             <li>节点可拖拽、重命名，配置更灵活。</li>
                             <li>适用于构建复杂的、多节点的Agent。</li>
@@ -110,20 +154,20 @@
                 </div>
             </section>
 
-            <section class="mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-4">工作流的核心能力：条件判断</h2>
-                <p class="text-gray-700 mb-4">工作流最核心的升级就是引入了“条件判断”节点。你可以设置一个或多个条件，工作流会根据数据是否满足这些条件，自动执行不同的后续操作。这就像给自动化流程装上了一个“大脑”，让它能够根据不同情况做出不同选择。</p>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">工作流的核心能力：条件判断</h2>
+                <p class="text-gray-700 mb-4 text-lg leading-relaxed">工作流最核心的升级就是引入了“条件判断”节点。你可以设置一个或多个条件，工作流会根据数据是否满足这些条件，自动执行不同的后续操作。这就像给自动化流程装上了一个“大脑”，让它能够根据不同情况做出不同选择。</p>
             </section>
 
             <section>
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-4">实战案例：构建AI内容巡检与优化Agent</h2>
-                <p class="text-gray-700 mb-6">设想一个场景：我们需要一个自动化的内容审核流程。当运营人员在多维表格中提交一篇新文章后，一个AI Agent会自动对内容进行质量评估和合规性检查，然后根据结果执行不同操作。</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">实战案例：构建AI内容巡检与优化Agent</h2>
+                <p class="text-gray-700 mb-8 text-lg leading-relaxed">设想一个场景：我们需要一个自动化的内容审核流程。当运营人员在多维表格中提交一篇新文章后，一个AI Agent会自动对内容进行质量评估和合规性检查，然后根据结果执行不同操作。</p>
 
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">第一步：搭建数据表</h3>
-                        <p class="text-gray-700 mb-2">创建一个名为“内容发布管理”的数据表，包含以下字段：</p>
-                        <ul class="list-disc list-inside text-gray-700 pl-4 bg-gray-50 p-4 rounded-md">
+                <div class="space-y-10">
+                    <div class="step-card">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-table text-blue-600 mr-3"></i>第一步：搭建数据表</h3>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">创建一个名为“内容发布管理”的数据表，包含以下字段：</p>
+                        <ul class="list-disc list-inside text-gray-700 pl-6 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-2 text-lg">
                             <li><strong>文章标题</strong> (文本)</li>
                             <li><strong>文章内容</strong> (多行文本)</li>
                             <li><strong>提交人</strong> (人员)</li>
@@ -133,24 +177,24 @@
                         </ul>
                     </div>
 
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">第二步：创建工作流</h3>
-                        <p class="text-gray-700 mb-2">1. 在多维表格左下角，点击“工作流”新建一个工作流，命名为“AI内容巡检Agent”。</p>
-                        <p class="text-gray-700 mb-2">2. <strong>设置触发器</strong>：选择“当记录新增时”，并指定数据表为“内容发布管理”。</p>
+                    <div class="step-card">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-project-diagram text-blue-600 mr-3"></i>第二步：创建工作流</h3>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">1. 在多维表格左下角，点击“工作流”新建一个工作流，命名为“AI内容巡检Agent”。</p>
+                        <p class="text-gray-700 text-lg leading-relaxed">2. <strong>设置触发器</strong>：选择“当记录新增时”，并指定数据表为“内容发布管理”。</p>
                     </div>
 
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">第三步：编排Agent执行逻辑</h3>
-                        <p class="text-gray-700 mb-4">接下来，我们来设计Agent的核心处理流程：</p>
-                        <ul class="list-decimal list-inside space-y-4 text-gray-700 pl-4">
+                    <div class="step-card">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-robot text-blue-600 mr-3"></i>第三步：编排Agent执行逻辑</h3>
+                        <p class="text-gray-700 mb-5 text-lg leading-relaxed">接下来，我们来设计Agent的核心处理流程：</p>
+                        <ul class="list-decimal list-inside space-y-6 text-gray-700 pl-4 text-lg">
                             <li>
                                 <strong>节点1：AI生成文本（内容评估）</strong>
-                                <ul class="list-disc list-inside ml-6 mt-2 bg-gray-50 p-3 rounded-md">
+                                <ul class="list-disc list-inside ml-6 mt-3 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-2">
                                     <li><strong>操作</strong>：选择“AI生成文本”。</li>
                                     <li><strong>输入</strong>：引用触发记录中的“文章标题”和“文章内容”。</li>
                                     <li><strong>Prompt</strong>：
-                                        <div class="bg-gray-800 text-white p-3 rounded-md mt-2 text-sm">
-                                            <code>请对以下文章进行全面评估，并严格按照JSON格式输出结果：\n标题：{文章标题}\n内容：{文章内容}\n\n评估维度：\n1.  **合规性**：检查是否存在不当言论、敏感词。\n2.  **质量**：评估逻辑是否清晰、内容是否充实、是否有错别字。\n3.  **SEO友好度**：分析标题和内容是否有利于搜索引擎收录。\n\n输出格式：\n{\n  "compliance_passed": true/false,\n  "quality_score": 0-100,\n  "seo_score": 0-100,\n  "summary": "一句话总结评估结果。",\n  "suggestions": ["具体的优化建议1", "具体的优化建议2"]\n}</code>
+                                        <div class="code-block">
+                                            请对以下文章进行全面评估，并严格按照JSON格式输出结果：\n标题：{文章标题}\n内容：{文章内容}\n\n评估维度：\n1.  **合规性**：检查是否存在不当言论、敏感词。\n2.  **质量**：评估逻辑是否清晰、内容是否充实、是否有错别字。\n3.  **SEO友好度**：分析标题和内容是否有利于搜索引擎收录。\n\n输出格式：\n{\n  "compliance_passed": true/false,\n  "quality_score": 0-100,\n  "seo_score": 0-100,\n  "summary": "一句话总结评估结果。",\n  "suggestions": ["具体的优化建议1", "具体的优化建议2"]\n}
                                         </div>
                                     </li>
                                     <li><strong>输出到</strong>：将生成的结果填充到“AI评估结果”字段。</li>
@@ -158,23 +202,23 @@
                             </li>
                             <li>
                                 <strong>节点2：条件判断</strong>
-                                <ul class="list-disc list-inside ml-6 mt-2 bg-gray-50 p-3 rounded-md">
+                                <ul class="list-disc list-inside ml-6 mt-3 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-2">
                                     <li><strong>操作</strong>：选择“条件判断”。</li>
-                                    <li><strong>设置条件</strong>：如果“AI评估结果”字段 <span class="font-mono bg-gray-200 px-1 rounded">contains</span> `"compliance_passed": true` 并且 <span class="font-mono bg-gray-200 px-1 rounded">contains</span> `"quality_score": 8` (或更高分)，则视为通过。
-                                        <p class="text-xs text-gray-500 mt-1">*注：此处使用contains来检查文本，因为AI输出的是JSON字符串。更精确的方法是结合HTTP请求调用代码来解析JSON，但这里为了简化，使用文本匹配。*</p>
+                                    <li><strong>设置条件</strong>：如果“AI评估结果”字段 <span class="font-mono bg-gray-200 px-2 py-1 rounded">contains</span> `"compliance_passed": true` 并且 <span class="font-mono bg-gray-200 px-2 py-1 rounded">contains</span> `"quality_score": 8` (或更高分)，则视为通过。
+                                        <p class="text-sm text-gray-500 mt-2 leading-normal">*注：此处使用contains来检查文本，因为AI输出的是JSON字符串。更精确的方法是结合HTTP请求调用代码来解析JSON，但这里为了简化，使用文本匹配。*</p>
                                     </li>
                                 </ul>
                             </li>
                             <li>
                                 <strong>分支1：如果条件满足 (内容合格)</strong>
-                                <ul class="list-disc list-inside ml-6 mt-2 bg-green-50 p-3 rounded-md border-l-4 border-green-400">
+                                <ul class="list-disc list-inside ml-6 mt-3 bg-green-50 p-4 rounded-md border-l-4 border-green-500 space-y-2">
                                     <li><strong>操作1</strong>：选择“修改记录”，将当前记录的“状态”字段更新为“待发布”。</li>
                                     <li><strong>操作2</strong>：选择“发送飞书消息”，通知审核组长：“有一篇新文章《{文章标题}》已通过AI初审，请您终审。”</li>
                                 </ul>
                             </li>
                             <li>
                                 <strong>分支2：如果条件不满足 (内容不合格)</strong>
-                                <ul class="list-disc list-inside ml-6 mt-2 bg-red-50 p-3 rounded-md border-l-4 border-red-400">
+                                <ul class="list-disc list-inside ml-6 mt-3 bg-red-50 p-4 rounded-md border-l-4 border-red-500 space-y-2">
                                     <li><strong>操作1</strong>：选择“修改记录”，将当前记录的“状态”字段更新为“待修改”。</li>
                                     <li><strong>操作2</strong>：选择“AI生成文本”（提取优化建议），从“AI评估结果”中提取`suggestions`部分，并填充到“优化建议”字段。</li>
                                     <li><strong>操作3</strong>：选择“发送飞书消息”，通知“提交人”：“您提交的文章《{文章标题}》AI审核未通过，请根据优化建议进行修改。”</li>
@@ -185,20 +229,31 @@
                 </div>
             </section>
 
-            <footer class="mt-12 pt-8 border-t border-gray-200 text-center">
-                <p class="text-gray-600">通过工作流，我们成功构建了一个具备初步智能的AI Agent。它不再是简单的线性任务执行者，而是能够根据复杂规则进行判断、分发任务的智能助手，极大地提升了内容生产的效率和质量。</p>
-                <div class="mt-6">
-                    <a href="feishu-bitable.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">返回目录</a>
+            <footer class="mt-16 pt-10 border-t border-gray-300 text-center">
+                <p class="text-gray-700 text-lg leading-relaxed">通过工作流，我们成功构建了一个具备初步智能的AI Agent。它不再是简单的线性任务执行者，而是能够根据复杂规则进行判断、分发任务的智能助手，极大地提升了内容生产的效率和质量。</p>
+                <div class="mt-8">
+                    <a href="feishu-bitable.html" class="text-blue-700 hover:text-blue-800 font-semibold transition-colors text-lg">
+                         <i class="fas fa-arrow-left mr-2"></i>返回飞书多维表格总览
+                    </a>
                 </div>
             </footer>
         </article>
     </main>
 
-    <footer class="bg-white mt-12">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-600">
-            <p>&copy; 2025 AI赋能高速公路管理培训. 保留所有权利。</p>
+    <footer class="bg-gray-800 text-white py-10 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训. 保留所有权利。</p>
         </div>
     </footer>
-
+    <script>
+        // 移动菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>

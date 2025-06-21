@@ -10,121 +10,155 @@
         body {
             font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
         }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        /* .feature-card:hover is not used on this page, but kept for potential future use or consistency */
+        .nav-link-active {
+            color: #2563eb; /* Tailwind blue-700 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.25rem;
+        }
+        .nav-link {
+            color: #4b5563; /* Tailwind gray-600 */
+        }
+        .nav-link:hover {
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .dropdown-menu a:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+         .content-section h3 { /* For main section titles */
+            border-left: 4px solid #3b82f6; /* blue-500 */
+            padding-left: 1rem;
+        }
+         .step-card { /* For individual steps in the case study */
+             background-color: white; /* Changed from #f9fafb to white for better contrast on gray-100 body */
+             padding: 2rem; /* p-8 */
+             border-radius: 1rem; /* rounded-xl */
+             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.03); /* Softer shadow */
+             margin-bottom: 2rem; /* mb-8 */
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 text-gray-800"> {/* Changed default bg to gray-100 */}
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-blue-600">
-                    <i class="fas fa-table mr-2"></i>飞书多维表格
-                </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                    <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+                 <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>AI赋能高速管理
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">主页</a>
+                    <a href="ai-tools.html" class="nav-link">AI工具箱</a>
 
-                    <!-- AI Applications Dropdown -->
                     <div class="relative group">
-                        <a href="ai-applications.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        <a href="ai-applications.html" class="nav-link flex items-center">
                             AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
-                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
-                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700">提示词工程</a>
+                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
+                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
+                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
+                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
+                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Feishu Bitable Dropdown -->
                     <div class="relative group">
-                        <a href="feishu-bitable.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
+                        <a href="feishu-bitable.html" class="nav-link-active flex items-center"> {/* This is the active page */}
                             飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50 font-semibold">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold">第一章：基础</a> {/* Highlight current sub-page */}
+                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
+                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
+                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
+                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Hands-on Practice Dropdown -->
                     <div class="relative group">
-                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        <a href="coze-bot-creation.html" class="nav-link flex items-center">
                             实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                    <a href="roadmap.html" class="nav-link">实施路线图</a>
+                </div>
+                 <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-700">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-blue-700 font-semibold">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
         </div>
     </nav>
 
     <!-- 主要内容 -->
-    <main class="container mx-auto px-6 py-12">
-        <section class="text-center py-12">
-            <h1 class="text-5xl font-bold text-gray-800 mb-6">第一章：多维表格基础</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">从零开始，掌握飞书多维表格的核心概念与基本操作，为数据管理打下坚实基础。</p>
+    <main class="container mx-auto px-6 py-16">
+        <section class="text-center py-16">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-6">第一章：多维表格基础</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">从零开始，掌握飞书多维表格的核心概念与基本操作，为数据管理打下坚实基础。</p>
         </section>
 
-        <section class="py-12 bg-white rounded-lg shadow-lg">
-            <div class="max-w-4xl mx-auto px-8">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8">核心概念</h2>
-                <div class="space-y-8">
+        <section class="py-12 bg-white rounded-xl shadow-xl content-section">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-10">核心概念</h2>
+                <div class="space-y-12">
                     <div>
-                        <h3 class="text-2xl font-semibold text-blue-600 mb-3">数据表 (Table)</h3>
-                        <p class="text-gray-700 leading-relaxed">指用来存储特定类型数据的表格，例如一个“任务清单”数据表，一个“客户信息”数据表。在一个多维表格文件中，可以创建多个数据表，方便对不同类别的数据进行归类管理。</p>
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">数据表 (Table)</h3>
+                        <p class="text-gray-700 leading-relaxed text-lg">指用来存储特定类型数据的表格，例如一个“任务清单”数据表，一个“客户信息”数据表。在一个多维表格文件中，可以创建多个数据表，方便对不同类别的数据进行归类管理。</p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-semibold text-blue-600 mb-3">字段 (Field)</h3>
-                        <p class="text-gray-700 leading-relaxed">即多维表格的“列”，用于定义一条记录的属性。飞书多维表格提供极其丰富的字段类型，如文本、数字、日期、人员、单选、多选、附件、公式等，满足多样化的数据录入需求。</p>
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">字段 (Field)</h3>
+                        <p class="text-gray-700 leading-relaxed text-lg">即多维表格的“列”，用于定义一条记录的属性。飞书多维表格提供极其丰富的字段类型，如文本、数字、日期、人员、单选、多选、附件、公式等，满足多样化的数据录入需求。</p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-semibold text-blue-600 mb-3">记录 (Record)</h3>
-                        <p class="text-gray-700 leading-relaxed">即多维表格的“行”，代表一个具体的数据实例。例如，在“任务清单”数据表中，一条记录就代表一个具体的任务。</p>
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">记录 (Record)</h3>
+                        <p class="text-gray-700 leading-relaxed text-lg">即多维表格的“行”，代表一个具体的数据实例。例如，在“任务清单”数据表中，一条记录就代表一个具体的任务。</p>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-semibold text-blue-600 mb-3">视图 (View)</h3>
-                        <p class="text-gray-700 leading-relaxed">视图是数据的不同展现形式。同一份数据，可以通过不同的视图（如表格、看板、甘特图、画册等）进行可视化呈现，以适应不同的分析和展示需求。对视图的修改（如筛选、排序）不会影响原始数据。</p>
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-4">视图 (View)</h3>
+                        <p class="text-gray-700 leading-relaxed text-lg">视图是数据的不同展现形式。同一份数据，可以通过不同的视图（如表格、看板、甘特图、画册等）进行可视化呈现，以适应不同的分析和展示需求。对视图的修改（如筛选、排序）不会影响原始数据。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16">
+        <section class="py-20"> {/* Increased padding */}
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="text-blue-600 font-semibold">实战案例</span>
-                    <h2 class="text-4xl font-bold text-gray-800 mt-2">搭建个人任务管理器</h2>
-                    <p class="text-lg text-gray-600 mt-4">让我们用刚刚学到的知识，从零开始创建一个简单但实用的个人任务管理器。</p>
+                <div class="text-center mb-16">
+                    <span class="text-blue-700 font-semibold text-lg">实战案例</span>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mt-3">搭建个人任务管理器</h2>
+                    <p class="text-lg text-gray-700 mt-6 leading-relaxed">让我们用刚刚学到的知识，从零开始创建一个简单但实用的个人任务管理器。</p>
                 </div>
-                <div class="bg-white rounded-lg p-8 shadow-lg space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">第一步：创建多维表格和字段</h3>
-                        <p class="text-gray-600 mb-4">1. 新建一个空白的多维表格，命名为“我的任务管理器”。</p>
-                        <p class="text-gray-600 mb-4">2. 创建以下字段：</p>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                <div class="bg-white rounded-xl p-8 md:p-10 shadow-xl space-y-10"> {/* Increased padding and shadow */}
+                    <div class="step-card">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-5"><i class="fas fa-plus-square text-blue-600 mr-3"></i>第一步：创建多维表格和字段</h3>
+                        <p class="text-gray-700 mb-4 text-lg leading-relaxed">1. 新建一个空白的多维表格，命名为“我的任务管理器”。</p>
+                        <p class="text-gray-700 mb-4 text-lg leading-relaxed">2. 创建以下字段：</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-3 text-lg">
                             <li><strong>任务名称：</strong> 文本类型，用于填写任务内容。</li>
                             <li><strong>负责人：</strong> 人员类型，用于指定任务的负责人。</li>
                             <li><strong>截止日期：</strong> 日期类型，用于设置任务的到期日。</li>
@@ -132,21 +166,21 @@
                             <li><strong>状态：</strong> 单选类型，选项可设置为“待处理”、“进行中”、“已完成”。</li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">第二步：录入任务</h3>
-                        <p class="text-gray-600">像使用普通表格一样，在下方新增记录，填入你的任务信息。例如：</p>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <div class="step-card">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-5"><i class="fas fa-keyboard text-blue-600 mr-3"></i>第二步：录入任务</h3>
+                        <p class="text-gray-700 text-lg leading-relaxed">像使用普通表格一样，在下方新增记录，填入你的任务信息。例如：</p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-3 mt-4 text-lg">
                             <li>任务名称：“完成第一季度项目报告”，负责人：[选择你自己]，截止日期：[选择一个日期]，优先级：“高”，状态：“进行中”。</li>
                             <li>任务名称：“预定团队会议室”，负责人：[选择你自己]，截止日期：[选择一个日期]，优先级：“中”，状态：“待处理”。</li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">第三步：创建不同视图</h3>
-                        <p class="text-gray-600 mb-4">1. <strong>创建看板视图：</strong> 点击视图切换旁的“+”，选择“看板视图”。在看板视图设置中，将分组依据设置为“状态”字段。现在，你可以清晰地看到每个状态下有哪些任务，并可以通过拖拽任务卡片来快速更新任务状态。</p>
-                        <p class="text-gray-600">2. <strong>创建日历视图：</strong> 同样地，创建一个“日历视图”，将日期字段设置为“截止日期”。这样你就可以在日历上直观地看到每天的任务安排。</p>
+                    <div class="step-card">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-5"><i class="fas fa-eye text-blue-600 mr-3"></i>第三步：创建不同视图</h3>
+                        <p class="text-gray-700 mb-4 text-lg leading-relaxed">1. <strong>创建看板视图：</strong> 点击视图切换旁的“+”，选择“看板视图”。在看板视图设置中，将分组依据设置为“状态”字段。现在，你可以清晰地看到每个状态下有哪些任务，并可以通过拖拽任务卡片来快速更新任务状态。</p>
+                        <p class="text-gray-700 text-lg leading-relaxed">2. <strong>创建日历视图：</strong> 同样地，创建一个“日历视图”，将日期字段设置为“截止日期”。这样你就可以在日历上直观地看到每天的任务安排。</p>
                     </div>
-                    <div class="mt-8 text-center">
-                        <p class="text-lg text-gray-700">恭喜！你已经成功搭建了一个基础的任务管理器。接下来，在进阶教程中，我们将学习如何利用筛选、排序、分组和自动化等功能，让它变得更强大。</p>
+                    <div class="mt-10 text-center">
+                        <p class="text-lg text-gray-700 leading-relaxed">恭喜！你已经成功搭建了一个基础的任务管理器。接下来，在进阶教程中，我们将学习如何利用筛选、排序、分组和自动化等功能，让它变得更强大。</p>
                     </div>
                 </div>
             </div>
@@ -155,23 +189,21 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-white mt-16">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex justify-between items-center">
-                <p class="text-gray-600">&copy; 2025 AI赋能高速管理. All Rights Reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-github"></i></a>
-                    <a href="#" class="text-gray-600 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+    <footer class="bg-gray-800 text-white py-10 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 AI赋能高速管理. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+        // 移动菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 
 </body>

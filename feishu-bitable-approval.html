@@ -3,94 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第四章：利用多维表格实现智能审批自动化 - 飞书多维表格教程</title>
+    <title>智能审批自动化 - 飞书多维表格教程</title> {/* Chapter number removed */}
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        }
+        .nav-link-active {
+            color: #2563eb; /* Tailwind blue-700 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.25rem;
+        }
+        .nav-link {
+            color: #4b5563; /* Tailwind gray-600 */
+        }
+        .nav-link:hover {
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .dropdown-menu a:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .content-section h2, .content-section h3 { /* For main section titles */
+            border-left: 4px solid #3b82f6; /* blue-500 */
+            padding-left: 1rem;
+        }
+         .step-card { /* For individual steps in the case study */
+             background-color: #f9fafb; /* gray-50 */
+             padding: 1.5rem; /* p-6 */
+             border-radius: 0.75rem; /* rounded-xl */
+             border: 1px solid #e5e7eb; /* border-gray-200 */
+             margin-bottom: 1.5rem; /* mb-6 */
+        }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+<body class="bg-gray-100 text-gray-800">
 
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-600">AI赋能高速管理</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+            <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center">
+                 <i class="fas fa-cogs mr-2"></i>AI赋能高速管理
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">主页</a>
+                <a href="ai-tools.html" class="nav-link">AI工具箱</a>
                 
-                <!-- AI Applications Dropdown -->
                 <div class="relative group">
-                    <a href="ai-applications.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                    <a href="ai-applications.html" class="nav-link flex items-center">
                         AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
-                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
+                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
+                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
+                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
+                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
                         </div>
                     </div>
                 </div>
 
-                    <!-- Feishu Bitable Dropdown -->
-                    <div class="relative group">
-                        <a href="feishu-bitable.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
-                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
-                            </div>
+                <div class="relative group">
+                    <a href="feishu-bitable.html" class="nav-link-active flex items-center"> {/* This is the active page */}
+                        飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
+                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
+                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
+                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold">第四章：智能审批</a> {/* Highlight current sub-page */}
+                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Hands-on Practice Dropdown -->
-                    <div class="relative group">
-                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
-                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
-                            </div>
+                <div class="relative group">
+                    <a href="coze-bot-creation.html" class="nav-link flex items-center">
+                        实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
                         </div>
                     </div>
+                </div>
 
-                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+                <a href="roadmap.html" class="nav-link">实施路线图</a>
             </div>
-            <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">主页</a>
-                <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-600">AI工具箱</a>
-                <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-600">AI应用</a>
-                <a href="feishu-bitable.html" class="block py-2 text-blue-600 font-semibold">飞书多维表格</a>
-                <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-600">实施路线图</a>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
-        </nav>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-700">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-blue-700 font-semibold">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
+        </div>
+    </nav>
 
-    <main class="container mx-auto px-6 py-12">
-        <article class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <header class="mb-8 text-center">
-                <h1 class="text-4xl font-extrabold text-gray-900 mb-2">第四章：利用多维表格实现智能审批自动化</h1>
-                <p class="text-lg text-gray-600">将审批流程与多维表格结合，通过AI增强，实现更高效、智能的自动化管理。</p>
+    <main class="container mx-auto px-6 py-16">
+        <article class="max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-xl content-section">
+            <header class="mb-10 text-center">
+                <h1 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">利用多维表格实现智能审批自动化</h1>
+                <p class="text-lg text-gray-700 leading-relaxed">将审批流程与多维表格结合，通过AI增强，实现更高效、智能的自动化管理。</p>
             </header>
 
-            <section class="mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-4">核心功能：从飞书审批同步数据</h2>
-                <p class="text-gray-700 mb-4">飞书多维表格允许直接从“飞书审批”应用中同步数据。这意味着，当一个审批流程（如报销、请假、合同申请）完成后，其数据可以自动或手动同步到指定的多维表格中，形成结构化的数据记录。这为后续的数据分析、跟踪和存档提供了极大的便利。</p>
-                <div class="bg-blue-50 border border-blue-200 p-4 rounded-md">
-                    <h3 class="font-semibold text-blue-800">关键优势：</h3>
-                    <ul class="list-disc list-inside mt-2 text-gray-700">
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">核心功能：从飞书审批同步数据</h2>
+                <p class="text-gray-700 mb-6 text-lg leading-relaxed">飞书多维表格允许直接从“飞书审批”应用中同步数据。这意味着，当一个审批流程（如报销、请假、合同申请）完成后，其数据可以自动或手动同步到指定的多维表格中，形成结构化的数据记录。这为后续的数据分析、跟踪和存档提供了极大的便利。</p>
+                <div class="bg-blue-50 border border-blue-300 p-6 rounded-lg">
+                    <h3 class="font-semibold text-blue-700 text-xl mb-3">关键优势：</h3>
+                    <ul class="list-disc list-inside mt-2 text-gray-700 space-y-2 text-lg">
                         <li><strong>数据集中管理</strong>：将分散的审批记录汇集到一处，便于统一查看和管理。</li>
                         <li><strong>周期性自动存档</strong>：设置每小时自动同步，确保数据实时更新，无需人工干预。</li>
                         <li><strong>结构化数据</strong>：将审批表单中的信息转化为可分析的字段和记录。</li>
@@ -98,12 +131,12 @@
                 </div>
             </section>
 
-            <section class="mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-4">AI增强：让审批更智能</h2>
-                <p class="text-gray-700 mb-4">虽然基础的同步功能很强大，但我们可以利用AI进一步提升审批流程的智能化水平。通过在同步到多维表格的数据基础上增加AI处理步骤，可以实现更复杂的业务逻辑。</p>
-                <div class="bg-green-50 border border-green-200 p-4 rounded-md">
-                    <h3 class="font-semibold text-green-800">AI应用点：</h3>
-                    <ul class="list-disc list-inside mt-2 text-gray-700">
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">AI增强：让审批更智能</h2>
+                <p class="text-gray-700 mb-6 text-lg leading-relaxed">虽然基础的同步功能很强大，但我们可以利用AI进一步提升审批流程的智能化水平。通过在同步到多维表格的数据基础上增加AI处理步骤，可以实现更复杂的业务逻辑。</p>
+                <div class="bg-green-50 border border-green-300 p-6 rounded-lg">
+                    <h3 class="font-semibold text-green-700 text-xl mb-3">AI应用点：</h3>
+                    <ul class="list-disc list-inside mt-2 text-gray-700 space-y-2 text-lg">
                         <li><strong>智能分类与打标</strong>：使用AI分析审批内容（如报销事由），自动为记录打上“差旅”、“招待”、“采购”等标签。</li>
                         <li><strong>风险预警</strong>：AI可以分析报销金额、频率等，对异常申请进行识别和高亮预警，提醒财务人员关注。</li>
                         <li><strong>内容摘要与提取</strong>：对于包含大量文本的审批（如合同审批），AI可以自动提取关键条款、金额、合作方等信息到单独的字段。</li>
@@ -113,30 +146,30 @@
             </section>
 
             <section>
-                <h2 class="text-3xl font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-4">实战案例：智能费用报销管理</h2>
-                <p class="text-gray-700 mb-6">让我们构建一个场景：葛洲坝交投公司横钦高速员工通过飞书提交费用报销审批，审批通过后数据自动同步到“费用报销总表”中。我们将利用AI对报销数据进行智能分析和处理。</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">实战案例：智能费用报销管理</h2>
+                <p class="text-gray-700 mb-8 text-lg leading-relaxed">让我们构建一个场景：葛洲坝交投公司横钦高速员工通过飞书提交费用报销审批，审批通过后数据自动同步到“费用报销总表”中。我们将利用AI对报销数据进行智能分析和处理。</p>
 
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">第一步：配置飞书审批流程</h3>
-                        <p class="text-gray-700">在飞书“审批”应用的管理后台，创建一个“费用报销”审批流程。表单中应包含“报销人”、“报销金额”、“费用类型”（单选，如差旅费、招待费、办公用品）、“事由说明”等字段。</p>
+                <div class="space-y-10">
+                    <div class="step-card">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-file-signature text-blue-600 mr-3"></i>第一步：配置飞书审批流程</h3>
+                        <p class="text-gray-700 text-lg leading-relaxed">在飞书“审批”应用的管理后台，创建一个“费用报销”审批流程。表单中应包含“报销人”、“报销金额”、“费用类型”（单选，如差旅费、招待费、办公用品）、“事由说明”等字段。</p>
                     </div>
 
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">第二步：同步审批数据到多维表格</h3>
-                        <p class="text-gray-700 mb-2">1. 在多维表格中，点击左下角的“从其他数据源同步”，选择“飞书审批”。</p>
-                        <p class="text-gray-700 mb-2">2. 选择刚刚创建的“费用报销”审批流程，并设置好同步的时间范围。</p>
-                        <p class="text-gray-700 mb-2">3. 选择需要同步的字段，并<strong>开启自动同步</strong>。点击“保存并同步”。</p>
-                        <p class="text-gray-700">4. 此时，你会得到一个名为“费用报销”的数据表，其中包含了所有已批准的报销记录。</p>
+                    <div class="step-card">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-sync-alt text-blue-600 mr-3"></i>第二步：同步审批数据到多维表格</h3>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">1. 在多维表格中，点击左下角的“从其他数据源同步”，选择“飞书审批”。</p>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">2. 选择刚刚创建的“费用报销”审批流程，并设置好同步的时间范围。</p>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">3. 选择需要同步的字段，并<strong>开启自动同步</strong>。点击“保存并同步”。</p>
+                        <p class="text-gray-700 text-lg leading-relaxed">4. 此时，你会得到一个名为“费用报销”的数据表，其中包含了所有已批准的报销记录。</p>
                     </div>
 
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">第三步：添加AI智能处理字段</h3>
-                        <p class="text-gray-700 mb-4">在同步来的“费用报销”数据表中，我们不能修改原有字段，但可以新增字段。现在，我们新增以下几个字段来实现AI功能：</p>
-                        <ul class="list-decimal list-inside space-y-3 text-gray-700 pl-4">
+                    <div class="step-card">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-brain text-blue-600 mr-3"></i>第三步：添加AI智能处理字段</h3>
+                        <p class="text-gray-700 mb-5 text-lg leading-relaxed">在同步来的“费用报销”数据表中，我们不能修改原有字段，但可以新增字段。现在，我们新增以下几个字段来实现AI功能：</p>
+                        <ul class="list-decimal list-inside space-y-4 text-gray-700 pl-4 text-lg">
                             <li>
                                 <strong>新增“智能摘要”字段</strong>：
-                                <ul class="list-disc list-inside ml-6 mt-1 bg-gray-50 p-3 rounded-md">
+                                <ul class="list-disc list-inside ml-6 mt-2 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-1">
                                     <li>字段类型：<strong>AI</strong></li>
                                     <li>AI能力：选择“文本摘要”或“智能提取”。</li>
                                     <li>配置：让AI读取“事由说明”字段，并生成一个简短的摘要。例如，将“为招待A公司客户张三，于B餐厅就C项目合作事宜共进晚餐”摘要为“招待A公司客户，商谈C项目合作”。</li>
@@ -144,17 +177,17 @@
                             </li>
                             <li>
                                 <strong>新增“风险等级”字段</strong>：
-                                <ul class="list-disc list-inside ml-6 mt-1 bg-gray-50 p-3 rounded-md">
+                                <ul class="list-disc list-inside ml-6 mt-2 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-1">
                                     <li>字段类型：<strong>AI</strong></li>
                                     <li>AI能力：选择“文本分类”或“智能填充”。</li>
                                     <li>配置：编写Prompt，要求AI根据“报销金额”和“事由说明”判断风险等级。例如：<br>
-                                        <code>请根据报销金额和事由说明，将风险等级评为“高”、“中”、“低”三档。规则：金额超过5000元，或事由中包含“礼品”、“个人”等关键词的，为“高”风险；金额在1000-5000元之间，为“中”风险；其余为“低”风险。</code>
+                                        <code class="block bg-gray-200 p-3 rounded-md mt-2 text-sm">请根据报销金额和事由说明，将风险等级评为“高”、“中”、“低”三档。规则：金额超过5000元，或事由中包含“礼品”、“个人”等关键词的，为“高”风险；金额在1000-5000元之间，为“中”风险；其余为“低”风险。</code>
                                     </li>
                                 </ul>
                             </li>
                              <li>
                                 <strong>新增“关联项目”字段</strong>：
-                                <ul class="list-disc list-inside ml-6 mt-1 bg-gray-50 p-3 rounded-md">
+                                <ul class="list-disc list-inside ml-6 mt-2 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-1">
                                     <li>字段类型：<strong>AI</strong></li>
                                     <li>AI能力：选择“智能提取”。</li>
                                     <li>配置：要求AI从“事由说明”中提取项目名称。例如，如果事由是“为推进XX高速公路信息化建设项目，前往北京出差”，AI能自动提取出“XX高速公路信息化建设项目”。</li>
@@ -163,11 +196,11 @@
                         </ul>
                     </div>
 
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">第四步：创建自动化视图和仪表盘</h3>
-                        <p class="text-gray-700 mb-2">1. <strong>创建“高风险待查”视图</strong>：新建一个视图，筛选条件设置为“风险等级”为“高”，这样财务人员可以快速定位需要重点关注的报销记录。</p>
-                        <p class="text-gray-700 mb-2">2. <strong>创建仪表盘</strong>：新建一个仪表盘，添加图表，例如：</p>
-                        <ul class="list-disc list-inside text-gray-700 pl-4">
+                    <div class="step-card">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-chart-bar text-blue-600 mr-3"></i>第四步：创建自动化视图和仪表盘</h3>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">1. <strong>创建“高风险待查”视图</strong>：新建一个视图，筛选条件设置为“风险等级”为“高”，这样财务人员可以快速定位需要重点关注的报销记录。</p>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">2. <strong>创建仪表盘</strong>：新建一个仪表盘，添加图表，例如：</p>
+                        <ul class="list-disc list-inside text-gray-700 pl-6 space-y-2 text-lg">
                             <li>按“费用类型”分组的柱状图，分析各类费用的占比。</li>
                             <li>按“报销人”统计的总报销金额排行榜。</li>
                             <li>按月度统计的费用趋势折线图。</li>
@@ -176,20 +209,31 @@
                 </div>
             </section>
 
-            <footer class="mt-12 pt-8 border-t border-gray-200 text-center">
-                <p class="text-gray-600">通过这个案例，我们不仅实现了审批数据的自动化归档，更通过AI的加持，让数据分析和风险管控变得前所未有的智能和高效。</p>
-                <div class="mt-6">
-                    <a href="feishu-bitable.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">返回目录</a>
+            <footer class="mt-16 pt-10 border-t border-gray-300 text-center">
+                <p class="text-gray-700 text-lg leading-relaxed">通过这个案例，我们不仅实现了审批数据的自动化归档，更通过AI的加持，让数据分析和风险管控变得前所未有的智能和高效。</p>
+                <div class="mt-8">
+                    <a href="feishu-bitable.html" class="text-blue-700 hover:text-blue-800 font-semibold transition-colors text-lg">
+                        <i class="fas fa-arrow-left mr-2"></i>返回飞书多维表格总览
+                    </a>
                 </div>
             </footer>
         </article>
     </main>
 
-    <footer class="bg-white mt-12">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-600">
-            <p>&copy; 2025 AI赋能高速公路管理培训. 保留所有权利。</p>
+    <footer class="bg-gray-800 text-white py-10 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训. 保留所有权利。</p>
         </div>
     </footer>
-
+    <script>
+        // 移动菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>

@@ -10,165 +10,230 @@
         body {
             font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
         }
+        .nav-link-active {
+            color: #2563eb; /* Tailwind blue-700 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.25rem;
+        }
+        .nav-link {
+            color: #4b5563; /* Tailwind gray-600 */
+        }
+        .nav-link:hover {
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .dropdown-menu a:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .feature-card { /* Reusing card-hover from index for consistency */
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+         .case-study-section {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            border-radius: 1rem; /* rounded-xl */
+        }
+        .step-card { /* For individual steps in the case study */
+             background-color: white;
+             padding: 1.5rem; /* p-6 */
+             border-radius: 0.75rem; /* rounded-xl */
+             border: 1px solid #e5e7eb; /* border-gray-200 */
+             transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            background-color: #f9fafb; /* gray-50 */
+            transform: translateX(5px);
+        }
+         .code-block {
+            background-color: #1f2937; /* gray-800 */
+            color: #e5e7eb; /* gray-300 */
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            border: 1px solid #374151;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 text-gray-800"> {/* Changed default bg to gray-100 */}
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-blue-600">
-                    <i class="fas fa-video mr-2"></i>AI视频生成
-                </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                    <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+                <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>AI赋能高速管理
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">主页</a>
+                    <a href="ai-tools.html" class="nav-link">AI工具箱</a>
 
-                    <!-- AI Applications Dropdown -->
                     <div class="relative group">
-                        <a href="ai-applications.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
+                        <a href="ai-applications.html" class="nav-link-active flex items-center"> {/* This is the active page */}
                             AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
-                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
-                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50 font-semibold">视频生成</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700">提示词工程</a>
+                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
+                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
+                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
+                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
+                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold">视频生成</a> {/* Highlight current sub-page */}
                             </div>
                         </div>
                     </div>
 
-                    <!-- Feishu Bitable Dropdown -->
                     <div class="relative group">
-                        <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        <a href="feishu-bitable.html" class="nav-link flex items-center">
                             飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
+                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
+                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
+                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
+                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Hands-on Practice Dropdown -->
                     <div class="relative group">
-                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        <a href="coze-bot-creation.html" class="nav-link flex items-center">
                             实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                    <a href="roadmap.html" class="nav-link">实施路线图</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-blue-700 font-semibold">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-700">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
         </div>
     </nav>
 
     <!-- 主要内容 -->
-    <main class="container mx-auto px-6 py-12">
-        <section class="text-center py-12">
-            <h1 class="text-5xl font-bold text-gray-800 mb-6">AI视频生成：开启视觉叙事新纪元</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">从文字到动态影像，AI正在颠覆视频创作。了解如何利用可灵等前沿技术，为葛洲坝交投公司横钦高速宣传、培训和项目展示创造引人入胜的视频内容。</p>
+    <main class="container mx-auto px-6 py-16">
+        <section class="text-center py-16">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-6">AI视频生成：开启视觉叙事新纪元</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">从文字到动态影像，AI正在颠覆视频创作。了解如何利用可灵等前沿技术，为葛洲坝交投公司横钦高速宣传、培训和项目展示创造引人入胜的视频内容。</p>
         </section>
 
         <section class="py-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">前沿视频生成模型：可灵 (Kling)</h2>
-            <div class="max-w-4xl mx-auto bg-white rounded-lg p-8 shadow-lg">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">可灵 (Kling) 模型</h3>
-                <p class="text-gray-600 mb-4">由快手公司推出的“可灵”大模型，是文生视频领域的重大突破。它能够生成长达2分钟、30fps、1080p的高质量视频，并且能够模拟真实世界的物理规律，生成大幅度的合理运动。这使得它在制作复杂场景和长时程视频方面具有巨大优势。</p>
-                <p class="text-gray-600">目前，可灵正在逐步开放体验。它的出现，预示着普通人也能低成本、高效率地创作出专业级视频内容。</p>
-                 <div class="mt-6 text-center">
-                    <a href="https://kling.kuaishou.com/" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">前沿视频生成模型：可灵 (Kling)</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl p-8 md:p-10 shadow-xl feature-card"> {/* Added feature-card for consistency */}
+                <div class="text-center mb-6">
+                     <img src="pictures/logo_kling.png" alt="Kling Logo" class="h-20 mx-auto mb-4"> {/* Added logo */}
+                    <h3 class="text-2xl font-bold text-gray-800">可灵 (Kling) 模型</h3>
+                </div>
+                <p class="text-gray-700 mb-6 leading-relaxed text-lg">由快手公司推出的“可灵”大模型，是文生视频领域的重大突破。它能够生成长达2分钟、30fps、1080p的高质量视频，并且能够模拟真实世界的物理规律，生成大幅度的合理运动。这使得它在制作复杂场景和长时程视频方面具有巨大优势。</p>
+                <p class="text-gray-700 leading-relaxed text-lg">目前，可灵正在逐步开放体验。它的出现，预示着普通人也能低成本、高效率地创作出专业级视频内容。</p>
+                 <div class="mt-8 text-center">
+                    <a href="https://kling.kuaishou.com/" target="_blank" class="inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors transform hover:scale-105 shadow-md">
                         访问可灵官网 <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="py-12 bg-gray-100 rounded-lg">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">葛洲坝交投公司横钦高速宣传与培训应用场景</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">项目进展可视化报告</h4>
-                    <p>输入“一段展示高速公路XX标段从荒地到通车的延时摄影风格视频”，快速生成项目进展的动态报告，用于向管理层和公众展示成果。</p>
+        <section class="py-16 bg-gray-50 rounded-xl mt-10"> {/* Changed bg-gray-100 to bg-gray-50 */}
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">葛洲坝交投公司横钦高速宣传与培训应用场景</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                    <div class="text-blue-600 mb-4"><i class="fas fa-film fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">项目进展可视化报告</h4>
+                    <p class="text-gray-700 leading-relaxed">输入“一段展示高速公路XX标段从荒地到通车的延时摄影风格视频”，快速生成项目进展的动态报告，用于向管理层和公众展示成果。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">安全操作规程演示</h4>
-                    <p>为复杂的施工机械（如架桥机）或危险作业（如高空焊接）生成标准操作流程的模拟演示视频，用于新员工培训，比纯文本或图片更直观、安全。</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                     <div class="text-green-600 mb-4"><i class="fas fa-user-shield fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">安全操作规程演示</h4>
+                    <p class="text-gray-700 leading-relaxed">为复杂的施工机械（如架桥机）或危险作业（如高空焊接）生成标准操作流程的模拟演示视频，用于新员工培训，比纯文本或图片更直观、安全。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">葛洲坝交投公司横钦高速宣传片快速制作</h4>
-                    <p>输入脚本或创意描述，如“一段展现葛洲坝交投公司横钦高速员工风采和现代化办公环境的快节奏宣传片”，快速生成视频片段，大大降低宣传片制作门槛和成本。</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                    <div class="text-purple-600 mb-4"><i class="fas fa-bullhorn fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">葛洲坝交投公司横钦高速宣传片快速制作</h4>
+                    <p class="text-gray-700 leading-relaxed">输入脚本或创意描述，如“一段展现葛洲坝交投公司横钦高速员工风采和现代化办公环境的快节奏宣传片”，快速生成视频片段，大大降低宣传片制作门槛和成本。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">突发事件应急演练</h4>
-                    <p>模拟“隧道内车辆起火，启动应急预案”等场景，生成虚拟的应急演练视频，用于培训员工在紧急情况下的应对能力。</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                     <div class="text-orange-600 mb-4"><i class="fas fa-drafting-compass fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">突发事件应急演练</h4>
+                    <p class="text-gray-700 leading-relaxed">模拟“隧道内车辆起火，启动应急预案”等场景，生成虚拟的应急演练视频，用于培训员工在紧急情况下的应对能力。</p>
                 </div>
             </div>
         </section>
         <!-- 新增实战演练 -->
-        <section class="py-12 bg-blue-50 rounded-2xl mt-12">
+        <section class="py-16 case-study-section mt-12">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">实战演练：制作“智慧高速”概念宣传短片</h2>
-                <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
-                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-8">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">实战演练：制作“智慧高速”概念宣传短片</h2>
+                <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-10">
                         <div class="lg:w-1/3 text-center">
-                            <video controls poster="pictures/video_case_study_poster.jpg" class="rounded-lg shadow-xl w-full h-auto mx-auto">
+                            <video controls poster="pictures/video_case_study_poster.jpg" class="rounded-xl shadow-2xl w-full h-auto mx-auto">
                                 <source src="videos/smart_highway_promo.mp4" type="video/mp4">
                                 您的浏览器不支持视频播放。
                             </video>
-                            <p class="text-gray-500 mt-4 text-sm">案例示意：AI生成的宣传短片片段</p>
+                            <p class="text-gray-600 mt-4 text-sm">案例示意：AI生成的宣传短片片段</p>
                         </div>
                         <div class="lg:w-2/3">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">案例背景</h3>
-                            <p class="text-gray-600 mb-6">为了向公众和合作伙伴生动展示“智慧高速”的未来图景，需要制作一个1分钟左右的概念宣传短片。短片需要包含自动驾驶、车路协同、智能监控等核心元素。传统视频制作涉及实景拍摄、三维动画等，成本高昂且周期漫长。本案例将演示如何利用文生视频工具（如可灵、Sora等）高效完成概念短片的制作。</p>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-5">案例背景</h3>
+                            <p class="text-gray-700 mb-6 text-lg leading-relaxed">为了向公众和合作伙伴生动展示“智慧高速”的未来图景，需要制作一个1分钟左右的概念宣传短片。短片需要包含自动驾驶、车路协同、智能监控等核心元素。传统视频制作涉及实景拍摄、三维动画等，成本高昂且周期漫长。本案例将演示如何利用文生视频工具（如可灵、Sora等）高效完成概念短片的制作。</p>
                         </div>
                     </div>
 
-                    <div class="space-y-10">
+                    <div class="space-y-12">
                         <!-- 步骤一 -->
-                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                        <div class="flex items-start space-x-6 step-card">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">1</div>
                             <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-2">构思与分镜设计</h4>
-                                <p class="text-gray-600">将1分钟的短片拆解为4-5个关键场景（分镜）。例如：<br>1. <strong>开场：</strong>清晨，阳光洒在未来感十足的高速公路上，无人驾驶车辆有序行驶。<br>2. <strong>中景：</strong>特写路侧的智能感知设备，展示数据流与车辆的交互。<br>3. <strong>高潮：</strong>无人机视角俯瞰整个高速网络，车流如数据般高效流动。<br>4. <strong>结尾：</strong>画面定格在“智慧高速，连接未来”的标语上。</p>
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">构思与分镜设计</h4>
+                                <p class="text-gray-700 leading-relaxed">将1分钟的短片拆解为4-5个关键场景（分镜）。例如：<br>1. <strong>开场：</strong>清晨，阳光洒在未来感十足的高速公路上，无人驾驶车辆有序行驶。<br>2. <strong>中景：</strong>特写路侧的智能感知设备，展示数据流与车辆的交互。<br>3. <strong>高潮：</strong>无人机视角俯瞰整个高速网络，车流如数据般高效流动。<br>4. <strong>结尾：</strong>画面定格在“智慧高速，连接未来”的标语上。</p>
                             </div>
                         </div>
 
                         <!-- 步骤二 -->
-                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                        <div class="flex items-start space-x-6 step-card">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">2</div>
                             <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-2">为每个分镜撰写Prompt</h4>
-                                <p class="text-gray-600 mb-4">为每个分镜撰写详细的视频生成指令。以分镜1为例，一个可灵的示例Prompt：</p>
-                                <div class="bg-gray-100 p-4 rounded-lg text-gray-700 border-l-4 border-blue-400">
-                                    <code class="font-mono">
-                                        一位中国女性驾驶着一辆新能源汽车，行驶在中国南方的高速公路上，窗外是连绵不绝的绿色山脉和美丽的风光，她面带微笑，享受着驾驶的乐趣。电影质感，长镜头，广角 --ar 16:9 --duration 15s
-                                    </code>
-                                    <p class="text-sm text-gray-500 mt-2">（这是一个基础场景，可以进一步加入“自动驾驶”、“未来感”等关键词来强化主题）</p>
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">为每个分镜撰写Prompt</h4>
+                                <p class="text-gray-700 mb-4 leading-relaxed">为每个分镜撰写详细的视频生成指令。以分镜1为例，一个可灵的示例Prompt：</p>
+                                <div class="code-block">
+                                    一位中国女性驾驶着一辆新能源汽车，行驶在中国南方的高速公路上，窗外是连绵不绝的绿色山脉和美丽的风光，她面带微笑，享受着驾驶的乐趣。电影质感，长镜头，广角 --ar 16:9 --duration 15s
                                 </div>
+                                <p class="text-sm text-gray-600 mt-3 leading-relaxed">（这是一个基础场景，可以进一步加入“自动驾驶”、“未来感”等关键词来强化主题）</p>
                             </div>
                         </div>
 
                         <!-- 步骤三 -->
-                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                        <div class="flex items-start space-x-6 step-card">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">3</div>
                             <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-2">生成、剪辑与配音</h4>
-                                <p class="text-gray-600">将所有Prompt输入AI视频工具，生成各个场景的视频片段。然后，使用剪辑软件（如剪映、Premiere）将这些片段按照分镜顺序拼接起来，加入转场效果、背景音乐和旁白解说，最终完成整个宣传短片的制作。</p>
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">生成、剪辑与配音</h4>
+                                <p class="text-gray-700 leading-relaxed">将所有Prompt输入AI视频工具，生成各个场景的视频片段。然后，使用剪辑软件（如剪映、Premiere）将这些片段按照分镜顺序拼接起来，加入转场效果、背景音乐和旁白解说，最终完成整个宣传短片的制作。</p>
                             </div>
                         </div>
                     </div>
@@ -178,12 +243,21 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white py-8 mt-12">
+    <footer class="bg-gray-800 text-white py-10 mt-16">
         <div class="container mx-auto px-6 text-center">
-            <p>© 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
+            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
         </div>
     </footer>
 
-
+    <script>
+        // 移动菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
