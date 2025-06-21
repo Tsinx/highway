@@ -8,73 +8,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
         }
         .card-hover {
             transition: all 0.3s ease;
+            border-radius: 1rem; /* consistent with index.html */
         }
         .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px); /* consistent with index.html */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* consistent with index.html */
+        }
+        .nav-link-active {
+            color: #2563eb; /* Tailwind blue-700 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.25rem;
+        }
+        .nav-link {
+            color: #4b5563; /* Tailwind gray-600 */
+        }
+        .nav-link:hover {
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .dropdown-menu a:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            color: #1d4ed8; /* Tailwind blue-800 */
         }
     </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 text-gray-800">
 
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-600">AI赋能高速管理</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+            <a href="index.html" class="text-2xl font-bold text-blue-700">AI赋能高速管理</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">主页</a>
+                <a href="ai-tools.html" class="nav-link">AI工具箱</a>
                 
-                <!-- AI Applications Dropdown -->
                 <div class="relative group">
-                    <a href="ai-applications.html" class="text-blue-600 font-semibold flex items-center">
+                    <a href="ai-applications.html" class="nav-link-active flex items-center">
                         AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
-                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
+                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
+                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
+                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
+                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Feishu Bitable Dropdown -->
                 <div class="relative group">
-                    <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                    <a href="feishu-bitable.html" class="nav-link flex items-center">
                         飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
-                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
-                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
+                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
+                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
+                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
+                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hands-on Practice Dropdown -->
                 <div class="relative group">
-                    <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                    <a href="coze-bot-creation.html" class="nav-link flex items-center">
                         实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
                         </div>
                     </div>
                 </div>
 
-                <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                <a href="roadmap.html" class="nav-link">实施路线图</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
@@ -82,88 +96,95 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">主页</a>
-            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-600">AI工具箱</a>
-            <a href="ai-applications.html" class="block py-2 text-blue-600 font-semibold">AI应用</a>
-            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-600">飞书多维表格</a>
-            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-600">实战演练</a>
-            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-600">实施路线图</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-blue-700 font-semibold">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-700">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
-        <div class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold text-gray-900 mb-4">AI应用助力企业管理</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">从信息获取到智能执行，探索AI在管理工作中的核心应用场景。</p>
+    <main class="container mx-auto px-6 py-16">
+        <div class="text-center mb-20">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-6">AI应用助力企业管理</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">从信息获取到智能执行，探索AI在管理工作中的核心应用场景。</p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             <!-- Deep Research Card -->
-            <a href="deep-research.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
-                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <a href="deep-research.html" class="card-hover bg-white p-8 shadow-xl block hover:no-underline">
+                <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                     <i class="fas fa-search-plus text-3xl text-blue-600"></i>
                 </div>
-                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Deep Research</h3>
-                <p class="text-gray-600 text-center">利用AI进行深度信息挖掘，快速获取、分析和整合特定问题的规范、法规和最佳实践。</p>
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">Deep Research</h3>
+                <p class="text-gray-700 text-center leading-relaxed">利用AI进行深度信息挖掘，快速获取、分析和整合特定问题的规范、法规和最佳实践。</p>
             </a>
 
             <!-- Prompt Engineering Card -->
-            <a href="prompt-engineering.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
-                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <a href="prompt-engineering.html" class="card-hover bg-white p-8 shadow-xl block hover:no-underline">
+                <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                     <i class="fas fa-lightbulb text-3xl text-green-600"></i>
                 </div>
-                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">实用提示词技术</h3>
-                <p class="text-gray-600 text-center">学习如何通过精确的提示词（Prompt）与AI高效沟通，获取高质量的输出结果。</p>
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">实用提示词技术</h3>
+                <p class="text-gray-700 text-center leading-relaxed">学习如何通过精确的提示词（Prompt）与AI高效沟通，获取高质量的输出结果。</p>
             </a>
 
             <!-- Report Analysis Card -->
-            <a href="report-analysis.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
-                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <a href="report-analysis.html" class="card-hover bg-white p-8 shadow-xl block hover:no-underline">
+                <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                     <i class="fas fa-chart-pie text-3xl text-purple-600"></i>
                 </div>
-                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">智能报表分析</h3>
-                <p class="text-gray-600 text-center">应用AI自动从报表中提取、分析数据，生成洞察，极大提升数据处理和决策效率。</p>
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">智能报表分析</h3>
+                <p class="text-gray-700 text-center leading-relaxed">应用AI自动从报表中提取、分析数据，生成洞察，极大提升数据处理和决策效率。</p>
             </a>
 
             <!-- AI Editor Card -->
-            <a href="ai-editor.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
-                <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <a href="ai-editor.html" class="card-hover bg-white p-8 shadow-xl block hover:no-underline">
+                <div class="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                     <i class="fas fa-code text-3xl text-red-600"></i>
                 </div>
-                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">AI编辑器</h3>
-                <p class="text-gray-600 text-center">了解AI如何辅助代码编写、调试和优化，提升软件开发和IT管理的效率与质量。</p>
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">AI编辑器</h3>
+                <p class="text-gray-700 text-center leading-relaxed">了解AI如何辅助代码编写、调试和优化，提升软件开发和IT管理的效率与质量。</p>
             </a>
 
             <!-- Image Generation Card -->
-            <a href="image-generation.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
-                <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <a href="image-generation.html" class="card-hover bg-white p-8 shadow-xl block hover:no-underline">
+                <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                     <i class="fas fa-image text-3xl text-yellow-600"></i>
                 </div>
-                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">AI图片生成</h3>
-                <p class="text-gray-600 text-center">探索如何使用即梦、ChatGPT等工具，为企业宣传、报告和演示文稿快速生成高质量的定制化图片。</p>
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">AI图片生成</h3>
+                <p class="text-gray-700 text-center leading-relaxed">探索如何使用即梦、ChatGPT等工具，为企业宣传、报告和演示文稿快速生成高质量的定制化图片。</p>
             </a>
 
             <!-- Video Generation Card -->
-            <a href="video-generation.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
-                        <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-video text-3xl text-teal-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">AI视频生成</h3>
-                        <p class="text-gray-600 text-center">了解可灵等前沿AI视频生成技术，将文字创意快速转化为生动的视频内容，用于宣传和培训。</p>
-                    </a>
-
-
+            <a href="video-generation.html" class="card-hover bg-white p-8 shadow-xl block hover:no-underline">
+                <div class="bg-teal-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <i class="fas fa-video text-3xl text-teal-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-4">AI视频生成</h3>
+                <p class="text-gray-700 text-center leading-relaxed">了解可灵等前沿AI视频生成技术，将文字创意快速转化为生动的视频内容，用于宣传和培训。</p>
+            </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-12">
+    <footer class="bg-gray-800 text-white py-10 mt-16">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 AI赋能高速公路管理培训. All Rights Reserved.</p>
+            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训. All Rights Reserved.</p>
         </div>
     </footer>
-
+    <script>
+        // 移动菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>

@@ -10,178 +10,245 @@
         body {
             font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
         }
+        .feature-card { /* Reusing card-hover from index for consistency */
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+        }
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .nav-link-active {
+            color: #2563eb; /* Tailwind blue-700 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.25rem;
+        }
+        .nav-link {
+            color: #4b5563; /* Tailwind gray-600 */
+        }
+        .nav-link:hover {
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .dropdown-menu a:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .case-study-section {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            border-radius: 1rem; /* rounded-xl */
+        }
+        .step-card { /* For individual steps in the case study */
+             background-color: white;
+             padding: 1.5rem; /* p-6 */
+             border-radius: 0.75rem; /* rounded-xl */
+             border: 1px solid #e5e7eb; /* border-gray-200 */
+             transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            background-color: #f9fafb; /* gray-50 */
+            transform: translateX(5px);
+        }
+         .code-block {
+            background-color: #1f2937; /* gray-800 */
+            color: #d1d5db; /* gray-300 */
+            padding: 1rem; /* p-4 */
+            border-radius: 0.5rem; /* rounded-md */
+            margin-top: 0.5rem; /* mt-2 */
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.6;
+            overflow-x: auto;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 text-gray-800"> 
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-blue-600">
-                    <i class="fas fa-image mr-2"></i>AI图片生成
-                </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                    <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+                 <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>AI赋能高速管理
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">主页</a>
+                    <a href="ai-tools.html" class="nav-link">AI工具箱</a>
 
-                    <!-- AI Applications Dropdown -->
                     <div class="relative group">
-                        <a href="ai-applications.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
+                        <a href="ai-applications.html" class="nav-link-active flex items-center">
                             AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
-                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50 font-semibold">图像生成</a>
-                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700">提示词工程</a>
+                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
+                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
+                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
+                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold">图像生成</a>
+                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Feishu Bitable Dropdown -->
                     <div class="relative group">
-                        <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        <a href="feishu-bitable.html" class="nav-link flex items-center">
                             飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
+                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
+                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
+                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
+                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Hands-on Practice Dropdown -->
                     <div class="relative group">
-                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        <a href="coze-bot-creation.html" class="nav-link flex items-center">
                             实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                         </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                            <div class="py-2">
+                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
                             </div>
                         </div>
                     </div>
 
-                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                    <a href="roadmap.html" class="nav-link">实施路线图</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-blue-700 font-semibold">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-700">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
         </div>
     </nav>
 
     <!-- 主要内容 -->
-    <main class="container mx-auto px-6 py-12">
-        <section class="text-center py-12">
-            <h1 class="text-5xl font-bold text-gray-800 mb-6">AI图片生成：视觉创意的无限可能</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">从一句话到一个视觉杰作。学习如何利用AI为您的葛洲坝交投公司横钦高速宣传、项目报告和社交媒体内容生成引人注目的高质量图片。</p>
+    <main class="container mx-auto px-6 py-16">
+        <section class="text-center py-16">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-6">AI图片生成：视觉创意的无限可能</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">从一句话到一个视觉杰作。学习如何利用AI为您的葛洲坝交投公司横钦高速宣传、项目报告和社交媒体内容生成引人注目的高质量图片。</p>
         </section>
 
         <section class="py-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">主流图片生成工具介绍</h2>
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">主流图片生成工具介绍</h2>
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-10">
                 <!-- ChatGPT/DALL-E 3 -->
-                <div class="feature-card bg-white rounded-lg p-6 shadow transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">ChatGPT (DALL-E 3)</h3>
-                    <p class="text-gray-600 mb-4">集成在ChatGPT中，最易上手的文生图工具。能够深刻理解自然语言，生成创意和逻辑性强的图像，非常适合快速内容创作和概念可视化。</p>
-                    <a href="https://chat.openai.com/" target="_blank" class="text-blue-600 hover:underline">访问官网 &rarr;</a>
+                <div class="feature-card bg-white p-8 shadow-xl">
+                    <div class="text-center mb-6">
+                        <img src="pictures/logo_chatgpt.png" alt="ChatGPT Logo" class="h-16 mx-auto mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">ChatGPT (DALL-E 3)</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed text-lg">集成在ChatGPT中，最易上手的文生图工具。能够深刻理解自然语言，生成创意和逻辑性强的图像，非常适合快速内容创作和概念可视化。</p>
+                    <a href="https://chat.openai.com/" target="_blank" class="text-blue-600 hover:text-blue-700 font-semibold transition-colors">访问官网 <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
                 </div>
 
                 <!-- 即梦 -->
-                <div class="feature-card bg-white rounded-lg p-6 shadow transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">即梦 (Jimm)</h3>
-                    <p class="text-gray-600 mb-4">腾讯出品的AI绘画平台，功能强大，支持多种风格，尤其在动漫、游戏角色和国风设计方面表现出色，适合专业设计师和创意工作者。</p>
-                    <a href="https://jimm.ai/" target="_blank" class="text-blue-600 hover:underline">访问官网 &rarr;</a>
+                <div class="feature-card bg-white p-8 shadow-xl">
+                     <div class="text-center mb-6">
+                        <img src="pictures/logo_jimm.png" alt="即梦 Logo" class="h-16 mx-auto mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">即梦 (Jimm)</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed text-lg">腾讯出品的AI绘画平台，功能强大，支持多种风格，尤其在动漫、游戏角色和国风设计方面表现出色，适合专业设计师和创意工作者。</p>
+                    <a href="https://jimm.ai/" target="_blank" class="text-blue-600 hover:text-blue-700 font-semibold transition-colors">访问官网 <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
                 </div>
 
                 <!-- Midjourney -->
-                <div class="feature-card bg-white rounded-lg p-6 shadow transition-all duration-300">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Midjourney</h3>
-                    <p class="text-gray-600 mb-4">以其卓越的艺术风格和图像质量闻名。通过Discord社区进行交互，生成富有想象力和电影感的图像，是艺术创作和高质量视觉内容的首选。</p>
-                    <a href="https://www.midjourney.com/" target="_blank" class="text-blue-600 hover:underline">访问官网 &rarr;</a>
+                <div class="feature-card bg-white p-8 shadow-xl">
+                     <div class="text-center mb-6">
+                        <img src="pictures/logo_midjourney.png" alt="Midjourney Logo" class="h-16 mx-auto mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">Midjourney</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed text-lg">以其卓越的艺术风格和图像质量闻名。通过Discord社区进行交互，生成富有想象力和电影感的图像，是艺术创作和高质量视觉内容的首选。</p>
+                    <a href="https://www.midjourney.com/" target="_blank" class="text-blue-600 hover:text-blue-700 font-semibold transition-colors">访问官网 <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
                 </div>
             </div>
         </section>
 
-        <section class="py-12 bg-gray-100 rounded-lg">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">葛洲坝交投公司横钦高速宣传应用场景</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">项目效果图概念设计</h4>
-                    <p>快速生成高速公路、桥梁、服务区的未来主义或环保主题概念图，用于项目申报和公众沟通。</p>
+        <section class="py-16 bg-gray-50 rounded-xl mt-10"> 
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">葛洲坝交投公司横钦高速宣传应用场景</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                    <div class="text-blue-600 mb-4"><i class="fas fa-road fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">项目效果图概念设计</h4>
+                    <p class="text-gray-700 leading-relaxed">快速生成高速公路、桥梁、服务区的未来主义或环保主题概念图，用于项目申报和公众沟通。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">安全施工宣传海报</h4>
-                    <p>根据“佩戴安全帽”、“高空作业规范”等主题，生成生动形象的宣传海报，用于工地安全教育。</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                    <div class="text-green-600 mb-4"><i class="fas fa-hard-hat fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">安全施工宣传海报</h4>
+                    <p class="text-gray-700 leading-relaxed">根据“佩戴安全帽”、“高空作业规范”等主题，生成生动形象的宣传海报，用于工地安全教育。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">社交媒体内容配图</h4>
-                    <p>为葛洲坝交投公司横钦高速公众号、微博等社交媒体渠道，快速生成与节日、活动、新闻稿匹配的原创配图，提升内容吸引力。</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                     <div class="text-purple-600 mb-4"><i class="fas fa-share-alt fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">社交媒体内容配图</h4>
+                    <p class="text-gray-700 leading-relaxed">为葛洲坝交投公司横钦高速公众号、微博等社交媒体渠道，快速生成与节日、活动、新闻稿匹配的原创配图，提升内容吸引力。</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h4 class="font-bold text-lg mb-2">企业文化视觉化</h4>
-                    <p>将“创新”、“合作”、“安全”等抽象的葛洲坝交投公司横钦高速价值观，转化为具体的、富有感染力的视觉图像，用于内部培训和品牌建设。</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg feature-card">
+                    <div class="text-orange-600 mb-4"><i class="fas fa-users-cog fa-2x"></i></div>
+                    <h4 class="font-bold text-xl text-gray-800 mb-3">企业文化视觉化</h4>
+                    <p class="text-gray-700 leading-relaxed">将“创新”、“合作”、“安全”等抽象的葛洲坝交投公司横钦高速价值观，转化为具体的、富有感染力的视觉图像，用于内部培训和品牌建设。</p>
                 </div>
             </div>
         </section>
         <!-- 新增实战演练 -->
-        <section class="py-12 bg-blue-50 rounded-2xl mt-12">
+        <section class="py-16 case-study-section mt-12"> 
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">实战演练：生成“智慧高速”主题宣传海报</h2>
-                <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
-                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-8">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">实战演练：生成“智慧高速”主题宣传海报</h2>
+                <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-10">
                         <div class="lg:w-1/3 text-center">
-                            <img src="pictures/image_case_study.png" alt="智慧高速宣传海报案例" class="rounded-lg shadow-xl w-full h-auto mx-auto">
-                            <p class="text-gray-500 mt-4 text-sm">案例示意图：AI生成的主题海报</p>
+                            <img src="pictures/image_case_study.png" alt="智慧高速宣传海报案例" class="rounded-xl shadow-2xl w-full h-auto mx-auto">
+                            <p class="text-gray-600 mt-4 text-sm">案例示意图：AI生成的主题海报</p>
                         </div>
                         <div class="lg:w-2/3">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-4">案例背景</h3>
-                            <p class="text-gray-600 mb-6">为配合葛洲坝交投公司横钦高速“智慧高速”战略的发布，市场部需要制作一系列具有未来感和科技感的宣传海报，用于线上社交媒体推广和线下活动展示。传统的设计流程周期长、成本高。本案例将演示如何使用AI图片生成工具（如Midjourney、即梦等）快速生成高质量的系列海报。</p>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-5">案例背景</h3>
+                            <p class="text-gray-700 mb-6 text-lg leading-relaxed">为配合葛洲坝交投公司横钦高速“智慧高速”战略的发布，市场部需要制作一系列具有未来感和科技感的宣传海报，用于线上社交媒体推广和线下活动展示。传统的设计流程周期长、成本高。本案例将演示如何使用AI图片生成工具（如Midjourney、即梦等）快速生成高质量的系列海报。</p>
                         </div>
                     </div>
 
-                    <div class="space-y-10">
+                    <div class="space-y-12">
                         <!-- 步骤一 -->
-                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                        <div class="flex items-start space-x-6 step-card">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">1</div>
                             <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-2">明确主题与设计要素</h4>
-                                <p class="text-gray-600">确定海报的核心主题：“智慧高速”。拆解关键视觉元素，如：自动驾驶汽车、车路协同（V2X）的信号传输、无人机巡检、光伏路面、大数据可视化屏幕、流线型的未来建筑等。</p>
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">明确主题与设计要素</h4>
+                                <p class="text-gray-700 leading-relaxed">确定海报的核心主题：“智慧高速”。拆解关键视觉元素，如：自动驾驶汽车、车路协同（V2X）的信号传输、无人机巡检、光伏路面、大数据可视化屏幕、流线型的未来建筑等。</p>
                             </div>
                         </div>
 
                         <!-- 步骤二 -->
-                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                        <div class="flex items-start space-x-6 step-card">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">2</div>
                             <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-2">撰写核心创意指令 (Prompt)</h4>
-                                <p class="text-gray-600 mb-4">将设计构思转化为AI能理解的详细指令。一个好的Prompt应包含主体、场景、风格、光照、构图等关键信息。以下是一个Midjourney的示例Prompt：</p>
-                                <div class="bg-gray-100 p-4 rounded-lg text-gray-700 border-l-4 border-blue-400">
-                                    <code class="font-mono">
-                                        A promotional poster for a 'Smart Highway' initiative. A fleet of autonomous, sleek, white semi-trucks driving in perfect formation at night on a highway illuminated by glowing blue lines integrated into the road surface. Data streams and holographic interfaces are visible in the air, connecting the trucks and the road infrastructure. The style is futuristic, clean, and high-tech, with cinematic lighting. The overall mood is one of efficiency, safety, and technological advancement. --ar 16:9 --style raw --v 6.0
-                                    </code>
-                                    <p class="text-sm text-gray-500 mt-2">（中文释义：一张“智慧高速”计划的宣传海报。夜晚，一支由自动驾驶的、线条流畅的白色半挂卡车组成的车队，在由发光蓝线照亮的高速公路上以完美队形行驶。空气中可见数据流和全息界面，连接着卡车和道路基础设施。风格是未来主义的、简洁的、高科技的，带有电影感的灯光。整体氛围是高效、安全和技术进步。 --ar 16:9 --style raw --v 6.0）</p>
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">撰写核心创意指令 (Prompt)</h4>
+                                <p class="text-gray-700 mb-4 leading-relaxed">将设计构思转化为AI能理解的详细指令。一个好的Prompt应包含主体、场景、风格、光照、构图等关键信息。以下是一个Midjourney的示例Prompt：</p>
+                                <div class="code-block">
+                                    A promotional poster for a 'Smart Highway' initiative. A fleet of autonomous, sleek, white semi-trucks driving in perfect formation at night on a highway illuminated by glowing blue lines integrated into the road surface. Data streams and holographic interfaces are visible in the air, connecting the trucks and the road infrastructure. The style is futuristic, clean, and high-tech, with cinematic lighting. The overall mood is one of efficiency, safety, and technological advancement. --ar 16:9 --style raw --v 6.0
                                 </div>
+                                <p class="text-sm text-gray-600 mt-3 leading-relaxed">（中文释义：一张“智慧高速”计划的宣传海报。夜晚，一支由自动驾驶的、线条流畅的白色半挂卡车组成的车队，在由发光蓝线照亮的高速公路上以完美队形行驶。空气中可见数据流和全息界面，连接着卡车和道路基础设施。风格是未来主义的、简洁的、高科技的，带有电影感的灯光。整体氛围是高效、安全和技术进步。 --ar 16:9 --style raw --v 6.0）</p>
                             </div>
                         </div>
 
                         <!-- 步骤三 -->
-                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                        <div class="flex items-start space-x-6 step-card">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">3</div>
                             <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-2">迭代优化与后期处理</h4>
-                                <p class="text-gray-600">根据AI生成的初步图像，进行调整和优化。可以改变关键词（如将“night”改为“day”）、调整风格或视角。选定最终图像后，可使用设计软件（如Photoshop、Canva）添加葛洲坝交投公司横钦高速Logo、宣传口号等文字信息，完成最终的海报设计。</p>
+                                <h4 class="text-xl font-bold text-gray-800 mb-3">迭代优化与后期处理</h4>
+                                <p class="text-gray-700 leading-relaxed">根据AI生成的初步图像，进行调整和优化。可以改变关键词（如将“night”改为“day”）、调整风格或视角。选定最终图像后，可使用设计软件（如Photoshop、Canva）添加葛洲坝交投公司横钦高速Logo、宣传口号等文字信息，完成最终的海报设计。</p>
                             </div>
                         </div>
                     </div>
@@ -191,10 +258,20 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="bg-gray-800 text-white py-8 mt-12">
+    <footer class="bg-gray-800 text-white py-10 mt-16">
         <div class="container mx-auto px-6 text-center">
-            <p>© 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
+            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
         </div>
     </footer>
+    <script>
+        // 移动菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>

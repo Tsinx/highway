@@ -7,75 +7,139 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .content-section h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
-        .content-section h3 { font-size: 1.4rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 1rem; }
-        .content-section p, .content-section ul { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
-        .content-section ul { list-style-type: disc; padding-left: 1.5rem; }
-        .content-section code { background-color: #f3f4f6; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-family: 'Courier New', Courier, monospace; }
-        .case-study { background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 2rem; margin-top: 2rem; }
-        .case-study-title { font-size: 1.5rem; font-weight: 700; color: #1f2937; }
-        .step { margin-top: 1.5rem; }
-        .step-title { font-size: 1.2rem; font-weight: 600; color: #111827; display: flex; align-items: center; }
-        .step-title .fa-solid { margin-right: 0.75rem; color: #3b82f6; }
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        }
+        .content-section h2 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* bold */
+            margin-top: 2.5rem; /* mt-10 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            border-bottom: 2px solid #e5e7eb; /* border-gray-200 */
+            padding-bottom: 0.75rem; /* pb-3 */
+            color: #1f2937; /* gray-800 */
+        }
+        .content-section h3 {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 600; /* semibold */
+            margin-top: 2rem; /* mt-8 */
+            margin-bottom: 1rem; /* mb-4 */
+            color: #111827; /* gray-900 */
+        }
+        .content-section p, .content-section ul, .content-section ol {
+            margin-bottom: 1.25rem; /* mb-5 */
+            line-height: 1.75;
+            color: #374151; /* gray-700 */
+        }
+        .content-section ul, .content-section ol {
+            padding-left: 1.75rem; /* pl-7 */
+        }
+        .content-section code {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            padding: 0.25rem 0.5rem; /* px-2 py-1 */
+            border-radius: 0.375rem; /* rounded-md */
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* More common monospace stack */
+            font-size: 0.9em;
+            color: #1f2937; /* gray-800 */
+            border: 1px solid #e5e7eb; /* border-gray-200 */
+        }
+        .case-study {
+            background-color: #f9fafb; /* bg-gray-50 */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            border-radius: 0.75rem; /* rounded-xl */
+            padding: 2.5rem; /* p-10 */
+            margin-top: 2.5rem; /* mt-10 */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        }
+        .case-study-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700;
+            color: #1f2937; /* gray-800 */
+        }
+        .step { margin-top: 2rem; } /* mt-8 */
+        .step-title {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600;
+            color: #111827; /* gray-900 */
+            display: flex;
+            align-items: center;
+        }
+        .step-title .fa-solid {
+            margin-right: 0.75rem;
+            color: #2563eb; /* blue-600 */
+            font-size: 1.5rem; /* Larger icon */
+        }
+        .nav-link-active {
+            color: #2563eb; /* Tailwind blue-700 */
+            font-weight: 600;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.25rem;
+        }
+        .nav-link {
+            color: #4b5563; /* Tailwind gray-600 */
+        }
+        .nav-link:hover {
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
+        .dropdown-menu a:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+            color: #1d4ed8; /* Tailwind blue-800 */
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-800">
 
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-600">AI赋能高速管理</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+            <a href="index.html" class="text-2xl font-bold text-blue-700">AI赋能高速管理</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">主页</a>
+                <a href="ai-tools.html" class="nav-link">AI工具箱</a>
                 
-                <!-- AI Applications Dropdown -->
                 <div class="relative group">
-                    <a href="ai-applications.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                    <a href="ai-applications.html" class="nav-link flex items-center">
                         AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
-                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
+                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
+                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
+                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
+                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Feishu Bitable Dropdown -->
                 <div class="relative group">
-                    <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                    <a href="feishu-bitable.html" class="nav-link flex items-center">
                         飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
-                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
-                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
+                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
+                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
+                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
+                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
+                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hands-on Practice Dropdown -->
                 <div class="relative group">
-                    <a href="coze-bot-creation.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
+                    <a href="coze-bot-creation.html" class="nav-link-active flex items-center">
                         实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
                     </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                        <div class="py-1">
-                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50">构建Coze机器人</a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
+                        <div class="py-2">
+                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold">构建Coze机器人</a>
                         </div>
                     </div>
                 </div>
 
-                <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                <a href="roadmap.html" class="nav-link">实施路线图</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
@@ -83,28 +147,28 @@
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">主页</a>
-            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-600">AI工具箱</a>
-            <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-600">AI应用</a>
-            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-600">飞书多维表格</a>
-            <a href="coze-bot-creation.html" class="block py-2 text-blue-600 font-semibold">实战演练</a>
-            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-600">实施路线图</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-700">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-700">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-blue-700 font-semibold">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
-        <div class="bg-white p-8 rounded-lg shadow-lg content-section max-w-4xl mx-auto">
-            <h1 class="text-4xl font-extrabold text-gray-900 mb-4 text-center">实战演练：从零到一构建你的专属扣子（Coze）机器人</h1>
-            <p class="text-center text-gray-500 mb-8">利用 Coze 的强大能力，无需编程，即可快速创建、调试和优化 AI 应用，并一键发布到多个平台。</p>
+    <main class="container mx-auto px-6 py-16">
+        <div class="bg-white p-8 md:p-12 rounded-xl shadow-xl content-section max-w-5xl mx-auto"> 
+            <h1 class="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 text-center">实战演练：从零到一构建你的专属扣子（Coze）机器人</h1>
+            <p class="text-center text-gray-600 mb-10 text-lg leading-relaxed">利用 Coze 的强大能力，无需编程，即可快速创建、调试和优化 AI 应用，并一键发布到多个平台。</p>
 
-            <h2><i class="fas fa-robot text-blue-500"></i> 什么是扣子（Coze）？</h2>
+            <h2><i class="fas fa-robot text-blue-600"></i> 什么是扣子（Coze）？</h2>
             <p>扣子（Coze）是一个用来开发新一代 AI Chat Bot 的应用编辑平台。无论你是否有编程基础，都可以在这里快速创建、调试和优化各种类型的 AI 机器人，并将它们发布到飞书、微信、公众号等各个渠道。它集成了丰富的插件工具，支持可扩展的知识库和数据库，并能通过工作流设计复杂的业务逻辑。</p>
 
-            <h2><i class="fas fa-cogs"></i> Coze 核心组件解析</h2>
+            <h2><i class="fas fa-cogs text-blue-600"></i> Coze 核心组件解析</h2>
             <p>构建一个强大的 Coze Bot，你需要了解并善用以下几个核心组件：</p>
-            <ul>
+            <ul class="list-disc space-y-3">
                 <li><strong>提示词（Prompt）</strong>：这是你与 Bot 沟通的核心，用于设定 Bot 的身份、技能和回复逻辑。一个好的提示词是 Bot 表现出色的关键。</li>
                 <li><strong>插件（Plugins）</strong>：插件是扩展 Bot 能力的工具箱。Coze 提供了新闻阅读、图片生成、知识库搜索等超过60种内置插件，你也可以创建自己的插件来连接私有数据或服务。</li>
                 <li><strong>知识库（Knowledge）</strong>：为你的 Bot 提供精准、专业的回答能力。你可以上传本地文档（PDF, TXT, DOCX等）或链接在线文档，Bot 就能基于这些内容进行回答，有效减少模型幻觉。</li>
@@ -113,36 +177,36 @@
             </ul>
 
             <div class="case-study">
-                <h2 class="case-study-title text-center"><i class="fas fa-road"></i> 实战案例：构建“高速公路智能信息助手”</h2>
-                <p class="text-center text-gray-600 mt-2">我们将创建一个能够查询实时路况、提供应急预案、并能根据用户反馈不断优化的智能助手 Bot。</p>
+                <h2 class="case-study-title text-center mb-6"><i class="fas fa-road text-blue-600 mr-2"></i> 实战案例：构建“高速公路智能信息助手”</h2>
+                <p class="text-center text-gray-600 mt-2 mb-8 text-lg">我们将创建一个能够查询实时路况、提供应急预案、并能根据用户反馈不断优化的智能助手 Bot。</p>
 
                 <div class="step">
                     <h3 class="step-title"><i class="fa-solid fa-1"></i> 第一步：Bot 基础设定与提示词优化</h3>
                     <p>登录 Coze 平台，创建一个新的 Bot。核心是编写清晰的提示词（Prompt），定义它的身份和目标。</p>
-                    <code>
-                        # 角色
-                        你是一名高速公路智能信息助手，精通交通管理知识，能够为用户提供专业、准确、及时的信息服务。
+                    <pre class="bg-gray-100 p-4 rounded-md overflow-x-auto"><code class="language-markdown">
+# 角色
+你是一名高速公路智能信息助手，精通交通管理知识，能够为用户提供专业、准确、及时的信息服务。
 
-                        # 技能
-                        1.  **实时路况查询**：利用插件查询指定路段的实时交通状况。
-                        2.  **应急预案提供**：根据知识库中的应急手册，提供交通事故、恶劣天气等情况下的标准处理流程。
-                        3.  **智能知识问答**：回答关于高速公路收费标准、服务区信息等常见问题。
-                        4.  **用户反馈记录**：记录用户的重要反馈，并存入数据库以便后续分析。
+# 技能
+1.  **实时路况查询**：利用插件查询指定路段的实时交通状况。
+2.  **应急预案提供**：根据知识库中的应急手册，提供交通事故、恶劣天气等情况下的标准处理流程。
+3.  **智能知识问答**：回答关于高速公路收费标准、服务区信息等常见问题。
+4.  **用户反馈记录**：记录用户的重要反馈，并存入数据库以便后续分析。
 
-                        # 限制
-                        - 回答内容必须基于插件和知识库的权威信息。
-                        - 语气应专业、冷静、富有同情心。
-                        - 不回答与高速公路无关的问题。
-                    </code>
+# 限制
+- 回答内容必须基于插件和知识库的权威信息。
+- 语气应专业、冷静、富有同情心。
+- 不回答与高速公路无关的问题。
+                    </code></pre>
                 </div>
 
                 <div class="step">
                     <h3 class="step-title"><i class="fa-solid fa-2"></i> 第二步：配置插件与知识库</h3>
                     <p>为 Bot 添加能力。我们需要一个能获取实时信息的工具，以及包含专业知识的“大脑”。</p>
-                    <ul>
+                    <ul class="list-disc space-y-2">
                         <li><strong>配置插件</strong>：从插件库中添加“新闻头条”或类似的新闻搜索插件，并配置它专门搜索与“高速公路”、“交通”相关的实时新闻，模拟路况信息获取。</li>
                         <li><strong>创建知识库</strong>：
-                            <ul>
+                            <ul class="list-circle pl-6 mt-2 space-y-1">
                                 <li>上传《高速公路突发事件应急预案.pdf》。</li>
                                 <li>上传《国家高速公路网路线命名和编号规则.docx》。</li>
                                 <li>上传《高速公路服务区信息表.xlsx》。</li>
@@ -155,10 +219,10 @@
                 <div class="step">
                     <h3 class="step-title"><i class="fa-solid fa-3"></i> 第三步：设计工作流处理复杂请求</h3>
                     <p>假设我们需要一个流程来处理用户的事故报告，并自动通知相关人员。这需要用到工作流。</p>
-                    <ol class="list-decimal pl-6 mt-2 space-y-2">
+                    <ol class="list-decimal pl-6 mt-2 space-y-3">
                         <li><strong>创建工作流</strong>：命名为“事故上报与通知流程”。</li>
                         <li><strong>开始节点</strong>：接收用户输入的事故描述，例如：“G2高速上海方向K150段发生追尾事故，有人员轻伤”。</li>
-                        <li><strong>代码节点（AI）</strong>：使用大语言模型（LLM）从用户描述中提取关键信息：{高速编号: 'G2', 方向: '上海方向', 里程: 'K150', 事件类型: '追尾', 伤亡情况: '轻伤'}。</li>
+                        <li><strong>代码节点（AI）</strong>：使用大语言模型（LLM）从用户描述中提取关键信息：<code class="text-sm">{高速编号: 'G2', 方向: '上海方向', 里程: 'K150', 事件类型: '追尾', 伤亡情况: '轻伤'}</code>。</li>
                         <li><strong>判断节点</strong>：根据“伤亡情况”字段进行判断。如果包含“重伤”或“死亡”，则进入紧急流程；否则进入常规流程。</li>
                         <li><strong>插件节点（常规流程）</strong>：调用“飞书发送消息”插件，将提取的信息发送到“路况信息处理群”。</li>
                         <li><strong>插件节点（紧急流程）</strong>：除了发送到处理群，额外调用“电话/短信”插件（需自行开发或寻找），通知应急响应负责人。</li>
@@ -172,18 +236,27 @@
                 </div>
             </div>
 
-            <h2><i class="fas fa-chart-line"></i> 持续优化与迭代</h2>
+            <h2><i class="fas fa-chart-line text-blue-600"></i> 持续优化与迭代</h2>
             <p>Bot 发布后，工作才刚刚开始。你可以通过 Coze 的“日志分析”功能，查看用户的历史对话，了解哪些问题回答得不好，哪些功能最受欢迎。基于这些数据，不断优化你的提示词、更新知识库、迭代工作流，让你的 Bot 变得越来越智能和实用。</p>
 
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white mt-12">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-600">
-            <p>&copy; 2025 AI赋能高速公路管理培训. 保留所有权利。</p>
+    <footer class="bg-gray-800 text-white py-10 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训. 保留所有权利。</p>
         </div>
     </footer>
-
+    <script>
+        // 移动菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 </body>
 </html>
