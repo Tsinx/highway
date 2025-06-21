@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能报表分析 - AI赋能高速公路管理培训</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #3b82f6;
+        }
+        .step-item {
+            transition: all 0.3s ease;
+        }
+        .step-item:hover {
+            background-color: #f0f9ff;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">
+                    <i class="fas fa-chart-pie mr-2"></i>智能报表分析
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
+                    <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+
+                    <!-- AI Applications Dropdown -->
+                    <div class="relative group">
+                        <a href="ai-applications.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
+                            AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
+                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
+                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50 font-semibold">报告分析</a>
+                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
+                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
+                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feishu Bitable Dropdown -->
+                    <div class="relative group">
+                        <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
+                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
+                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
+                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
+                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hands-on Practice Dropdown -->
+                    <div class="relative group">
+                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- 页面标题 -->
+        <section class="text-center py-12">
+            <h1 class="text-5xl font-bold text-gray-800 mb-6">
+                告别繁琐，拥抱智能：AI驱动的报表革命
+            </h1>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                将AI融入日常报表工作，从数据中洞察价值，让决策更高效、更精准。
+            </p>
+        </section>
+
+        <!-- 传统报表工作的挑战 -->
+        <section class="py-12 bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">传统报表工作的“痛点”</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <i class="fas fa-hourglass-half text-5xl text-red-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">耗时耗力</h3>
+                    <p class="text-gray-600">手动收集、整理、核对数据，过程繁琐且易出错，占据大量工作时间。</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-low-vision text-5xl text-yellow-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">洞察肤浅</h3>
+                    <p class="text-gray-600">报表多为数据罗列，难以发现数据间的关联和深层趋势，决策价值有限。</p>
+                </div>
+                <div class="p-6">
+                    <i class="fas fa-layer-group text-5xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">格式不一</h3>
+                    <p class="text-gray-600">不同部门、不同时期的报表格式各异，难以进行有效的横向和纵向对比分析。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI如何重塑报表工作 -->
+        <section class="py-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">AI如何重塑报表工作</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 数据提取 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-file-import text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">智能数据提取</h3>
+                    <p class="text-gray-600">自动从PDF、图片、Excel等多种格式文件中提取关键数据，生成结构化信息。</p>
+                </div>
+                <!-- 趋势分析 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">自动趋势分析</h3>
+                    <p class="text-gray-600">分析时间序列数据，自动识别增长、下降、周期性等模式，并预测未来趋势。</p>
+                </div>
+                <!-- 图表生成 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-bar text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">一键生成图表</h3>
+                    <p class="text-gray-600">根据分析结果，自动生成柱状图、折线图、饼图等多种可视化图表，让数据一目了然。</p>
+                </div>
+                <!-- 报告撰写 -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-file-signature text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">智能报告撰写</h3>
+                    <p class="text-gray-600">基于分析结果和图表，自动生成包含摘要、分析、结论和建议的完整报告。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实战场景演示 -->
+        <section class="py-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">实战场景演示</h2>
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- 左侧文字说明 -->
+                    <div class="space-y-8">
+                        <div class="step-item p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 text-xl mb-2"><i class="fas fa-file-excel text-green-600 mr-2"></i>一键生成日报摘要</h4>
+                            <p class="text-gray-600">上传一份交通流量日报（Excel或CSV），AI能自动计算关键指标（如总流量、高峰时段、拥堵指数），并生成一段简洁的日报摘要。</p>
+                        </div>
+                        <div class="step-item p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 text-xl mb-2"><i class="fas fa-tools text-yellow-600 mr-2"></i>养护周报智能解读</h4>
+                            <p class="text-gray-600">输入多条养护巡查的文字记录，AI能自动进行情感分析、识别问题类型（如路面破损、标志不清），并统计各类问题数量，形成周报。</p>
+                        </div>
+                        <div class="step-item p-6 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 text-xl mb-2"><i class="fas fa-exclamation-triangle text-red-600 mr-2"></i>安全报告风险预警</h4>
+                            <p class="text-gray-600">分析一个月的安全巡查报告，AI能自动发现重复出现、频率最高的安全隐患，并进行风险等级评估和预警。</p>
+                        </div>
+                    </div>
+                    <!-- 右侧图片 -->
+                    <div>
+                        <img src="pictures/doubao_data_analysis.png" alt="AI数据分析演示" class="rounded-lg shadow-2xl w-full h-auto">
+                        <p class="text-center text-gray-500 mt-4">示例：使用AI工具（豆包）进行数据分析和图表生成</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新增实战演练 -->
+        <section class="py-12 bg-blue-50 rounded-2xl mt-12">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">实战演练：收费站运营月报智能分析</h2>
+                <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-8">
+                        <div class="lg:w-1/3 text-center">
+                            <img src="pictures/report_case_study.png" alt="收费站月报分析案例" class="rounded-lg shadow-xl w-full h-auto mx-auto">
+                            <p class="text-gray-500 mt-4 text-sm">案例示意图：AI分析月报数据</p>
+                        </div>
+                        <div class="lg:w-2/3">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">案例背景</h3>
+                            <p class="text-gray-600 mb-6">某高速公路收费站需要每月整理和分析大量的运营数据，包括车流量、收费额、车型、支付方式等，并撰写月度运营报告。传统方法耗时且难以深入挖掘数据价值。本案例将演示如何使用AI工具（如Kimi、豆包等）快速完成这一任务。</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-10">
+                        <!-- 步骤一 -->
+                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                            <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">准备数据与工具</h4>
+                                <p class="text-gray-600">将收费站一个月的原始通行记录整理成一个Excel文件（.xlsx），包含日期、时间、车型、支付方式、金额等字段。选择一个具备数据分析能力的大语言模型工具，如Kimi Chat。</p>
+                            </div>
+                        </div>
+
+                        <!-- 步骤二 -->
+                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                            <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">设计精准的分析指令 (Prompt)</h4>
+                                <p class="text-gray-600 mb-4">向AI清晰地描述你的分析需求。一个好的Prompt是获取高质量分析结果的关键。以下是一个示例Prompt：</p>
+                                <div class="bg-gray-100 p-4 rounded-lg text-gray-700 border-l-4 border-blue-400">
+                                    <code class="font-mono">
+                                        你是一位专业的高速公路运营数据分析师。请基于我上传的《XX收费站X月运营数据.xlsx》文件，完成以下分析任务：
+                                        <br><br><strong>1. 总体运营情况分析：</strong>
+                                        <br>   - 计算总车流量和总收费额。
+                                        <br>   - 分析不同支付方式（ETC、现金等）的占比，并生成饼图。
+                                        <br><br><strong>2. 高峰时段分析：</strong>
+                                        <br>   - 分析一天中哪个时段车流量最大，并生成小时维度的车流量折线图。
+                                        <br>   - 分析一周中哪几天是通行高峰。
+                                        <br><br><strong>3. 车型结构分析：</strong>
+                                        <br>   - 统计不同车型（客车、货车等）的占比和贡献的收入占比，并用柱状图展示。
+                                        <br><br><strong>4. 撰写报告摘要：</strong>
+                                        <br>   - 基于以上分析，生成一段不超过300字的运营月报摘要，包括关键发现和潜在的优化建议。
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 步骤三 -->
+                        <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
+                            <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">执行与解读</h4>
+                                <p class="text-gray-600">将Excel文件和Prompt一同提交给AI。AI将自动进行数据处理、计算、图表生成和文本撰写。你只需对生成的结果进行审核、微调，即可快速形成一份专业的分析报告。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white mt-12">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-600">
+            <p>&copy; 2025 AI赋能高速公路管理培训. 保留所有权利.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

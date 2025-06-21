@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI代码编辑器 - AI赋能高速公路管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+        }
+        .content-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">AI赋能高速管理</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
+                <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+
+                <!-- AI Applications Dropdown -->
+                <div class="relative group">
+                    <a href="ai-applications.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
+                        AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                        <div class="py-1">
+                            <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                            <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
+                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50 font-semibold">AI编辑器</a>
+                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
+                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
+                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
+                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feishu Bitable Dropdown -->
+                <div class="relative group">
+                    <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                        <div class="py-1">
+                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
+                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
+                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
+                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
+                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hands-on Practice Dropdown -->
+                <div class="relative group">
+                    <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                        <div class="py-1">
+                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-4">AI代码编辑器：您的智能编程伙伴</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">从“人机对话”到“人机协同”，体验下一代开发模式。</p>
+        </div>
+
+        <!-- AI编辑器的作用 -->
+        <section class="content-section">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-cogs text-blue-500 mr-3"></i>什么是AI代码编辑器？</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">AI代码编辑器，如Trae AI，不仅仅是代码补全工具。它是一个能够理解您的意图、与您结对编程、并能自主完成开发任务的智能体。它将大语言模型深度集成到集成开发环境（IDE）中，彻底改变了软件开发和脚本编写的流程。</p>
+            <p class="text-lg text-gray-700 leading-relaxed">对于高速公路管理项目，AI编辑器可以：</p>
+            <ul class="list-disc list-inside mt-4 space-y-2 text-lg text-gray-700">
+                <li><i class="fas fa-check-circle text-green-500 mr-2"></i><span class="font-semibold">快速编写数据分析脚本：</span>只需用自然语言描述需求，即可生成Python脚本，用于分析交通流量、收费数据等。</li>
+                <li><i class="fas fa-lightbulb text-green-500 mr-2"></i><span class="font-semibold">自动化生成报告：</span>自动编写代码，将分析结果生成为格式化的Word或Excel报告。</li>
+                <li><i class="fas fa-gavel text-green-500 mr-2"></i><span class="font-semibold">构建小型Web应用：</span>快速搭建内部使用的数据看板或信息查询工具。</li>
+            </ul>
+        </section>
+
+        <!-- Trae AI 视频演示 -->
+        <section class="content-section">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fab fa-youtube text-red-500 mr-3"></i>Trae AI 编辑器演示</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">通过下面的视频，直观感受Trae AI如何与开发者协作，高效完成一个网站从前端到后端的完整开发任务。</p>
+            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
+                <video controls class="w-full h-full">
+                    <source src="videos/trae.mp4" type="video/mp4">
+                    您的浏览器不支持视频播放。
+                </video>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 AI赋能高速公路管理培训. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

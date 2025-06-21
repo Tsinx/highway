@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞书多维表格：构建企业数智化管理基石 - AI赋能高速公路管理培训</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">
+                    <i class="fas fa-table mr-2"></i>飞书多维表格
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
+                    <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+
+                    <!-- AI Applications Dropdown -->
+                    <div class="relative group">
+                        <a href="ai-applications.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                            AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
+                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
+                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
+                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
+                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
+                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feishu Bitable Dropdown -->
+                    <div class="relative group">
+                        <a href="feishu-bitable.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1 flex items-center">
+                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-blue-600 bg-blue-50 font-semibold">总览</a>
+                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
+                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
+                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
+                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
+                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hands-on Practice Dropdown -->
+                    <div class="relative group">
+                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center py-12">
+            <h1 class="text-5xl font-bold text-gray-800 mb-6">飞书多维表格：构建企业数智化管理基石</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">超越传统电子表格，飞书多维表格是一款集数据、流程与协作于一体的新一代效率工具，是企业实现精细化、自动化和智能化管理的强大引擎。</p>
+        </section>
+
+        <section class="py-12">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">为什么选择飞书多维表格？</h2>
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-white rounded-lg p-6 shadow transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">灵活的数据组织</h3>
+                    <p class="text-gray-600">不仅有文本、数字，更有附件、人员、关联记录等20多种丰富字段类型。像搭积木一样，轻松构建符合业务需求的数据库。</p>
+                </div>
+                <div class="feature-card bg-white rounded-lg p-6 shadow transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">强大的流程自动化</h3>
+                    <p class="text-gray-600">通过设置自动化规则，实现数据录入、状态变更、消息提醒等任务的自动流转，告别人工操作，释放团队生产力。</p>
+                </div>
+                <div class="feature-card bg-white rounded-lg p-6 shadow transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">无缝的团队协作</h3>
+                    <p class="text-gray-600">与飞书IM、日历、文档深度整合。在数据旁直接沟通，任务进展实时同步，打破部门墙，实现高效协同。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 bg-gray-100 rounded-lg">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">教程章节</h2>
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="feishu-bitable-basic.html" class="block bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                        <h4 class="font-bold text-xl mb-2 text-blue-600">第一章：多维表格基础</h4>
+                        <p class="text-gray-600">从零开始，掌握飞书多维表格的核心概念（数据表、字段、记录、视图）与基本操作，并搭建一个简单的个人任务管理器。</p>
+                    </a>
+                    <a href="feishu-bitable-advanced.html" class="block bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                        <h4 class="font-bold text-xl mb-2 text-blue-600">第二章：多维表格进阶</h4>
+                        <p class="text-gray-600">解锁筛选、排序、分组、关联、公式和自动化等高级功能，并搭建一个项目与任务联动的管理系统。</p>
+                    </a>
+                    <a href="feishu-bitable-ai-autofill.html" class="block bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                        <h4 class="font-bold text-xl mb-2 text-blue-600">第三章：利用AI批量填充提升效率</h4>
+                        <p class="text-gray-600">学习如何利用飞书多维表格的AI能力，实现内容的批量生成和填充，并通过实战案例掌握自动化查询企业信息的方法。</p>
+                    </a>
+                    <a href="feishu-bitable-approval.html" class="block bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                        <h4 class="font-bold text-xl mb-2 text-blue-600">第四章：利用多维表格实现智能审批自动化</h4>
+                        <p class="text-gray-600">将审批流程与多维表格结合，通过AI增强，实现更高效、智能的自动化管理。</p>
+                    </a>
+                    <a href="feishu-bitable-workflow.html" class="block bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+                        <h4 class="font-bold text-xl mb-2 text-blue-600">第五章：工作流（Workflow）：构建你的专属AI Agent</h4>
+                        <p class="text-gray-600">从自动化到智能化，学习使用工作流设计复杂业务流程，并打造能自主判断和执行的AI Agent。</p>
+                    </a>
+                </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

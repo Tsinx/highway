@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具箱 - AI赋能高速公路管理培训</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+        }
+        .tool-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: #3b82f6;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .feature-item {
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover {
+            background-color: #f0f9ff;
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">
+                    <i class="fas fa-toolbox mr-2"></i>AI工具箱
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
+                    <a href="ai-tools.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">AI工具箱</a>
+
+                    <!-- AI Applications Dropdown -->
+                    <div class="relative group">
+                        <a href="ai-applications.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                            AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
+                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
+                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
+                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
+                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
+                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feishu Bitable Dropdown -->
+                    <div class="relative group">
+                        <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
+                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
+                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
+                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
+                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hands-on Practice Dropdown -->
+                    <div class="relative group">
+                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                            <div class="py-1">
+                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- 页面标题 -->
+        <section class="text-center py-12">
+            <h1 class="text-5xl font-bold text-gray-800 mb-6">
+                解密高速公路从业者的AI工具箱
+            </h1>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                掌握无需专门硬件、以软件为核心的AI工具组合，驱动智能化转型的"三驾马车"
+            </p>
+        </section>
+
+        <!-- 工具分类标签 -->
+        <section class="mb-12">
+            <div class="flex justify-center space-x-2 md:space-x-4 mb-8 flex-wrap">
+                <button class="tab-btn px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold bg-blue-600 text-white mb-2" data-tab="llm">
+                    大语言模型
+                </button>
+                <button class="tab-btn px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 mb-2" data-tab="programming">
+                    AI编程工具
+                </button>
+                <button class="tab-btn px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 mb-2" data-tab="collaboration">
+                    协同办公平台
+                </button>
+                <button class="tab-btn px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 mb-2" data-tab="agents">
+                    AI智能体
+                </button>
+            </div>
+
+            <!-- 大语言模型 -->
+            <div id="llm" class="tab-content active">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">
+                    大语言模型（LLMs）：知识引擎
+                </h2>
+                <p class="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+                    大语言模型如同一个拥有海量知识、精通逻辑推理的"超级大脑"，能够执行文本摘要、报告撰写、信息检索、数据分析等多种任务。
+                </p>
+
+                <!-- 国内模型 -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-6 pb-2 border-b-2 border-blue-500 inline-block">国内模型</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- DeepSeek -->
+                        <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-brain text-2xl text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">DeepSeek</h3>
+                                    <p class="text-gray-600">国产大模型领军者</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-database text-blue-600 mr-2"></i>企业知识库构建</h4>
+                                    <p class="text-gray-600">在专业领域问答方面表现突出，多个省级交通运输管理部门已成功部署</p>
+                                </div>
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-search text-blue-600 mr-2"></i>业务查询系统</h4>
+                                    <p class="text-gray-600">通过自然语言快速获取专业知识和数据，提升工作效率</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kimi -->
+                        <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-file-alt text-2xl text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Kimi</h3>
+                                    <p class="text-gray-600">长文本处理专家</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-scroll text-purple-600 mr-2"></i>超长文档分析</h4>
+                                    <p class="text-gray-600">一次性阅读和分析高达200万字的文档，处理能力业界领先</p>
+                                </div>
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-cogs text-purple-600 mr-2"></i>复杂文件处理</h4>
+                                    <p class="text-gray-600">轻松处理招标文件、施工组织设计、技术规范和法律合同</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 豆包 -->
+                        <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-comments text-2xl text-orange-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">豆包</h3>
+                                    <p class="text-gray-600">字节跳动出品</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-user-friends text-orange-600 mr-2"></i>多角色互动</h4>
+                                    <p class="text-gray-600">提供多种AI角色进行对话，满足不同场景的交流需求。</p>
+                                </div>
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-bolt text-orange-600 mr-2"></i>响应速度快</h4>
+                                    <p class="text-gray-600">在日常聊天、知识问答等场景响应迅速，体验流畅。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 国外模型 -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-700 mb-6 pb-2 border-b-2 border-green-500 inline-block">国外模型</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- ChatGPT -->
+                        <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-comment-dots text-2xl text-teal-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">ChatGPT</h3>
+                                    <p class="text-gray-600">对话式AI的标杆</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-lightbulb text-teal-600 mr-2"></i>创意与写作</h4><p class="text-gray-600">生成各类文案、报告、邮件，提供创意灵感。</p>
+                                </div>
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-code text-teal-600 mr-2"></i>代码编写与调试</h4><p class="text-gray-600">辅助编写代码片段、解释代码、排查错误。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gemini -->
+                        <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-gem text-2xl text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Gemini</h3>
+                                    <p class="text-gray-600">Google的多模态AI</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-photo-video text-indigo-600 mr-2"></i>多模态理解</h4><p class="text-gray-600">能够理解和处理文本、图片、视频等多种信息。</p>
+                                </div>
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-search text-indigo-600 mr-2"></i>强大研究能力</h4><p class="text-gray-600">深度集成Google搜索，提供更精准、实时的信息。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Claude -->
+                        <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                            <div class="flex items-center mb-6">
+                                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-user-shield text-2xl text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Claude</h3>
+                                    <p class="text-gray-600">安全与长文本的结合</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-file-invoice text-amber-600 mr-2"></i>更强的长文本能力</h4><p class="text-gray-600">在处理超长文档方面表现优异，适合分析财报、法律文件。</p>
+                                </div>
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-shield-alt text-amber-600 mr-2"></i>企业级安全性</h4><p class="text-gray-600">注重数据安全和隐私保护，更适合企业环境。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI编程工具 -->
+            <div id="programming" class="tab-content">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+                    AI编程工具：开发加速器
+                </h2>
+                <p class="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+                    AI原生编程工具将AI能力深度集成到代码编辑器中，彻底改变软件开发的工作流。
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Cursor -->
+                    <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-mouse-pointer text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Cursor</h3>
+                                <p class="text-gray-600">AI优先的代码编辑器</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-project-diagram text-gray-700 mr-2"></i>代码库感知对话</h4><p class="text-gray-600">能够理解整个代码库的上下文，进行精准的代码生成和修改。</p>
+                            </div>
+                            <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-bug text-gray-700 mr-2"></i>智能调试</h4><p class="text-gray-600">自动应用修复建议，快速定位和解决bug。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trae AI -->
+                    <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-cogs text-2xl text-red-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Trae AI</h3>
+                                <p class="text-gray-600">智能体驱动的开发平台</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-users-cog text-red-600 mr-2"></i>AI Agent协同</h4><p class="text-gray-600">通过AI Agent团队协作，自动化完成复杂的开发任务。</p>
+                            </div>
+                            <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-tasks text-red-600 mr-2"></i>端到端任务执行</h4><p class="text-gray-600">从需求理解到代码实现、测试和部署，实现端到端自动化。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 协同办公平台 -->
+            <div id="collaboration" class="tab-content">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+                    协同办公平台：中央神经系统
+                </h2>
+                <p class="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+                    现代协同办公平台已演变为AI原生的企业操作系统，成为连接人、数据和流程的"中央神经系统"。
+                </p>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="tool-card bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-center mb-8">
+                            <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mr-6">
+                                <i class="fas fa-users text-3xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-gray-800">飞书智能伙伴（Aily）</h3>
+                                <p class="text-gray-600 text-lg">AI应用搭建平台</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2">
+                                        <i class="fas fa-code text-green-600 mr-2"></i>低代码开发
+                                    </h4>
+                                    <p class="text-gray-600">通过拖拽和自然语言配置，快速创建定制化AI应用</p>
+                                </div>
+                                
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2">
+                                        <i class="fas fa-robot text-green-600 mr-2"></i>AI助手创建
+                                    </h4>
+                                    <p class="text-gray-600">业务人员可自主搭建能够自动执行任务的AI助手</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2">
+                                        <i class="fas fa-puzzle-piece text-green-600 mr-2"></i>深度集成
+                                    </h4>
+                                    <p class="text-gray-600">将AI能力深度集成到日常工作的每一个环节</p>
+                                </div>
+                                
+                                <div class="feature-item p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2">
+                                        <i class="fas fa-democratize text-green-600 mr-2"></i>创新民主化
+                                    </h4>
+                                    <p class="text-gray-600">让每位员工都能成为效率提升的贡献者</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg mt-6">
+                            <h5 class="font-semibold text-green-800 mb-3">核心价值：公民开发者的崛起</h5>
+                            <p class="text-green-700">
+                                过去需要专业IT团队数周开发的业务流程自动化，现在业务人员通过简单配置就能在短时间内完成，实现创新模式的民主化。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI智能体 -->
+            <div id="agents" class="tab-content">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+                    AI智能体（AI Agents）：数字化员工
+                </h2>
+                <p class="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+                    AI智能体是拥有"大脑、眼睛和手脚"的完整数字化员工，代表了AI应用的最新发展方向。
+                </p>
+                
+                <div class="max-w-6xl mx-auto">
+                    <!-- 核心能力 -->
+                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-eye text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">感知（Perception）</h3>
+                            <p class="text-gray-600">
+                                通过API接口读取系统数据、监控聊天群消息、分析邮件内容
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-brain text-2xl text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">决策（Decision-making）</h3>
+                            <p class="text-gray-600">
+                                利用LLM推理能力分析信息，决定下一步行动方案
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white rounded-2xl p-6 shadow-lg text-center">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-hand-paper text-2xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">行动（Action）</h3>
+                            <p class="text-gray-600">
+                                执行具体任务，如发送通知、更新数据库、起草报告
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 智能体角色示例 -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                            您的数字化员工团队
+                        </h3>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="text-center p-4 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+                                <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-search-dollar text-blue-600"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">收费稽核员</h4>
+                                <p class="text-sm text-gray-600">7x24小时审查通行数据，识别逃费行为</p>
+                            </div>
+                            
+                            <div class="text-center p-4 border border-gray-200 rounded-lg hover:border-green-300 transition-colors">
+                                <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-hard-hat text-green-600"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">安全巡检员</h4>
+                                <p class="text-sm text-gray-600">自动分析施工现场数据，识别安全隐患</p>
+                            </div>
+                            
+                            <div class="text-center p-4 border border-gray-200 rounded-lg hover:border-purple-300 transition-colors">
+                                <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-file-contract text-purple-600"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">合同法务助理</h4>
+                                <p class="text-sm text-gray-600">秒级审阅合同，标出风险条款</p>
+                            </div>
+                            
+                            <div class="text-center p-4 border border-gray-200 rounded-lg hover:border-orange-300 transition-colors">
+                                <div class="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <i class="fas fa-tasks text-orange-600"></i>
+                                </div>
+                                <h4 class="font-semibold text-gray-800 mb-2">项目督办专员</h4>
+                                <p class="text-sm text-gray-600">自动跟进任务进度，汇报延期风险</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工具能力对比 -->
+        <section class="py-12 bg-white rounded-2xl shadow-xl">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+                    <i class="fas fa-balance-scale mr-3 text-blue-600"></i>AI工具能力对比
+                </h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border-2 border-gray-200 rounded-lg">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="text-left py-4 px-6 font-semibold text-gray-700">能力维度</th>
+                                <th class="text-left py-4 px-6 font-semibold text-gray-700">大语言模型 (LLMs)</th>
+                                <th class="text-left py-4 px-6 font-semibold text-gray-700">协同办公平台</th>
+                                <th class="text-left py-4 px-6 font-semibold text-gray-700">AI智能体</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-6 text-gray-800 font-medium">核心功能</td>
+                                <td class="py-4 px-6 text-gray-600">知识问答、文本生成、数据分析</td>
+                                <td class="py-4 px-6 text-gray-600">流程自动化、应用搭建、知识管理</td>
+                                <td class="py-4 px-6 text-gray-600">自主规划、任务执行、多工具协同</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-6 text-gray-800 font-medium">应用场景</td>
+                                <td class="py-4 px-6 text-gray-600">报告撰写、信息查询、方案初稿</td>
+                                <td class="py-4 px-6 text-gray-600">周报自动汇总、合同审批、项目跟踪</td>
+                                <td class="py-4 px-6 text-gray-600">市场调研、代码开发、设备健康监测</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-6 text-gray-800 font-medium">技术要求</td>
+                                <td class="py-4 px-6 text-gray-600">无需编程，直接使用</td>
+                                <td class="py-4 px-6 text-gray-600">低代码/无代码配置</td>
+                                <td class="py-4 px-6 text-gray-600">需要定义清晰的目标和可用工具</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-4 px-6 text-gray-800 font-medium">价值体现</td>
+                                <td class="py-4 px-6 text-gray-600">提升个人知识获取和内容创作效率</td>
+                                <td class="py-4 px-6 text-gray-600">优化团队协作和业务流程效率</td>
+                                <td class="py-4 px-6 text-gray-600">自动化完成复杂任务，创造新价值</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- LiveBench -->
+        <section class="mt-16 py-12 bg-gray-100 rounded-2xl">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    <i class="fas fa-chart-line mr-3 text-indigo-600"></i>模型能力风向标：LiveBench
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                    LiveBench 是一个领先的、持续更新的大模型评测基准，旨在提供公正、无污染的性能评估。通过跟踪其排行榜，我们可以了解各大模型在真实、复杂任务上的最新表现。
+                </p>
+                <a href="https://livecodebench.github.io/leaderboard.html" target="_blank" class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition-transform transform hover:scale-105">
+                    <i class="fas fa-external-link-alt mr-2"></i>查看实时排行榜
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
+        </div>
+    </footer>
+
+    <script>
+        // 标签切换功能
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                
+                // 更新按钮状态
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white');
+                    b.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                this.classList.remove('bg-gray-200', 'text-gray-700');
+                this.classList.add('bg-blue-600', 'text-white');
+                
+                // 更新内容显示
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

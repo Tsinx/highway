@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI应用助力企业管理 - AI赋能高速公路管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">AI赋能高速管理</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
+                <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
+                
+                <!-- AI Applications Dropdown -->
+                <div class="relative group">
+                    <a href="ai-applications.html" class="text-blue-600 font-semibold flex items-center">
+                        AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                        <div class="py-1">
+                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
+                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
+                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
+                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
+                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feishu Bitable Dropdown -->
+                <div class="relative group">
+                    <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                        <div class="py-1">
+                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
+                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
+                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
+                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
+                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
+                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hands-on Practice Dropdown -->
+                <div class="relative group">
+                    <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
+                        实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
+                        <div class="py-1">
+                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="roadmap.html" class="text-gray-700 hover:text-blue-600 transition-colors">实施路线图</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">主页</a>
+            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-600">AI工具箱</a>
+            <a href="ai-applications.html" class="block py-2 text-blue-600 font-semibold">AI应用</a>
+            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-600">飞书多维表格</a>
+            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-600">实战演练</a>
+            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-600">实施路线图</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-4">AI应用助力企业管理</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">从信息获取到智能执行，探索AI在管理工作中的核心应用场景。</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Deep Research Card -->
+            <a href="deep-research.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-search-plus text-3xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Deep Research</h3>
+                <p class="text-gray-600 text-center">利用AI进行深度信息挖掘，快速获取、分析和整合特定问题的规范、法规和最佳实践。</p>
+            </a>
+
+            <!-- Prompt Engineering Card -->
+            <a href="prompt-engineering.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
+                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-lightbulb text-3xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">实用提示词技术</h3>
+                <p class="text-gray-600 text-center">学习如何通过精确的提示词（Prompt）与AI高效沟通，获取高质量的输出结果。</p>
+            </a>
+
+            <!-- Report Analysis Card -->
+            <a href="report-analysis.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
+                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-chart-pie text-3xl text-purple-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">智能报表分析</h3>
+                <p class="text-gray-600 text-center">应用AI自动从报表中提取、分析数据，生成洞察，极大提升数据处理和决策效率。</p>
+            </a>
+
+            <!-- AI Editor Card -->
+            <a href="ai-editor.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
+                <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-code text-3xl text-red-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">AI编辑器</h3>
+                <p class="text-gray-600 text-center">了解AI如何辅助代码编写、调试和优化，提升软件开发和IT管理的效率与质量。</p>
+            </a>
+
+            <!-- Image Generation Card -->
+            <a href="image-generation.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
+                <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-image text-3xl text-yellow-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-center text-gray-800 mb-4">AI图片生成</h3>
+                <p class="text-gray-600 text-center">探索如何使用即梦、ChatGPT等工具，为企业宣传、报告和演示文稿快速生成高质量的定制化图片。</p>
+            </a>
+
+            <!-- Video Generation Card -->
+            <a href="video-generation.html" class="feature-card bg-white rounded-2xl p-8 shadow-lg block hover:no-underline">
+                        <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-video text-3xl text-teal-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">AI视频生成</h3>
+                        <p class="text-gray-600 text-center">了解可灵等前沿AI视频生成技术，将文字创意快速转化为生动的视频内容，用于宣传和培训。</p>
+                    </a>
+
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 AI赋能高速公路管理培训. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
