@@ -145,17 +145,17 @@
         </section>
 
         <section class="py-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">前沿视频生成模型：可灵 (Kling)</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">主流视频生成工具介绍</h2>
             <div class="max-w-4xl mx-auto bg-white rounded-xl p-8 md:p-10 shadow-xl feature-card"> 
-                <div class="text-center mb-6">
-                     <img src="pictures/logo_kling.png" alt="Kling Logo" class="h-20 mx-auto mb-4"> 
-                    <h3 class="text-2xl font-bold text-gray-800">可灵 (Kling) 模型</h3>
+                <div class="flex items-center justify-center mb-6">
+                    <img src="pictures/jimeng_icon.png" alt="Jimeng Logo" class="h-16 w-16 mr-4"> 
+                    <h3 class="text-2xl font-bold text-gray-800">即梦 (Jimeng)</h3>
                 </div>
-                <p class="text-gray-700 mb-6 leading-relaxed text-lg">由快手公司推出的“可灵”大模型，是文生视频领域的重大突破。它能够生成长达2分钟、30fps、1080p的高质量视频，并且能够模拟真实世界的物理规律，生成大幅度的合理运动。这使得它在制作复杂场景和长时程视频方面具有巨大优势。</p>
-                <p class="text-gray-700 leading-relaxed text-lg">目前，可灵正在逐步开放体验。它的出现，预示着普通人也能低成本、高效率地创作出专业级视频内容。</p>
+                <p class="text-gray-700 mb-6 leading-relaxed text-lg">即梦是字节跳动推出的一款强大的AI内容创作工具，尤其在视频生成方面表现出色。它支持“图+文”的生成方式，用户可以先用AI生成一张高质量的初始图片（关键帧），然后基于这张图片和新的文本提示，生成与之风格、内容连贯的动态视频。这种方法能更好地控制视频的开场和主体，确保视频质量和创意表达。</p>
+                <p class="text-gray-700 leading-relaxed text-lg">这种“先图后视频”的模式，非常适合制作需要精确场景和视觉风格的宣传片、演示视频等。它降低了视频创作的技术门槛，让创意能够快速、精准地转化为高质量的动态影像。</p>
                  <div class="mt-8 text-center">
-                    <a href="https://kling.kuaishou.com/" target="_blank" class="inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors transform hover:scale-105 shadow-md">
-                        访问可灵官网 <i class="fas fa-external-link-alt ml-2"></i>
+                    <a href="https://jimeng.bytedance.com/" target="_blank" class="inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors transform hover:scale-105 shadow-md">
+                        访问即梦官网 <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
             </div>
@@ -189,51 +189,61 @@
         <!-- 新增实战演练 -->
         <section class="py-16 case-study-section mt-12">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">实战演练：制作“智慧高速”概念宣传短片</h2>
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">实战演练：用“图+文”模式制作“智慧高速”宣传短片</h2>
                 <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
-                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-10">
-                        <div class="lg:w-1/3 text-center">
-                            <video controls poster="pictures/video_case_study_poster.jpg" class="rounded-xl shadow-2xl w-full h-auto mx-auto">
-                                <source src="videos/smart_highway_promo.mp4" type="video/mp4">
-                                您的浏览器不支持视频播放。
-                            </video>
-                            <p class="text-gray-600 mt-4 text-sm">案例示意：AI生成的宣传短片片段</p>
-                        </div>
-                        <div class="lg:w-2/3">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-5">案例背景</h3>
-                            <p class="text-gray-700 mb-6 text-lg leading-relaxed">为了向公众和合作伙伴生动展示“智慧高速”的未来图景，需要制作一个1分钟左右的概念宣传短片。短片需要包含自动驾驶、车路协同、智能监控等核心元素。传统视频制作涉及实景拍摄、三维动画等，成本高昂且周期漫长。本案例将演示如何利用文生视频工具（如可灵、Sora等）高效完成概念短片的制作。</p>
-                        </div>
+                    <div class="text-center mb-12">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">最终成品展示</h3>
+                        <video controls autoplay loop muted poster="videos/first_frame_of_generated_video.jpeg" class="rounded-xl shadow-2xl w-full max-w-4xl h-auto mx-auto">
+                            <source src="videos/generated_video.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放。
+                        </video>
+                        <p class="text-gray-600 mt-4 text-sm">最终效果：由下方“初始帧”和“运镜提示词”生成的视频</p>
                     </div>
 
                     <div class="space-y-12">
-                        <!-- 步骤一 -->
-                        <div class="flex items-start space-x-6 step-card">
-                            <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">1</div>
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-3">构思与分镜设计</h4>
-                                <p class="text-gray-700 leading-relaxed">将1分钟的短片拆解为4-5个关键场景（分镜）。例如：<br>1. <strong>开场：</strong>清晨，阳光洒在未来感十足的高速公路上，无人驾驶车辆有序行驶。<br>2. <strong>中景：</strong>特写路侧的智能感知设备，展示数据流与车辆的交互。<br>3. <strong>高潮：</strong>无人机视角俯瞰整个高速网络，车流如数据般高效流动。<br>4. <strong>结尾：</strong>画面定格在“智慧高速，连接未来”的标语上。</p>
+                        <!-- 步骤一：生成初始帧 -->
+                        <div class="p-8 rounded-xl border border-gray-200 bg-gray-50">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white text-xl font-bold rounded-full flex items-center justify-center shadow-md">1</div>
+                                <h4 class="text-xl font-bold text-gray-800">第一步：生成初始帧 (关键画面)</h4>
                             </div>
-                        </div>
-
-                        <!-- 步骤二 -->
-                        <div class="flex items-start space-x-6 step-card">
-                            <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">2</div>
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-3">为每个分镜撰写Prompt</h4>
-                                <p class="text-gray-700 mb-4 leading-relaxed">为每个分镜撰写详细的视频生成指令。以分镜1为例，一个可灵的示例Prompt：</p>
-                                <div class="code-block">
-                                    一位中国女性驾驶着一辆新能源汽车，行驶在中国南方的高速公路上，窗外是连绵不绝的绿色山脉和美丽的风光，她面带微笑，享受着驾驶的乐趣。电影质感，长镜头，广角 --ar 16:9 --duration 15s
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">我们首先需要构思视频的核心画面，并用详细的提示词在图像生成工具（如Midjourney, DALL-E 3, 或即梦的图像生成功能）中生成一张高质量的图片。这张图片将作为我们视频的“根”，决定了视频的整体风格、色调和核心元素。</p>
+                                    <p class="text-gray-700 font-semibold mb-2">图像生成提示词：</p>
+                                    <div class="code-block">
+                                        黎明时分的横钦高速，路面如黑色绸带穿越层叠山峦与桥梁，高速路旁有现代化办公大楼，一辆工程车在高速路上快速驶过，办公大楼玻璃幕墙内有员工忙碌剪影，画面左下角有'葛洲坝交投・横钦高速'logo与'筑梦高速，智领未来'标语,黎明时分的高速与办公大楼场景,写实照片风格,超大全景镜头快速拉升并向右横移,壮阔、科技感氛围,金色光晕、冷色调光芒、光影轨迹修饰,高清
+                                    </div>
                                 </div>
-                                <p class="text-sm text-gray-600 mt-3 leading-relaxed">（这是一个基础场景，可以进一步加入“自动驾驶”、“未来感”等关键词来强化主题）</p>
+                                <div class="text-center">
+                                    <img src="videos/first_frame_of_generated_video.jpeg" alt="视频生成用的初始帧" class="rounded-xl shadow-lg w-full h-auto mx-auto">
+                                    <p class="text-gray-600 mt-3 text-sm">生成的初始帧图片</p>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- 步骤三 -->
-                        <div class="flex items-start space-x-6 step-card">
-                            <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">3</div>
-                            <div>
-                                <h4 class="text-xl font-bold text-gray-800 mb-3">生成、剪辑与配音</h4>
-                                <p class="text-gray-700 leading-relaxed">将所有Prompt输入AI视频工具，生成各个场景的视频片段。然后，使用剪辑软件（如剪映、Premiere）将这些片段按照分镜顺序拼接起来，加入转场效果、背景音乐和旁白解说，最终完成整个宣传短片的制作。</p>
+                        <!-- 步骤二：图+文生成视频 -->
+                        <div class="p-8 rounded-xl border border-gray-200 bg-gray-50">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white text-xl font-bold rounded-full flex items-center justify-center shadow-md">2</div>
+                                <h4 class="text-xl font-bold text-gray-800">第二步：上传图片，添加运镜提示词生成视频</h4>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">将上一步生成的图片上传到即梦的视频生成功能中。此时，我们不需要再描述复杂的场景，只需专注于描述镜头的运动方式。这种“图+文”结合的方式，能让AI在理解画面内容的基础上，精准地执行我们想要的动态效果。</p>
+                                    <p class="text-gray-700 font-semibold mb-2">视频运镜提示词：</p>
+                                    <div class="code-block">
+                                        镜头前推，快速前进
+                                    </div>
+                                    <p class="text-gray-700 mt-4 leading-relaxed">AI会以初始帧为基础，执行“镜头前推，快速前进”的指令，创造出车辆在高速公路上飞驰的动态视觉效果，最终生成我们在页面顶部看到的视频。</p>
+                                </div>
+                                <div class="text-center">
+                                    <video controls loop muted poster="videos/first_frame_of_generated_video.jpeg" class="rounded-xl shadow-lg w-full h-auto mx-auto">
+                                        <source src="videos/video_generation_process.mp4" type="video/mp4">
+                                        您的浏览器不支持视频播放。
+                                    </video>
+                                    <p class="text-gray-600 mt-3 text-sm">视频生成过程示意 (GIF/短视频)</p>
+                                </div>
                             </div>
                         </div>
                     </div>
