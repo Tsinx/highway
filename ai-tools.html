@@ -2,146 +2,12 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI工具箱 - AI赋能高速公路管理培训</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-        }
-        .tool-card {
-            transition: all 0.3s ease;
-            border: 1px solid #e5e7eb; /* Softer border */
-            border-radius: 1rem; /* Consistent with index.html */
-        }
-        .tool-card:hover {
-            transform: translateY(-8px); /* Consistent with index.html */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Consistent with index.html */
-            border-color: #3b82f6; /* blue-500 */
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out; /* Smoother animation */
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); } /* Smoother animation */
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .feature-item {
-            transition: all 0.3s ease;
-            border-radius: 0.5rem; /* rounded-lg */
-        }
-        .feature-item:hover {
-            background-color: #f3f4f6; /* gray-100 */
-            transform: translateX(5px); /* Subtle effect */
-        }
-        .nav-link-active {
-            color: #2563eb; /* Tailwind blue-700 */
-            font-weight: 600;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 0.25rem;
-        }
-        .nav-link {
-            color: #4b5563; /* Tailwind gray-600 */
-        }
-        .nav-link:hover {
-            color: #1d4ed8; /* Tailwind blue-800 */
-        }
-        .dropdown-menu a:hover {
-            background-color: #eff6ff; /* Tailwind blue-50 */
-            color: #1d4ed8; /* Tailwind blue-800 */
-        }
-        .tab-btn-active {
-            background-color: #2563eb; /* blue-700 */
-            color: white;
-        }
-        .tab-btn {
-            background-color: #e5e7eb; /* gray-200 */
-            color: #374151; /* gray-700 */
-        }
-        .tab-btn:hover {
-            background-color: #d1d5db; /* gray-300 */
-        }
-    </style>
+    <page-head-component title="AI工具箱 - AI赋能高速公路管理培训" description="解密高速公路从业者的AI工具箱 - 掌握大语言模型、AI编程工具、协同办公平台和AI智能体"></page-head-component>
+    <script src="components/components.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800"> 
-    <!-- 导航栏 -->
-    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center">
-                    <i class="fas fa-cogs mr-2"></i>AI赋能高速管理 
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link">主页</a>
-                    <a href="ai-tools.html" class="nav-link-active">AI工具箱</a>
-
-                    <div class="relative group">
-                        <a href="ai-applications.html" class="nav-link flex items-center">
-                            AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                            <div class="py-2">
-                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
-                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700">提示词工程</a>
-                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
-                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
-                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
-                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
-                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative group">
-                        <a href="feishu-bitable.html" class="nav-link flex items-center">
-                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                            <div class="py-2">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative group">
-                        <a href="coze-bot-creation.html" class="nav-link flex items-center">
-                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                            <div class="py-2">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="roadmap.html" class="nav-link">实施路线图</a>
-                </div>
-                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
-            <a href="ai-tools.html" class="block py-2 text-blue-700 font-semibold">AI工具箱</a>
-            <a href="ai-applications.html" class="block py-2 text-gray-700 hover:text-blue-700">AI应用</a>
-            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-700">飞书多维表格</a>
-            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
-            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
-        </div>
-    </nav>
+    <!-- 导航栏组件 -->
+    <navigation-component current-page="ai-tools"></navigation-component>
 
     <!-- 主要内容 -->
     <main class="container mx-auto px-6 py-16">
@@ -188,8 +54,8 @@
                         <!-- DeepSeek -->
                         <div class="tool-card bg-white p-8 shadow-xl">
                             <div class="flex items-center mb-6">
-                                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mr-5">
-                                    <i class="fas fa-brain text-3xl text-blue-600"></i>
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/deepseek_logo.png" alt="DeepSeek Logo" class="w-16 h-16 rounded-full object-contain">
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-bold text-gray-800">DeepSeek</h3>
@@ -211,8 +77,8 @@
                         <!-- Kimi -->
                         <div class="tool-card bg-white p-8 shadow-xl">
                             <div class="flex items-center mb-6">
-                                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mr-5">
-                                    <i class="fas fa-file-alt text-3xl text-purple-600"></i>
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/kimi_logo.png" alt="Kimi Logo" class="w-16 h-16 rounded-full object-contain">
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-bold text-gray-800">Kimi</h3>
@@ -234,8 +100,8 @@
                         <!-- 豆包 -->
                         <div class="tool-card bg-white p-8 shadow-xl">
                             <div class="flex items-center mb-6">
-                                <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mr-5">
-                                    <i class="fas fa-comments text-3xl text-orange-600"></i>
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/doubao_logo.png" alt="豆包 Logo" class="w-16 h-16 rounded-full object-contain">
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-bold text-gray-800">豆包</h3>
@@ -253,6 +119,29 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 千问 -->
+                        <div class="tool-card bg-white p-8 shadow-xl">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/qianwen_logo.png" alt="千问 Logo" class="w-16 h-16 rounded-full object-contain">
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">千问</h3>
+                                    <p class="text-gray-600">阿里云通义千问</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-chart-bar text-red-600 mr-2"></i>数据分析能力</h4>
+                                    <p class="text-gray-700 text-sm leading-relaxed">在数据处理和分析方面表现优异，支持复杂的统计计算。</p>
+                                </div>
+                                <div class="feature-item p-4 border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-language text-red-600 mr-2"></i>中文理解优化</h4>
+                                    <p class="text-gray-700 text-sm leading-relaxed">针对中文语境深度优化，在中文理解和生成方面表现出色。</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -263,8 +152,8 @@
                         <!-- ChatGPT -->
                         <div class="tool-card bg-white p-8 shadow-xl">
                             <div class="flex items-center mb-6">
-                                <div class="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mr-5">
-                                    <i class="fas fa-comment-dots text-3xl text-teal-600"></i>
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/chatgpt_logo.svg" alt="ChatGPT Logo" class="w-16 h-16 rounded-full object-contain">
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-bold text-gray-800">ChatGPT</h3>
@@ -284,8 +173,8 @@
                         <!-- Gemini -->
                         <div class="tool-card bg-white p-8 shadow-xl">
                             <div class="flex items-center mb-6">
-                                <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mr-5">
-                                    <i class="fas fa-gem text-3xl text-indigo-600"></i>
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/gemini_logo.svg" alt="Gemini Logo" class="w-16 h-16 rounded-full object-contain">
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-bold text-gray-800">Gemini</h3>
@@ -305,8 +194,8 @@
                         <!-- Claude -->
                         <div class="tool-card bg-white p-8 shadow-xl">
                             <div class="flex items-center mb-6">
-                                <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mr-5">
-                                    <i class="fas fa-user-shield text-3xl text-amber-600"></i>
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/claude_logo.svg" alt="Claude Logo" class="w-16 h-16 rounded-full object-contain">
                                 </div>
                                 <div>
                                     <h3 class="text-2xl font-bold text-gray-800">Claude</h3>
@@ -319,6 +208,29 @@
                                 </div>
                                 <div class="feature-item p-4 border border-gray-200">
                                     <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-shield-alt text-amber-600 mr-2"></i>企业级安全性</h4><p class="text-gray-700 text-sm leading-relaxed">注重数据安全和隐私保护，更适合企业环境。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grok -->
+                        <div class="tool-card bg-white p-8 shadow-xl">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
+                                    <img src="pictures/grok_logo.svg" alt="Grok Logo" class="w-16 h-16 rounded-full object-contain">
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Grok</h3>
+                                    <p class="text-gray-600">X平台的AI助手</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="feature-item p-4 border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-globe text-gray-600 mr-2"></i>实时信息获取</h4>
+                                    <p class="text-gray-700 text-sm leading-relaxed">能够获取X平台的实时信息，提供最新的社交媒体动态。</p>
+                                </div>
+                                <div class="feature-item p-4 border border-gray-200">
+                                    <h4 class="font-semibold text-gray-800 mb-2"><i class="fas fa-smile text-gray-600 mr-2"></i>幽默风格对话</h4>
+                                    <p class="text-gray-700 text-sm leading-relaxed">具有独特的幽默感和个性化表达，对话风格轻松有趣。</p>
                                 </div>
                             </div>
                         </div>
@@ -595,59 +507,12 @@
 
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-gray-900 text-white py-10"> 
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
-        </div>
-    </footer>
+    <!-- 页脚组件 -->
+    <footer-component></footer-component>
 
     <script>
-        // 标签切换功能
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const targetTab = this.getAttribute('data-tab');
-                
-                tabButtons.forEach(b => {
-                    b.classList.remove('tab-btn-active');
-                    b.classList.add('tab-btn');
-                });
-                this.classList.add('tab-btn-active');
-                this.classList.remove('tab-btn');
-                
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(targetTab).classList.add('active');
-            });
-        });
-
-        // 平滑滚动 (if needed for other anchors)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                // e.preventDefault(); // Comment out if not needed
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target && this.getAttribute('href').startsWith('#')) { // Ensure it's an on-page link
-                     e.preventDefault();
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // 移动菜单切换
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
+        // 页面特定的JavaScript代码可以在这里添加
+        // 通用功能已经在components.js中处理
     </script>
 </body>
 </html>

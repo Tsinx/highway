@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 使用页头组件，自动注入必要的meta标签、样式和脚本 -->
+    <page-head-component 
+        title="页面标题 - AI赋能高速公路管理培训" 
+        description="页面描述信息">
+    </page-head-component>
+    
+    <!-- 加载组件系统 -->
+    <script src="components/components.js"></script>
+    
+    <!-- 页面特定的样式可以在这里添加 -->
+    <style>
+        /* 页面特定样式 */
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- 导航栏组件 -->
+    <!-- current-page属性用于高亮当前页面，可选值：index, ai-tools, ai-applications, feishu-bitable, coze-bot-creation, roadmap -->
+    <navigation-component current-page="页面标识"></navigation-component>
+    
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-6 py-16">
+        <!-- 页面内容在这里 -->
+        <h1 class="text-4xl font-bold text-center mb-8">页面标题</h1>
+        
+        <!-- 如果页面有标签切换功能，使用以下结构 -->
+        <div class="flex justify-center space-x-4 mb-10">
+            <button class="tab-btn px-6 py-3 rounded-lg font-semibold tab-btn-active" data-tab="tab1">
+                标签1
+            </button>
+            <button class="tab-btn px-6 py-3 rounded-lg font-semibold" data-tab="tab2">
+                标签2
+            </button>
+        </div>
+        
+        <div id="tab1" class="tab-content active">
+            <!-- 标签1内容 -->
+        </div>
+        
+        <div id="tab2" class="tab-content">
+            <!-- 标签2内容 -->
+        </div>
+    </main>
+    
+    <!-- 页脚组件 -->
+    <footer-component></footer-component>
+    
+    <script>
+        // 页面特定的JavaScript代码
+        // 通用功能（平滑滚动、标签切换、移动菜单）已经在components.js中处理
+        
+        // 如果需要页面特定的功能，可以在这里添加
+        document.addEventListener('DOMContentLoaded', function() {
+            // 页面加载完成后的初始化代码
+        });
+    </script>
+</body>
+</html>

@@ -160,68 +160,82 @@
             </section>
 
             <section>
-                <h2 class="text-3xl font-bold text-gray-800 mb-8">实战案例：构建AI内容巡检与优化Agent</h2>
-                <p class="text-gray-700 mb-8 text-lg leading-relaxed">设想一个场景：我们需要一个自动化的内容审核流程。当运营人员在多维表格中提交一篇新文章后，一个AI Agent会自动对内容进行质量评估和合规性检查，然后根据结果执行不同操作。</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-8">实战案例：构建财务报销审批助手</h2>
+                <p class="text-gray-700 mb-8 text-lg leading-relaxed">
+                    接下来，我们将通过一个实战案例，展示如何结合多维表格、多模态AI和工作流，构建一个智能的财务报销审批助手。该助手能自动分析员工提交的报销申请及附件，判断其合规性，并根据结果自动推进或驳回流程。
+                </p>
+
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-video text-blue-600 mr-3"></i>完整操作演示</h3>
+                    <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl border border-gray-200">
+                        <video controls loop muted poster="pictures/doubao_data_analysis.png" class="w-full h-full object-cover">
+                            <source src="videos/using_AI_create_workflow.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放。
+                        </video>
+                    </div>
+                    <p class="text-center text-gray-600 mt-3 text-sm">视频案例：构建一个从数据录入、AI分析到智能审批的全流程财务助手。</p>
+                </div>
 
                 <div class="space-y-10">
                     <div class="step-card">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-table text-blue-600 mr-3"></i>第一步：搭建数据表</h3>
-                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">创建一个名为“内容发布管理”的数据表，包含以下字段：</p>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-table text-blue-600 mr-3"></i>第一步：搭建财务报销数据表</h3>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">首先，创建一个“财务报销审批”数据表，用于收集和管理所有报销申请。关键字段包括：</p>
                         <ul class="list-disc list-inside text-gray-700 pl-6 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-2 text-lg">
-                            <li><strong>文章标题</strong> (文本)</li>
-                            <li><strong>文章内容</strong> (多行文本)</li>
+                            <li><strong>报销事由</strong> (文本)</li>
+                            <li><strong>报销金额</strong> (货币)</li>
+                            <li><strong>发票/凭证</strong> (附件，允许多个)</li>
                             <li><strong>提交人</strong> (人员)</li>
-                            <li><strong>状态</strong> (单选：待审核、待修改、待发布、已发布)</li>
-                            <li><strong>AI评估结果</strong> (多行文本)</li>
-                            <li><strong>优化建议</strong> (多行文本)</li>
+                            <li><strong>审批状态</strong> (单选：待审核、待审批、已驳回、已支付)</li>
+                            <li><strong>AI审核建议</strong> (多行文本，用于存放AI的分析结果和建议)</li>
+                            <li><strong>审批意见</strong> (多行文本)</li>
                         </ul>
                     </div>
 
                     <div class="step-card">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-project-diagram text-blue-600 mr-3"></i>第二步：创建工作流</h3>
-                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">1. 在多维表格左下角，点击“工作流”新建一个工作流，命名为“AI内容巡检Agent”。</p>
-                        <p class="text-gray-700 text-lg leading-relaxed">2. <strong>设置触发器</strong>：选择“当记录新增时”，并指定数据表为“内容发布管理”。</p>
-                    </div>
-
-                    <div class="step-card">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-robot text-blue-600 mr-3"></i>第三步：编排Agent执行逻辑</h3>
-                        <p class="text-gray-700 mb-5 text-lg leading-relaxed">接下来，我们来设计Agent的核心处理流程：</p>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4"><i class="fas fa-project-diagram text-blue-600 mr-3"></i>第二步：设计工作流与AI Agent</h3>
+                        <p class="text-gray-700 mb-3 text-lg leading-relaxed">在多维表格中新建工作流，触发器设置为“当新记录创建时”。核心逻辑如下：</p>
                         <ul class="list-decimal list-inside space-y-6 text-gray-700 pl-4 text-lg">
                             <li>
-                                <strong>节点1：AI生成文本（内容评估）</strong>
+                                <strong>节点1：AI多模态识别与分析</strong>
                                 <ul class="list-disc list-inside ml-6 mt-3 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-2">
-                                    <li><strong>操作</strong>：选择“AI生成文本”。</li>
-                                    <li><strong>输入</strong>：引用触发记录中的“文章标题”和“文章内容”。</li>
-                                    <li><strong>Prompt</strong>：
+                                    <li><strong>操作</strong>：选择“AI生成文本”，并使用支持多模态能力的模型（如豆包1.6 Pro）。</li>
+                                    <li><strong>输入</strong>：引用记录中的“报销事由”、“报销金额”以及“发票/凭证”附件。</li>
+                                    <li><strong>Prompt (指令)</strong>：
                                         <div class="code-block">
-                                            请对以下文章进行全面评估，并严格按照JSON格式输出结果：\n标题：{文章标题}\n内容：{文章内容}\n\n评估维度：\n1.  **合规性**：检查是否存在不当言论、敏感词。\n2.  **质量**：评估逻辑是否清晰、内容是否充实、是否有错别字。\n3.  **SEO友好度**：分析标题和内容是否有利于搜索引擎收录。\n\n输出格式：\n{\n  "compliance_passed": true/false,\n  "quality_score": 0-100,\n  "seo_score": 0-100,\n  "summary": "一句话总结评估结果。",\n  "suggestions": ["具体的优化建议1", "具体的优化建议2"]\n}
+                                        你是一个严谨的财务审批助手。请根据以下报销信息和发票图片，判断是否符合公司规定（例如：金额是否超标、发票是否合规、事由是否合理）。
+                                        
+                                        报销事由：{报销事由}
+                                        报销金额：{报销金额}
+                                        
+                                        请严格按照以下JSON格式输出结论：
+                                        {
+                                          "is_compliant": true/false,
+                                          "reason": "判断理由的简要说明",
+                                          "suggestion": "给提交人的修改建议（如果不合规）"
+                                        }
                                         </div>
                                     </li>
-                                    <li><strong>输出到</strong>：将生成的结果填充到“AI评估结果”字段。</li>
+                                    <li><strong>输出到</strong>：将生成的JSON结果填充到“AI审核建议”字段。</li>
                                 </ul>
                             </li>
                             <li>
-                                <strong>节点2：条件判断</strong>
+                                <strong>节点2：条件判断分支</strong>
+                                <p class="mt-2 mb-3">基于“AI审核建议”字段的内容进行判断。</p>
                                 <ul class="list-disc list-inside ml-6 mt-3 bg-gray-100 p-4 rounded-md border border-gray-200 space-y-2">
-                                    <li><strong>操作</strong>：选择“条件判断”。</li>
-                                    <li><strong>设置条件</strong>：如果“AI评估结果”字段 <span class="font-mono bg-gray-200 px-2 py-1 rounded">contains</span> `"compliance_passed": true` 并且 <span class="font-mono bg-gray-200 px-2 py-1 rounded">contains</span> `"quality_score": 8` (或更高分)，则视为通过。
-                                        <p class="text-sm text-gray-500 mt-2 leading-normal">*注：此处使用contains来检查文本，因为AI输出的是JSON字符串。更精确的方法是结合HTTP请求调用代码来解析JSON，但这里为了简化，使用文本匹配。*</p>
+                                    <li><strong>条件</strong>：如果“AI审核建议”中包含 `"is_compliant": true`。</li>
+                                    <li><strong>如果满足条件 (合规)</strong>：
+                                        <ul class="list-disc list-inside ml-6 mt-2">
+                                            <li>更新记录：将“审批状态”修改为“待审批”。</li>
+                                            <li>发送通知：向财务审批人发送飞书消息，提醒其有新的报销单需要审批。</li>
+                                        </ul>
                                     </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>分支1：如果条件满足 (内容合格)</strong>
-                                <ul class="list-disc list-inside ml-6 mt-3 bg-green-50 p-4 rounded-md border-l-4 border-green-500 space-y-2">
-                                    <li><strong>操作1</strong>：选择“修改记录”，将当前记录的“状态”字段更新为“待发布”。</li>
-                                    <li><strong>操作2</strong>：选择“发送飞书消息”，通知审核组长：“有一篇新文章《{文章标题}》已通过AI初审，请您终审。”</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>分支2：如果条件不满足 (内容不合格)</strong>
-                                <ul class="list-disc list-inside ml-6 mt-3 bg-red-50 p-4 rounded-md border-l-4 border-red-500 space-y-2">
-                                    <li><strong>操作1</strong>：选择“修改记录”，将当前记录的“状态”字段更新为“待修改”。</li>
-                                    <li><strong>操作2</strong>：选择“AI生成文本”（提取优化建议），从“AI评估结果”中提取`suggestions`部分，并填充到“优化建议”字段。</li>
-                                    <li><strong>操作3</strong>：选择“发送飞书消息”，通知“提交人”：“您提交的文章《{文章标题}》AI审核未通过，请根据优化建议进行修改。”</li>
+                                    <li><strong>如果不满足条件 (不合规)</strong>：
+                                        <ul class="list-disc list-inside ml-6 mt-2">
+                                            <li>更新记录：将“审批状态”修改为“已驳回”。</li>
+                                            <li>发送通知给审批人：提醒有一条不合规的申请已自动驳回，并附上AI的判断理由。</li>
+                                            <li>发送通知给提交人：发送飞书消息，告知其报销申请被驳回，并附上AI给出的具体“suggestion”（修改建议）。</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

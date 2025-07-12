@@ -2,109 +2,31 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI应用助力企业管理 - AI赋能高速公路管理</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 使用页头组件 -->
+    <page-head-component 
+        title="AI应用助力企业管理 - AI赋能高速公路管理" 
+        description="从信息获取到智能执行，探索AI在管理工作中的核心应用场景">
+    </page-head-component>
+    
+    <!-- 加载组件系统 -->
+    <script src="components/components.js"></script>
+    
+    <!-- 页面特定样式 -->
     <style>
-        body {
-            font-family: 'Inter', 'Helvetica Neue', 'Helvetica', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-        }
         .card-hover {
             transition: all 0.3s ease;
-            border-radius: 1rem; /* consistent with index.html */
+            border-radius: 1rem;
         }
         .card-hover:hover {
-            transform: translateY(-8px); /* consistent with index.html */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* consistent with index.html */
-        }
-        .nav-link-active {
-            color: #2563eb; /* Tailwind blue-700 */
-            font-weight: 600;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 0.25rem;
-        }
-        .nav-link {
-            color: #4b5563; /* Tailwind gray-600 */
-        }
-        .nav-link:hover {
-            color: #1d4ed8; /* Tailwind blue-800 */
-        }
-        .dropdown-menu a:hover {
-            background-color: #eff6ff; /* Tailwind blue-50 */
-            color: #1d4ed8; /* Tailwind blue-800 */
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <!-- 导航栏 -->
-    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-700">AI赋能高速管理</a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link">主页</a>
-                <a href="ai-tools.html" class="nav-link">AI工具箱</a>
-                
-                <div class="relative group">
-                    <a href="ai-applications.html" class="nav-link-active flex items-center">
-                        AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                        <div class="py-2">
-                            <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
-                            <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
-                            <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700">深度研究</a>
-                            <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
-                            <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <a href="feishu-bitable.html" class="nav-link flex items-center">
-                        飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                        <div class="py-2">
-                            <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
-                            <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
-                            <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
-                            <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
-                            <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
-                            <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <a href="coze-bot-creation.html" class="nav-link flex items-center">
-                        实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </a>
-                    <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                        <div class="py-2">
-                            <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="roadmap.html" class="nav-link">实施路线图</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
-            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
-            <a href="ai-applications.html" class="block py-2 text-blue-700 font-semibold">AI应用</a>
-            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-700">飞书多维表格</a>
-            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
-            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
-        </div>
-    </nav>
+    <!-- 导航栏组件 -->
+    <navigation-component current-page="ai-applications"></navigation-component>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-16">
@@ -170,21 +92,11 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-10 mt-16">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <!-- 页脚组件 -->
+    <footer-component></footer-component>
     <script>
-        // 移动菜单切换
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
+        // 页面特定的JavaScript代码可以在这里添加
+        // 通用功能已经在components.js中处理
     </script>
 </body>
 </html>
