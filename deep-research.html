@@ -75,79 +75,8 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800"> 
-    <!-- 导航栏 -->
-    <nav class="bg-white/95 backdrop-blur-lg shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                 <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center">
-                    <i class="fas fa-cogs mr-2"></i>AI赋能高速管理
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link">主页</a>
-                    <a href="ai-tools.html" class="nav-link">AI工具箱</a>
-
-                    <div class="relative group">
-                        <a href="ai-applications.html" class="nav-link-active flex items-center"> 
-                            AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                            <div class="py-2">
-                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
-                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700">提示词工程</a>
-                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700">AI编辑器</a>
-                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700">报告分析</a>
-                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-blue-700 bg-blue-50 font-semibold">深度研究</a> 
-                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700">图像生成</a>
-                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700">视频生成</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative group">
-                        <a href="feishu-bitable.html" class="nav-link flex items-center">
-                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                            <div class="py-2">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700">第五章：工作流与Agent</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="relative group">
-                        <a href="coze-bot-creation.html" class="nav-link flex items-center">
-                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu dropdown-menu">
-                            <div class="py-2">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700">构建Coze机器人</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="roadmap.html" class="nav-link">实施路线图</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-700">主页</a>
-            <a href="ai-tools.html" class="block py-2 text-gray-700 hover:text-blue-700">AI工具箱</a>
-            <a href="ai-applications.html" class="block py-2 text-blue-700 font-semibold">AI应用</a>
-            <a href="feishu-bitable.html" class="block py-2 text-gray-700 hover:text-blue-700">飞书多维表格</a>
-            <a href="coze-bot-creation.html" class="block py-2 text-gray-700 hover:text-blue-700">实战演练</a>
-            <a href="roadmap.html" class="block py-2 text-gray-700 hover:text-blue-700">实施路线图</a>
-        </div>
-    </nav>
+    <!-- 导航栏-->
+    <navigation-component current-page="deep-research"></navigation-component>
 
     <!-- 主要内容 -->
     <main class="container mx-auto px-6 py-16">
@@ -193,7 +122,7 @@
         <section class="py-16"> 
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">在葛洲坝交投公司横钦高速管理中的应用场景</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10"> 
-                <!-- 场景1: 法规与标准快速查询 -->
+                <!-- 场景1: 法规与标准快速查询-->
                 <div class="feature-card bg-white p-8 shadow-xl fade-in-up"> 
                     <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8"> 
                         <i class="fas fa-balance-scale text-3xl text-blue-600"></i>
@@ -208,7 +137,7 @@
                         <i class="fas fa-cogs text-3xl text-green-600"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-4">新技术与材料调研</h3>
-                    <p class="text-gray-700 text-center leading-relaxed">调研全球范围内关于“智慧高速”或“耐久性路面材料”的最新研究成果、技术应用案例和成本效益分析报告。</p>
+                    <p class="text-gray-700 text-center leading-relaxed">调研全球范围内关于"智慧高速"或"耐久性路面材料"的最新研究成果、技术应用案例和成本效益分析报告。</p>
                 </div>
 
                 <!-- 场景3: 合同风险分析 -->
@@ -220,16 +149,16 @@
                     <p class="text-gray-700 text-center leading-relaxed">分析一份复杂的施工分包合同，自动识别其中可能存在的法律风险、模糊条款，并参考类似项目的合同范本提出修改建议。</p>
                 </div>
 
-                 <!-- 场景4: 应急预案制定 -->
+                 <!-- 场景4: 应急预案制定-->
                 <div class="feature-card bg-white p-8 shadow-xl fade-in-up" style="animation-delay: 0.45s;">
                     <div class="bg-orange-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                         <i class="fas fa-exclamation-triangle text-3xl text-orange-600"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center text-gray-800 mb-4">应急预案制定</h3>
-                    <p class="text-gray-700 text-center leading-relaxed">针对“隧道内发生化学品运输车辆泄露”等特定突发事件，快速研究相关应急处置规范和案例，生成详细的应急预案初稿。</p>
+                    <p class="text-gray-700 text-center leading-relaxed">针对"隧道内发生化学品运输车辆泄露"等特定突发事件，快速研究相关应急处置规范和案例，生成详细的应急预案初稿。</p>
                 </div>
 
-                <!-- 场景5: 供应链与供应商调研 -->
+                <!-- 场景5: 供应链与供应商调研-->
                 <div class="feature-card bg-white p-8 shadow-xl fade-in-up" style="animation-delay: 0.6s;">
                     <div class="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                         <i class="fas fa-truck text-3xl text-red-600"></i>
@@ -238,7 +167,7 @@
                     <p class="text-gray-700 text-center leading-relaxed">调研特定大型设备（如盾构机）的主流供应商、技术参数、市场价格及用户评价，为采购决策提供依据。</p>
                 </div>
 
-                <!-- 场景6: 舆情分析与报告 -->
+                <!-- 场景6: 舆情分析与报告-->
                 <div class="feature-card bg-white p-8 shadow-xl fade-in-up" style="animation-delay: 0.75s;">
                     <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8">
                         <i class="fas fa-comments text-3xl text-indigo-600"></i>
@@ -267,7 +196,7 @@
         <!-- 新增实战演练 -->
         <section class="py-12 bg-blue-50 rounded-2xl mt-12">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">实战演练：利用AI深度研究“桥梁健康监测”新技术</h2>
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">实战演练：利用AI深度研究"桥梁健康监测"新技术</h2>
                 <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
                     <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-8">
                         <div class="lg:w-1/3 text-center">
@@ -276,7 +205,7 @@
                         </div>
                         <div class="lg:w-2/3">
                             <h3 class="text-2xl font-bold text-gray-800 mb-4">案例背景</h3>
-                            <p class="text-gray-600 mb-6">某高速公路公司计划引入先进的桥梁健康监测系统，以提升养护效率和安全性。项目组需要对当前主流的技术方案、相关政策标准、成本效益及未来发展趋势进行全面调研。本案例将演示如何使用具备Deep Research能力的AI工具（如Gemini Advanced、Perplexity AI等）高效完成此项任务。</p>
+                            <p class="text-gray-600 mb-6">某高速公路公司计划引入先进的桥梁健康监测系统，以提升养护效率和安全性。项目组需要对当前主流技术方案、相关政策标准、成本效益及未来发展趋势进行全面调研。本案例将演示如何使用具备Deep Research能力的AI工具（如Gemini Advanced、Perplexity AI等）高效完成此项任务。</p>
                         </div>
                     </div>
 
@@ -290,7 +219,7 @@
                             </div>
                         </div>
 
-                        <!-- 步骤二 -->
+                        <!-- 步骤二-->
                         <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">2</div>
                             <div>
@@ -298,7 +227,7 @@
                                 <p class="text-gray-600 mb-4">向AI提出一个结构清晰、层次分明的总问题，引导其进行深入、全面的研究。以下是一个示例Prompt：</p>
                                 <div class="bg-gray-100 p-4 rounded-lg text-gray-700 border-l-4 border-blue-400">
                                     <code class="font-mono">
-                                        请为我生成一份关于“桥梁健康监测技术”的深度研究报告。报告需要覆盖以下几个方面，并为每个方面提供详细的资料和数据支撑：
+                                        请为我生成一份关于"桥梁健康监测技术"的深度研究报告。报告需要覆盖以下几个方面，并为每个方面提供详细的资料和数据支撑：
                                         <br><br><strong>1. 主流技术方案对比：</strong>
                                         <br>   - 对比分析基于光纤光栅、无线传感器网络、机器视觉和无人机巡检的监测技术，包括其优缺点、适用场景和监测精度。
                                         <br><br><strong>2. 国内外政策与行业标准：</strong>
@@ -315,12 +244,12 @@
                             </div>
                         </div>
 
-                        <!-- 步骤三 -->
+                        <!-- 步骤三-->
                         <div class="flex items-start space-x-6 p-6 rounded-lg hover:bg-gray-50 transition-all duration-300">
                             <div class="flex-shrink-0 w-16 h-16 bg-blue-600 text-white text-2xl font-bold rounded-full flex items-center justify-center shadow-md">3</div>
                             <div>
                                 <h4 class="text-xl font-bold text-gray-800 mb-2">迭代追问与整合输出</h4>
-                                <p class="text-gray-600">AI生成初步报告后，针对不清晰或需要深入了解的部分进行追问（例如，“请详细展开机器视觉方案在裂缝检测方面的技术细节和挑战”）。最后，将所有信息整合、编辑，形成一份逻辑严密、内容详实的最终研究报告。</p>
+                                <p class="text-gray-600">AI生成初步报告后，针对不清晰或需要深入了解的部分进行追问（例如，"请详细展开机器视觉方案在裂缝检测方面的技术细节和挑战"）。最后，将所有信息整合、编辑，形成一份逻辑严密、内容详实的最终研究报告。</p>
                             </div>
                         </div>
                     </div>
@@ -335,15 +264,7 @@
             <p class="text-gray-400">&copy; 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
         </div>
     </footer>
-    <script>
-        // 移动菜单切换
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
+    
+    <script src="components/navigation.js"></script>
 </body>
 </html>

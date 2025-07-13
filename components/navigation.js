@@ -114,6 +114,44 @@ class NavigationComponent extends HTMLElement {
                     background-color: #eff6ff;
                     color: #1d4ed8;
                 }
+                /* 三级菜单样式 */
+                .dropdown-submenu {
+                    position: relative;
+                }
+                .dropdown-submenu > a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                .dropdown-submenu > a::after {
+                    content: '\f054';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    font-size: 0.75rem;
+                    color: #9ca3af;
+                }
+                .dropdown-submenu-menu {
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                    width: 12rem;
+                    margin-left: 0.25rem;
+                    background: white;
+                    border-radius: 0.75rem;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                    z-index: 30;
+                }
+                .dropdown-submenu:hover .dropdown-submenu-menu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .dropdown-submenu-menu a {
+                    padding: 0.375rem 0.75rem;
+                    font-size: 0.8125rem;
+                }
                 .mobile-menu-button {
                     display: block;
                     color: #374151;
@@ -148,6 +186,40 @@ class NavigationComponent extends HTMLElement {
                     color: #2563eb;
                     font-weight: 600;
                 }
+                /* 移动端三级菜单样式 */
+                .mobile-submenu {
+                    margin-left: 1rem;
+                }
+                .mobile-submenu-toggle {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                }
+                .mobile-submenu-toggle::after {
+                    content: '\f054';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    font-size: 0.75rem;
+                    color: #9ca3af;
+                    transition: transform 0.3s ease;
+                }
+                .mobile-submenu-toggle.active::after {
+                    transform: rotate(90deg);
+                }
+                .mobile-submenu-items {
+                    display: none;
+                    margin-left: 1rem;
+                    margin-top: 0.5rem;
+                }
+                .mobile-submenu-items.active {
+                    display: block;
+                }
+                .mobile-submenu-items a {
+                    padding: 0.25rem 0;
+                    font-size: 0.875rem;
+                    color: #6b7280;
+                }
             </style>
             
             <nav>
@@ -159,42 +231,49 @@ class NavigationComponent extends HTMLElement {
                         
                         <div class="nav-links">
                             <a href="index.html" class="nav-link ${currentPage === 'index' ? 'nav-link-active' : ''}">主页</a>
-                            <a href="ai-tools.html" class="nav-link ${currentPage === 'ai-tools' ? 'nav-link-active' : ''}">AI工具箱</a>
                             
                             <div class="dropdown">
-                                <a href="ai-applications.html" class="nav-link dropdown-toggle ${currentPage === 'ai-applications' ? 'nav-link-active' : ''}">
-                                    AI应用 <i class="fas fa-chevron-down"></i>
+                                <a href="ai-tools.html" class="nav-link dropdown-toggle ${currentPage === 'ai-tools' ? 'nav-link-active' : ''}">
+                                    AI核心能力 <i class="fas fa-chevron-down"></i>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a href="ai-applications.html">总览</a>
+                                    <a href="ai-tools.html">AI工具导航</a>
                                     <a href="prompt-engineering.html">提示词工程</a>
                                     <a href="ai-editor.html">AI编辑器</a>
+                                </div>
+                            </div>
+                            
+                            <div class="dropdown">
+                                <a href="project-risk-assessment.html" class="nav-link dropdown-toggle ${currentPage === 'project-risk-assessment' || currentPage === 'project-design-procurement' || currentPage === 'project-construction-management' ? 'nav-link-active' : ''}">
+                                    AI赋能 · 工程项目 <i class="fas fa-chevron-down"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="project-risk-assessment.html">项目前期风险管控</a>
+                                    <a href="project-design-procurement.html">设计与采购优化</a>
+                                    <a href="project-construction-management.html">施工过程降本增效</a>
+                                </div>
+                            </div>
+                            
+                            <div class="dropdown">
+                                <a href="ai-applications.html" class="nav-link dropdown-toggle ${currentPage === 'ai-applications' || currentPage === 'report-analysis' || currentPage === 'deep-research' || currentPage === 'image-generation' || currentPage === 'video-generation' || currentPage === 'coze-bot-creation' || currentPage === 'feishu-bitable' || currentPage === 'feishu-bitable-basic' || currentPage === 'feishu-bitable-advanced' || currentPage === 'feishu-bitable-workflow' || currentPage === 'feishu-bitable-approval' || currentPage === 'feishu-bitable-ai-autofill' ? 'nav-link-active' : ''}">
+                                    AI赋能 · 办公协同 <i class="fas fa-chevron-down"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="ai-applications.html">AI应用总览</a>
                                     <a href="report-analysis.html">报告分析</a>
                                     <a href="deep-research.html">深度研究</a>
                                     <a href="image-generation.html">图像生成</a>
                                     <a href="video-generation.html">视频生成</a>
-                                </div>
-                            </div>
-                            
-                            <div class="dropdown">
-                                <a href="feishu-bitable.html" class="nav-link dropdown-toggle ${currentPage === 'feishu-bitable' ? 'nav-link-active' : ''}">
-                                    飞书多维表格 <i class="fas fa-chevron-down"></i>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="feishu-bitable.html">总览</a>
-                                    <a href="feishu-bitable-basic.html">第一章：基础</a>
-                                    <a href="feishu-bitable-advanced.html">第二章：进阶</a>
-                                    <a href="feishu-bitable-ai-autofill.html">第三章：AI批量填充</a>
-                                    <a href="feishu-bitable-approval.html">第四章：智能审批</a>
-                                    <a href="feishu-bitable-workflow.html">第五章：工作流与Agent</a>
-                                </div>
-                            </div>
-                            
-                            <div class="dropdown">
-                                <a href="coze-bot-creation.html" class="nav-link dropdown-toggle ${currentPage === 'coze-bot-creation' ? 'nav-link-active' : ''}">
-                                    实战演练 <i class="fas fa-chevron-down"></i>
-                                </a>
-                                <div class="dropdown-menu">
+                                    <div class="dropdown-submenu">
+                                        <a href="feishu-bitable.html">飞书多维表格</a>
+                                        <div class="dropdown-submenu-menu">
+                                            <a href="feishu-bitable-basic.html">基础功能</a>
+                                            <a href="feishu-bitable-advanced.html">高级应用</a>
+                                            <a href="feishu-bitable-ai-autofill.html">AI智能填充</a>
+                                            <a href="feishu-bitable-workflow.html">自动化工作流</a>
+                                            <a href="feishu-bitable-approval.html">审批流程</a>
+                                        </div>
+                                    </div>
                                     <a href="coze-bot-creation.html">构建Coze机器人</a>
                                 </div>
                             </div>
@@ -209,10 +288,22 @@ class NavigationComponent extends HTMLElement {
                     
                     <div class="mobile-menu" id="mobile-menu">
                         <a href="index.html" class="${currentPage === 'index' ? 'active' : ''}">主页</a>
-                        <a href="ai-tools.html" class="${currentPage === 'ai-tools' ? 'active' : ''}">AI工具箱</a>
-                        <a href="ai-applications.html" class="${currentPage === 'ai-applications' ? 'active' : ''}">AI应用</a>
-                        <a href="feishu-bitable.html" class="${currentPage === 'feishu-bitable' ? 'active' : ''}">飞书多维表格</a>
-                        <a href="coze-bot-creation.html" class="${currentPage === 'coze-bot-creation' ? 'active' : ''}">实战演练</a>
+                        <a href="ai-tools.html" class="${currentPage === 'ai-tools' ? 'active' : ''}">AI核心能力</a>
+                        <a href="project-risk-assessment.html" class="${currentPage === 'project-risk-assessment' || currentPage === 'project-design-procurement' || currentPage === 'project-construction-management' ? 'active' : ''}">AI赋能 · 工程项目</a>
+                        <a href="ai-applications.html" class="${currentPage === 'ai-applications' || currentPage === 'report-analysis' || currentPage === 'deep-research' || currentPage === 'image-generation' || currentPage === 'video-generation' || currentPage === 'coze-bot-creation' || currentPage === 'feishu-bitable' || currentPage === 'feishu-bitable-basic' || currentPage === 'feishu-bitable-advanced' || currentPage === 'feishu-bitable-workflow' || currentPage === 'feishu-bitable-approval' || currentPage === 'feishu-bitable-ai-autofill' ? 'active' : ''}">AI赋能 · 办公协同</a>
+                        <div class="mobile-submenu">
+                            <div class="mobile-submenu-toggle" data-target="feishu-submenu">
+                                <span>飞书多维表格</span>
+                            </div>
+                            <div class="mobile-submenu-items" id="feishu-submenu">
+                                <a href="feishu-bitable.html" class="${currentPage === 'feishu-bitable' ? 'active' : ''}">总览</a>
+                                <a href="feishu-bitable-basic.html" class="${currentPage === 'feishu-bitable-basic' ? 'active' : ''}">基础功能</a>
+                                <a href="feishu-bitable-advanced.html" class="${currentPage === 'feishu-bitable-advanced' ? 'active' : ''}">高级应用</a>
+                                <a href="feishu-bitable-ai-autofill.html" class="${currentPage === 'feishu-bitable-ai-autofill' ? 'active' : ''}">AI智能填充</a>
+                                <a href="feishu-bitable-workflow.html" class="${currentPage === 'feishu-bitable-workflow' ? 'active' : ''}">自动化工作流</a>
+                                <a href="feishu-bitable-approval.html" class="${currentPage === 'feishu-bitable-approval' ? 'active' : ''}">审批流程</a>
+                            </div>
+                        </div>
                         <a href="roadmap.html" class="${currentPage === 'roadmap' ? 'active' : ''}">实施路线图</a>
                     </div>
                 </div>
@@ -229,6 +320,20 @@ class NavigationComponent extends HTMLElement {
                 mobileMenu.classList.toggle('active');
             });
         }
+        
+        // 移动端三级菜单切换功能
+        const submenuToggles = this.shadowRoot.querySelectorAll('.mobile-submenu-toggle');
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const targetId = toggle.getAttribute('data-target');
+                const submenuItems = this.shadowRoot.getElementById(targetId);
+                
+                if (submenuItems) {
+                    submenuItems.classList.toggle('active');
+                    toggle.classList.toggle('active');
+                }
+            });
+        });
     }
 }
 

@@ -105,68 +105,7 @@
 </head>
 <body class="bg-gray-50">
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-blue-600">
-                    <i class="fas fa-map-marked-alt mr-2"></i>实施路线图
-                </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">主页</a>
-                    <a href="ai-tools.html" class="text-gray-700 hover:text-blue-600 transition-colors">AI工具箱</a>
-
-                    <!-- AI Applications Dropdown -->
-                    <div class="relative group">
-                        <a href="ai-applications.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
-                            AI应用 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="ai-applications.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="prompt-engineering.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">提示词工程</a>
-                                <a href="ai-editor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">AI编辑器</a>
-                                <a href="report-analysis.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">报告分析</a>
-                                <a href="deep-research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">深度研究</a>
-                                <a href="image-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">图像生成</a>
-                                <a href="video-generation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">视频生成</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Feishu Bitable Dropdown -->
-                    <div class="relative group">
-                        <a href="feishu-bitable.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
-                            飞书多维表格 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="feishu-bitable.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">总览</a>
-                                <a href="feishu-bitable-basic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第一章：基础</a>
-                                <a href="feishu-bitable-advanced.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第二章：进阶</a>
-                                <a href="feishu-bitable-ai-autofill.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第三章：AI批量填充</a>
-                                <a href="feishu-bitable-approval.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第四章：智能审批</a>
-                                <a href="feishu-bitable-workflow.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">第五章：工作流与Agent</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hands-on Practice Dropdown -->
-                    <div class="relative group">
-                        <a href="coze-bot-creation.html" class="text-gray-700 hover:text-blue-600 transition-colors flex items-center">
-                            实战演练 <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                        </a>
-                        <div class="absolute z-20 w-56 mt-2 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform-gpu">
-                            <div class="py-1">
-                                <a href="coze-bot-creation.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">构建Coze机器人</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="roadmap.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">实施路线图</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <navigation-component current-page="roadmap"></navigation-component>
 
     <!-- 主要内容 -->
     <main class="container mx-auto px-6 py-12">
@@ -226,8 +165,7 @@
         <!-- 分阶段实施计划 -->
         <section class="py-12">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
-                分阶段实施计划
-            </h2>
+                分阶段实施计划            </h2>
             
             <div class="space-y-8">
                 <!-- 第一阶段：基础建设 -->
@@ -287,11 +225,11 @@
                                         </div>
                                         <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
                                             <span class="text-green-800 font-semibold">培训覆盖率</span>
-                                            <span class="text-green-600 font-bold">≥80%</span>
+                                            <span class="text-green-600 font-bold">90%</span>
                                         </div>
                                         <div class="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                                            <span class="text-purple-800 font-semibold">基础设施就绪度</span>
-                                            <span class="text-purple-600 font-bold">≥90%</span>
+                                            <span class="text-purple-800 font-semibold">基础设施就绪率</span>
+                                            <span class="text-purple-600 font-bold">80%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -424,11 +362,11 @@
                                     <div class="space-y-3">
                                         <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
                                             <span class="text-blue-800 font-semibold">建设项目覆盖率</span>
-                                            <span class="text-blue-600 font-bold">≥90%</span>
+                                            <span class="text-blue-600 font-bold">90%</span>
                                         </div>
                                         <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
                                             <span class="text-green-800 font-semibold">运营路段覆盖率</span>
-                                            <span class="text-green-600 font-bold">≥85%</span>
+                                            <span class="text-green-600 font-bold">95%</span>
                                         </div>
                                         <div class="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
                                             <span class="text-purple-800 font-semibold">员工培训覆盖率</span>
@@ -441,7 +379,7 @@
                     </div>
                 </div>
 
-                <!-- 第四阶段：持续优化 -->
+                <!-- 第四阶段：持续优�?-->
                 <div class="phase-card bg-white rounded-2xl p-8 shadow-lg">
                     <div class="flex items-start">
                         <div class="bg-orange-100 w-20 h-20 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
@@ -620,8 +558,7 @@
         <!-- AI就绪文化建设 -->
         <section class="py-12">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
-                构建AI就绪的组织文化
-            </h2>
+                构建AI就绪的组织文�?            </h2>
             
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="bg-white rounded-2xl p-8 shadow-lg">
@@ -645,7 +582,7 @@
                                 <i class="fas fa-flask text-purple-600 mr-3 mt-1"></i>
                                 <div>
                                     <h4 class="font-semibold text-gray-800 mb-2">创新实验精神</h4>
-                                    <p class="text-gray-600 text-sm">建立容错机制，鼓励员工尝试AI工具和新的工作方式</p>
+                                    <p class="text-gray-600 text-sm">建立容错机制，鼓励员工尝试AI工具和新的工作方�?/p>
                                 </div>
                             </div>
                         </div>
@@ -655,7 +592,7 @@
                                 <i class="fas fa-share-alt text-green-600 mr-3 mt-1"></i>
                                 <div>
                                     <h4 class="font-semibold text-gray-800 mb-2">协作共享文化</h4>
-                                    <p class="text-gray-600 text-sm">促进跨部门协作，分享AI应用经验和最佳实践</p>
+                                    <p class="text-gray-600 text-sm">促进跨部门协作，分享AI应用经验和最佳实�?/p>
                                 </div>
                             </div>
                         </div>
@@ -665,7 +602,7 @@
                                 <i class="fas fa-chart-line text-orange-600 mr-3 mt-1"></i>
                                 <div>
                                     <h4 class="font-semibold text-gray-800 mb-2">数据驱动决策</h4>
-                                    <p class="text-gray-600 text-sm">培养基于数据和AI洞察进行决策的习惯</p>
+                                    <p class="text-gray-600 text-sm">培养基于数据和AI洞察进行决策的习�?/p>
                                 </div>
                             </div>
                         </div>
@@ -682,17 +619,15 @@
                             <h4 class="font-semibold text-gray-800 mb-3">领导示范</h4>
                             <div class="bg-blue-50 p-4 rounded-lg">
                                 <p class="text-blue-800 text-sm">
-                                    管理层率先使用AI工具，在决策中体现AI价值，为员工树立榜样
-                                </p>
+                                    管理层率先使用AI工具，在决策中体现AI价值，为员工树立榜�?                                </p>
                             </div>
                         </div>
                         
                         <div>
-                            <h4 class="font-semibold text-gray-800 mb-3">激励机制</h4>
+                            <h4 class="font-semibold text-gray-800 mb-3">激励机�?/h4>
                             <div class="bg-green-50 p-4 rounded-lg">
                                 <p class="text-green-800 text-sm">
-                                    建立AI应用创新奖励制度，表彰在AI应用方面有突出贡献的员工和团队
-                                </p>
+                                    建立AI应用创新奖励制度，表彰在AI应用方面有突出贡献的员工和团�?                                </p>
                             </div>
                         </div>
                         
@@ -700,8 +635,7 @@
                             <h4 class="font-semibold text-gray-800 mb-3">持续培训</h4>
                             <div class="bg-purple-50 p-4 rounded-lg">
                                 <p class="text-purple-800 text-sm">
-                                    定期开展AI技能培训，建立内部AI专家网络，促进知识传播
-                                </p>
+                                    定期开展AI技能培训，建立内部AI专家网络，促进知识传�?                                </p>
                             </div>
                         </div>
                         
@@ -709,8 +643,7 @@
                             <h4 class="font-semibold text-gray-800 mb-3">成功案例分享</h4>
                             <div class="bg-orange-50 p-4 rounded-lg">
                                 <p class="text-orange-800 text-sm">
-                                    定期举办AI应用成果展示会，分享成功经验，激发更多创新想法
-                                </p>
+                                    定期举办AI应用成果展示会，分享成功经验，激发更多创新想�?                                </p>
                             </div>
                         </div>
                     </div>
@@ -721,8 +654,7 @@
         <!-- 成功关键因素 -->
         <section class="py-12">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
-                实施成功的关键因素
-            </h2>
+                实施成功的关键因�?            </h2>
             
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div class="grid md:grid-cols-2 lg:grid-cols-4">
@@ -781,7 +713,7 @@
     <!-- 页脚 -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6 text-center">
-            <p>© 2025 AI赋能高速公路管理培训 | 助力交通强国建设</p>
+            <p>© 2025 AI赋能高速公路管理培�?| 助力交通强国建�?/p>
         </div>
     </footer>
 
@@ -800,13 +732,11 @@
             });
         }, observerOptions);
 
-        // 观察所有阶段卡片
-        document.querySelectorAll('.phase-card').forEach(card => {
+        // 观察所有阶段卡�?        document.querySelectorAll('.phase-card').forEach(card => {
             observer.observe(card);
         });
 
-        // 时间线动画
-        const timelineItems = document.querySelectorAll('.timeline-item');
+        // 时间线动�?        const timelineItems = document.querySelectorAll('.timeline-item');
         timelineItems.forEach((item, index) => {
             setTimeout(() => {
                 item.style.opacity = '1';
@@ -814,8 +744,7 @@
             }, index * 200);
         });
 
-        // 进度条动画
-        const progressBar = document.querySelector('.progress-bar');
+        // 进度条动�?        const progressBar = document.querySelector('.progress-bar');
         if (progressBar) {
             setTimeout(() => {
                 progressBar.style.width = '75%';
@@ -848,5 +777,6 @@
             });
         });
     </script>
+    <script src="components/navigation.js"></script>
 </body>
 </html>
