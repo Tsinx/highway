@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <page-head-component title="AI工具箱 - AI赋能高速公路管理培训" description="解密高速公路从业者的AI工具箱 - 掌握大语言模型、AI编程工具、协同办公平台和AI智能体"></page-head-component>
+    <link rel="stylesheet" href="main.css">
     <script src="components/components.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800"> 
@@ -10,7 +11,7 @@
     <navigation-component current-page="ai-tools"></navigation-component>
 
     <!-- 主要内容 -->
-    <main class="container mx-auto px-6 py-16">
+    <main class="container mx-auto px-6 py-16 gradient-section">
         <!-- 页面标题 -->
         <section class="text-center py-16">
             <h1 class="text-5xl font-extrabold text-gray-900 mb-6">
@@ -174,7 +175,7 @@
                     <h3 class="text-2xl font-bold text-gray-700 mb-8 pb-3 border-b-2 border-blue-600 inline-block">国内模型</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                         <!-- DeepSeek -->
-                        <div class="tool-card bg-white p-8 shadow-xl">
+                        <div class="tool-card bg-white p-8 shadow-xl card-hover">
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 rounded-full flex items-center justify-center mr-5">
                                     <img src="pictures/deepseek_logo.png" alt="DeepSeek Logo" class="w-16 h-16 rounded-full object-contain">
@@ -566,7 +567,7 @@
                 <div class="max-w-6xl mx-auto">
                     <!-- 核心能力 -->
                     <div class="grid md:grid-cols-3 gap-10 mb-16">
-                        <div class="bg-white rounded-xl p-8 shadow-lg text-center tool-card">
+                        <div class="bg-white rounded-xl p-8 shadow-lg text-center tool-card card-hover">
                             <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i class="fas fa-eye text-3xl text-blue-600"></i>
                             </div>
@@ -604,7 +605,7 @@
                         </h3>
                         
                         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            <div class="text-center p-6 border border-gray-200 rounded-lg feature-item">
+                            <div class="text-center p-6 border border-gray-200 rounded-lg feature-item card-hover">
                                 <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <i class="fas fa-search-dollar text-2xl text-blue-600"></i>
                                 </div>
@@ -642,13 +643,13 @@
         </section>
 
         <!-- 工具能力对比 -->
-        <section class="py-16 bg-white rounded-2xl shadow-2xl"> 
+        <section class="py-16 gradient-section rounded-2xl shadow-2xl"> 
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center text-gray-900 mb-16"> 
                     <i class="fas fa-balance-scale-right mr-3 text-blue-700"></i>AI工具能力对比 
                 </h2>
                 <div class="overflow-x-auto">
-                    <table class="min-w-full bg-white border border-gray-300 rounded-lg"> 
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg table-hover"> 
                         <thead class="bg-gray-100">
                             <tr>
                                 <th class="text-left py-5 px-6 font-semibold text-gray-700 text-sm uppercase tracking-wider">能力维度</th>

@@ -5,6 +5,12 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+body.dark {
+    background-color: #1a1a1a;
+    color: #f8f9fa;
 }
 
 @keyframes float {
@@ -21,6 +27,45 @@ body {
 
 .floating {
     animation: float 6s ease-in-out infinite;
+}
+
+.hero {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+body.dark .hero {
+    background: linear-gradient(135deg, #1e40af 0%, #6d28d9 100%);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.table-hover tr:hover {
+    background-color: #f3f4f6;
+    transition: background-color 0.2s ease;
+}
+
+body.dark .table-hover tr:hover {
+    background-color: #2d2d2d;
+}
+
+.gradient-section {
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+    transition: background 0.3s ease;
+}
+
+body.dark .gradient-section {
+    background: linear-gradient(to bottom, #1a1a1a 0%, #000000 100%);
 }
 
 .shadow-inner-soft {
