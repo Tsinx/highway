@@ -255,13 +255,12 @@ class NavigationComponent extends HTMLElement {
                             </div>
                             
                             <div class="dropdown">
-                                <a href="project-risk-assessment.html" class="nav-link dropdown-toggle ${currentPage === 'project-risk-assessment' || currentPage === 'project-design-procurement' || currentPage === 'project-construction-management' ? 'nav-link-active' : ''}">
+                                <a href="pre-contract-analysis.html" class="nav-link dropdown-toggle ${currentPage === 'pre-contract-analysis' || currentPage === 'project-design-procurement' || currentPage === 'project-construction-management' || currentPage === 'team-management' ? 'nav-link-active' : ''}">
                                     AI赋能 · 工程项目 <i class="fas fa-chevron-down"></i>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a href="project-risk-assessment.html">项目前期风险管控</a>
+                                    <a href="pre-contract-analysis.html">合同签订前分析</a>
                                     <a href="project-design-procurement.html">设计与采购优化</a>
-                                    <a href="project-construction-management.html">施工过程降本增效</a>
                                 </div>
                             </div>
                             
@@ -300,7 +299,7 @@ class NavigationComponent extends HTMLElement {
                     <div class="mobile-menu" id="mobile-menu">
                         <a href="index.html" class="${currentPage === 'index' ? 'active' : ''}">主页</a>
                         <a href="ai-tools.html" class="${currentPage === 'ai-tools' ? 'active' : ''}">AI核心能力</a>
-                        <a href="project-risk-assessment.html" class="${currentPage === 'project-risk-assessment' || currentPage === 'project-design-procurement' || currentPage === 'project-construction-management' ? 'active' : ''}">AI赋能 · 工程项目</a>
+                        <a href="pre-contract-analysis.html" class="${currentPage === 'pre-contract-analysis' || currentPage === 'project-design-procurement' || currentPage === 'project-construction-management' || currentPage === 'team-management' ? 'active' : ''}">AI赋能 · 工程项目</a>
                         <a href="ai-applications.html" class="${currentPage === 'ai-applications' || currentPage === 'report-analysis' || currentPage === 'deep-research' || currentPage === 'image-generation' || currentPage === 'video-generation' || currentPage === 'coze-bot-creation' || currentPage === 'feishu-bitable' || currentPage === 'feishu-bitable-basic' || currentPage === 'feishu-bitable-advanced' || currentPage === 'feishu-bitable-workflow' || currentPage === 'feishu-bitable-approval' || currentPage === 'feishu-bitable-ai-autofill' ? 'active' : ''}">AI赋能 · 办公协同</a>
                         <div class="mobile-submenu">
                             <div class="mobile-submenu-toggle" data-target="feishu-submenu">
