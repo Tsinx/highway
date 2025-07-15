@@ -7,6 +7,8 @@ class NavigationComponent extends HTMLElement {
     connectedCallback() {
         this.render();
         this.setupEventListeners();
+        // 为固定导航栏设置body顶部padding
+        document.body.style.paddingTop = '80px';
     }
 
     render() {
@@ -14,6 +16,12 @@ class NavigationComponent extends HTMLElement {
         
         this.shadowRoot.innerHTML = `
             <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
                 :host {
                     display: block;
                 }
@@ -21,9 +29,12 @@ class NavigationComponent extends HTMLElement {
                     background: rgba(255, 255, 255, 0.95);
                     backdrop-filter: blur(16px);
                     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                    position: sticky;
+                    position: fixed;
                     top: 0;
-                    z-index: 50;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    z-index: 1000;
                 }
                 .container {
                     max-width: 1200px;

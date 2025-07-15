@@ -4,397 +4,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI赋能设计与采购优化 - AI赋能高速管理</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <page-head-component></page-head-component>
 </head>
 <body>
     <navigation-component current-page="project-design-procurement"></navigation-component>
     
-    <main class="container mx-auto px-6 py-8">
-        <!-- 页面标题 -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">
-                <i class="fas fa-drafting-compass text-blue-600 mr-3"></i>
+    <main class="container mx-auto px-6 py-16">
+        <!-- 英雄区域 -->
+        <section class="text-center py-24">
+            <div class="floating">
+                <i class="fas fa-drafting-compass text-6xl md:text-7xl text-blue-600 mb-8"></i>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-800 mb-8 leading-tight">
                 AI赋能设计与采购优化
             </h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
                 运用AI技术优化设计方案，提升采购效率，实现成本控制与质量提升的双重目标
             </p>
-        </div>
+            <div class="text-lg text-gray-600 mb-12 space-y-2">
+                <p>智能设计决策支持系统</p>
+                <p>数据驱动的采购优化平台</p>
+            </div>
+        </section>
 
         <!-- 核心价值 -->
-        <section class="mb-12">
-            <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-                    <i class="fas fa-bullseye text-green-600 mr-2"></i>
-                    核心价值与收益
-                </h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-coins text-green-600 text-2xl"></i>
+        <section class="py-24 bg-gray-50">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-20">核心价值</h2>
+            <div class="grid md:grid-cols-3 gap-12 text-center">
+                <div class="group">
+                    <div class="relative inline-block">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="relative w-28 h-28 flex items-center justify-center bg-white rounded-full mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-lightbulb text-5xl text-blue-500 transition-transform duration-300 group-hover:scale-110"></i>
                         </div>
-                        <h3 class="font-semibold text-gray-900 mb-2">成本优化显著</h3>
-                        <p class="text-gray-600">设计优化降低成本15-25%，采购成本节约10-20%</p>
                     </div>
-                    <div class="text-center">
-                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-tachometer-alt text-blue-600 text-2xl"></i>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">设计方案优化</h3>
+                    <p class="text-gray-600 px-4">利用AI算法分析多种设计方案，自动识别潜在的设计缺陷，并提供优化建议，提升设计质量。</p>
+                </div>
+                <div class="group">
+                    <div class="relative inline-block">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-green-400 to-lime-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="relative w-28 h-28 flex items-center justify-center bg-white rounded-full mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-dollar-sign text-5xl text-green-500 transition-transform duration-300 group-hover:scale-110"></i>
                         </div>
-                        <h3 class="font-semibold text-gray-900 mb-2">效率大幅提升</h3>
-                        <p class="text-gray-600">设计周期缩短30%，采购流程效率提升50%</p>
                     </div>
-                    <div class="text-center">
-                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-award text-purple-600 text-2xl"></i>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">采购成本控制</h3>
+                    <p class="text-gray-600 px-4">通过智能比价、供应商评估和采购策略优化，有效降低采购成本，实现精细化成本管理。</p>
+                </div>
+                <div class="group">
+                    <div class="relative inline-block">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-purple-400 to-fuchsia-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="relative w-28 h-28 flex items-center justify-center bg-white rounded-full mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-tasks text-5xl text-purple-500 transition-transform duration-300 group-hover:scale-110"></i>
                         </div>
-                        <h3 class="font-semibold text-gray-900 mb-2">质量持续改进</h3>
-                        <p class="text-gray-600">设计质量提升，采购决策更加科学合理</p>
                     </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">采购效率提升</h3>
+                    <p class="text-gray-600 px-4">自动化处理繁琐的采购流程，如询价、招标、合同管理等，大幅提升采购效率。</p>
                 </div>
             </div>
         </section>
 
         <!-- AI应用场景 -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-                <i class="fas fa-cogs text-blue-600 mr-2"></i>
-                AI应用场景
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- 智能设计优化 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-brain text-blue-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">智能设计优化</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">AI辅助设计方案优化，提升设计效率和质量</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>参数化设计自动优化</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>多方案智能比选</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>设计规范自动检查</span>
-                        </div>
+        <section class="py-24">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-20">AI应用场景</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-100 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-blue-500 mb-4"><i class="fas fa-search-plus text-4xl"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">智能设计审查</h3>
+                        <p class="text-gray-600">AI自动审查设计图纸，识别合规性、安全性、经济性等问题，并提供优化建议。</p>
                     </div>
                 </div>
-
-                <!-- 材料用量预测 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-cubes text-green-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">材料用量预测</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">基于AI算法精准预测材料需求，优化库存管理</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>用量智能计算</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>损耗率精准预估</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>采购时机优化建议</span>
-                        </div>
+                <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-green-100 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-green-500 mb-4"><i class="fas fa-drafting-compass text-4xl"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">参数化设计生成</h3>
+                        <p class="text-gray-600">输入关键参数，AI快速生成多种满足要求的设计方案，供设计师进行比选和深化。</p>
                     </div>
                 </div>
-
-                <!-- 供应商智能评估 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-handshake text-purple-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">供应商智能评估</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">AI驱动的供应商综合评估与选择优化</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>多维度评估体系</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>历史表现分析</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>风险等级评定</span>
-                        </div>
+                <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-100 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-purple-500 mb-4"><i class="fas fa-clipboard-list text-4xl"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">智能材料清单(BOM)生成</h3>
+                        <p class="text-gray-600">从BIM或CAD模型中自动提取、分类和汇总工程量，生成准确的材料清单。</p>
                     </div>
                 </div>
-
-                <!-- 价格趋势分析 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-chart-line text-orange-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">价格趋势分析</h3>
+                <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-100 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-orange-500 mb-4"><i class="fas fa-users text-4xl"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">智能寻源与供应商推荐</h3>
+                        <p class="text-gray-600">基于历史合作数据、市场信誉和实时价格，智能推荐最匹配的供应商。</p>
                     </div>
-                    <p class="text-gray-600 mb-4">AI分析市场价格趋势，优化采购时机和策略</p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>价格波动预测</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>最佳采购时机识别</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-600">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>成本控制策略建议</span>
-                        </div>
+                </div>
+                <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-100 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-red-500 mb-4"><i class="fas fa-file-signature text-4xl"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">智能合同比对与风险识别</h3>
+                        <p class="text-gray-600">自动比对不同版本的合同，高亮差异，并基于风险库识别潜在的法律和商务风险。</p>
+                    </div>
+                </div>
+                <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-2 overflow-hidden relative">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-100 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="text-yellow-500 mb-4"><i class="fas fa-chart-line text-4xl"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">采购价格预测</h3>
+                        <p class="text-gray-600">结合历史采购数据、市场指数和宏观经济指标，预测主要材料和设备的价格走势。</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 实施流程 -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-                <i class="fas fa-route text-blue-600 mr-2"></i>
+        <section class="py-24 bg-gray-50">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-20">
                 实施流程
             </h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- 设计优化流程 -->
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-6 text-center">
-                        <i class="fas fa-pencil-ruler text-blue-600 mr-2"></i>
-                        设计优化流程
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">1</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">需求分析与建模</h4>
-                                <p class="text-gray-600 text-sm">收集项目需求，建立AI分析模型</p>
+            <div class="relative container mx-auto px-6">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-200 via-purple-200 to-transparent"></div>
+                <div class="space-y-16">
+                    <!-- 步骤1 -->
+                    <div class="relative flex items-center group">
+                        <div class="flex-1 pr-12 text-right">
+                            <div class="p-6 bg-white rounded-xl shadow-lg border-l-4 border-blue-400 transform transition-transform duration-500 group-hover:scale-105">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">需求分析与数据准备</h3>
+                                <p class="text-gray-600">明确设计与采购环节的关键痛点，收集相关历史数据，如设计图纸、采购订单、供应商信息等。</p>
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">2</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">方案生成与优化</h4>
-                                <p class="text-gray-600 text-sm">AI生成多个设计方案并进行优化</p>
-                            </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-tasks text-white text-2xl"></i>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">3</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">智能比选决策</h4>
-                                <p class="text-gray-600 text-sm">基于多维度评估选择最优方案</p>
-                            </div>
+                        <div class="flex-1 pl-12"></div>
+                    </div>
+                    
+                    <!-- 步骤2 -->
+                    <div class="relative flex items-center group">
+                        <div class="flex-1 pr-12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-robot text-white text-2xl"></i>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">4</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">设计成果输出</h4>
-                                <p class="text-gray-600 text-sm">生成优化后的设计文件和说明</p>
+                        <div class="flex-1 pl-12">
+                            <div class="p-6 bg-white rounded-xl shadow-lg border-r-4 border-purple-400 transform transition-transform duration-500 group-hover:scale-105">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">AI模型选择与部署</h3>
+                                <p class="text-gray-600">选择适用于设计优化、成本预测、供应商评估等场景的AI模型，并进行私有化部署或API集成。</p>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- 采购优化流程 -->
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-6 text-center">
-                        <i class="fas fa-shopping-cart text-green-600 mr-2"></i>
-                        采购优化流程
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">1</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">需求量预测</h4>
-                                <p class="text-gray-600 text-sm">AI精准预测材料设备需求量</p>
+                    
+                    <!-- 步骤3 -->
+                    <div class="relative flex items-center group">
+                        <div class="flex-1 pr-12 text-right">
+                            <div class="p-6 bg-white rounded-xl shadow-lg border-l-4 border-green-400 transform transition-transform duration-500 group-hover:scale-105">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">系统集成与流程再造</h3>
+                                <p class="text-gray-600">将AI工具与现有的设计软件（如CAD、BIM）、ERP、采购管理系统打通，优化工作流程。</p>
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">2</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">供应商评估</h4>
-                                <p class="text-gray-600 text-sm">智能评估供应商综合能力</p>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-link text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1 pl-12"></div>
+                    </div>
+                    
+                    <!-- 步骤4 -->
+                    <div class="relative flex items-center group">
+                        <div class="flex-1 pr-12"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-chart-pie text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1 pl-12">
+                            <div class="p-6 bg-white rounded-xl shadow-lg border-r-4 border-orange-400 transform transition-transform duration-500 group-hover:scale-105">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">试运行与效果评估</h3>
+                                <p class="text-gray-600">选取试点项目进行试运行，通过A/B测试等方式，量化评估AI应用带来的效益，如成本节约、效率提升等。</p>
                             </div>
                         </div>
-                        <div class="flex items-start">
-                            <div class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">3</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">价格分析优化</h4>
-                                <p class="text-gray-600 text-sm">分析价格趋势，制定采购策略</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1">
-                                <span class="text-sm font-bold">4</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">执行与监控</h4>
-                                <p class="text-gray-600 text-sm">执行采购计划并持续监控优化</p>
+                    </div>
+                    
+                    <!-- 步骤5 -->
+                    <div class="relative flex items-center group">
+                        <div class="flex-1 pr-12 text-right">
+                            <div class="p-6 bg-white rounded-xl shadow-lg border-l-4 border-red-400 transform transition-transform duration-500 group-hover:scale-105">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">持续优化与全面推广</h3>
+                                <p class="text-gray-600">根据试运行反馈，持续优化AI模型和业务流程，并逐步在公司范围内进行全面推广应用。</p>
                             </div>
                         </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-sync-alt text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1 pl-12"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 成功案例 -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-                <i class="fas fa-trophy text-blue-600 mr-2"></i>
-                成功案例
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-road text-blue-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900">某高速公路项目</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">通过AI优化桥梁设计方案，降低工程造价15%，缩短设计周期25%</p>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-blue-600">15%</div>
-                            <div class="text-gray-600">造价降低</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-green-600">25%</div>
-                            <div class="text-gray-600">周期缩短</div>
+
+
+        <!-- 推荐AI工具 -->
+        <section class="py-24">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-20">推荐AI工具</h2>
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- 工具1 -->
+                <div class="group bg-gradient-to-br from-white to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-blue-400">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-drafting-compass text-white text-4xl"></i>
                         </div>
                     </div>
+                    <h3 class="font-bold text-2xl text-center text-gray-800 mb-4">Autodesk Forma</h3>
+                    <p class="text-gray-600 text-center">（原Spacemaker），用于建筑设计的生成式AI，快速生成、分析和优化设计方案。</p>
                 </div>
-                
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-industry text-green-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900">大型基建项目</h3>
-                    </div>
-                    <p class="text-gray-600 mb-4">AI辅助采购决策，节约采购成本18%，供应商履约率提升30%</p>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-green-600">18%</div>
-                            <div class="text-gray-600">成本节约</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-600">30%</div>
-                            <div class="text-gray-600">履约提升</div>
+                <!-- 工具2 -->
+                <div class="group bg-gradient-to-br from-white to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-purple-400">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-chart-line text-white text-4xl"></i>
                         </div>
                     </div>
+                    <h3 class="font-bold text-2xl text-center text-gray-800 mb-4">nPlan</h3>
+                    <p class="text-gray-600 text-center">通过分析历史数据来预测项目进度、识别风险，优化采购和施工计划。</p>
+                </div>
+                <!-- 工具3 -->
+                <div class="group bg-gradient-to-br from-white to-gray-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-green-400">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-500 group-hover:rotate-12">
+                            <i class="fas fa-building text-white text-4xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-2xl text-center text-gray-800 mb-4">TestFit</h3>
+                    <p class="text-gray-600 text-center">专注于房地产和建筑可行性研究的AI工具，快速生成建筑布局和成本估算。</p>
                 </div>
             </div>
         </section>
 
-        <!-- 推荐工具 -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-                <i class="fas fa-tools text-blue-600 mr-2"></i>
-                推荐AI工具
-            </h2>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="text-center mb-4">
-                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fas fa-robot text-blue-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900">ChatGPT</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">设计方案分析与优化建议</p>
-                    <div class="text-xs text-gray-500">
-                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">方案分析</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="text-center mb-4">
-                        <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fas fa-chart-bar text-purple-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900">Claude</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">数据分析与预测建模</p>
-                    <div class="text-xs text-gray-500">
-                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded">数据分析</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="text-center mb-4">
-                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fas fa-search text-green-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900">Gemini</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">市场信息检索与分析</p>
-                    <div class="text-xs text-gray-500">
-                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded">信息检索</span>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-                    <div class="text-center mb-4">
-                        <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <i class="fas fa-brain text-orange-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900">智谱清言</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-3">智能决策支持系统</p>
-                    <div class="text-xs text-gray-500">
-                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded">决策支持</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- 行动指南 -->
-        <section class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-white text-center">
-            <h2 class="text-2xl font-bold mb-4">
-                <i class="fas fa-rocket mr-2"></i>
-                开启AI设计采购新时代
-            </h2>
-            <p class="text-green-100 mb-6 max-w-2xl mx-auto">
-                掌握AI设计采购技能，实现成本控制与效率提升，打造项目竞争优势
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="ai-tools.html" class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors">
-                    <i class="fas fa-tools mr-2"></i>
-                    探索AI工具
-                </a>
-                <a href="project-risk-assessment.html" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-400 transition-colors">
-                    <i class="fas fa-shield-alt mr-2"></i>
-                    了解风险管控
-                </a>
-            </div>
-        </section>
     </main>
 
     <footer class="bg-gray-900 text-white py-12 mt-16">
@@ -404,5 +249,6 @@
     </footer>
 
     <script src="components/navigation.js"></script>
+    <script src="components/components.js"></script>
 </body>
 </html>
